@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Features | Slabscan AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/aliabot_styles_v2.css">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#0057ff",
+          "on-primary-container": "#e5e8ff",
+          "accent-cyan": "#7C3AED",
+          "accent-electric": "#2563EB",
+          "outline": "#6B7399",
+          "on-surface": "#4A5080",
+          "surface-ink": "#191919",
+          "surface-void": "#000000",
+          "glass-border": "rgba(255,255,255,0.12)"
+        },
+        fontFamily: {
+          "display-xl": ["Hanken Grotesk"],
+          "headline-lg": ["Hanken Grotesk"],
+          "headline-md": ["Hanken Grotesk"],
+          "body-lg": ["Hanken Grotesk"],
+          "body-md": ["Hanken Grotesk"],
+          "label-caps": ["Space Mono"],
+          "data-mono": ["Space Mono"]
+        },
+        fontSize: {
+          "display-xl": ["80px", {"lineHeight":"76px","letterSpacing":"-0.04em","fontWeight":"800"}],
+          "headline-lg": ["48px", {"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "headline-md": ["32px", {"lineHeight":"40px","fontWeight":"600"}],
+          "body-lg": ["18px", {"lineHeight":"28px","fontWeight":"400"}],
+          "body-md": ["16px", {"lineHeight":"24px","fontWeight":"400"}],
+          "label-caps": ["12px", {"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],
+          "data-mono": ["14px", {"lineHeight":"20px","fontWeight":"400"}]
+        },
+        spacing: {
+          "margin-desktop": "64px",
+          "container-max": "1280px"
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #ffffff; color: #1a1a1a; overflow-x: hidden; }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* Hero gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Feature badge pill */
+  .feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #FFFFFF;
+    border: 1.5px solid #E2E5F0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    font-size: 14px;
+    font-weight: 500;
+    color: #11143A;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .feature-pill:hover {
+    border-color: #A5C0FD;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+    transform: translateY(-2px);
+  }
+  .feature-pill .pill-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #EEF2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #2563EB;
+  }
+
+  /* Section feature card */
+  .feature-card { padding: 8px 0 32px; }
+  .feature-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    border: 1.5px solid #E2E5F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: #2563EB;
+  }
+  .feature-card h4 { font-size: 16px; font-weight: 700; color: #11143A; margin-bottom: 8px; }
+  .feature-card p { font-size: 14px; line-height: 22px; color: #4A5080; }
+  .feature-card a { color: #2563EB; font-size: 14px; font-weight: 600; }
+
+  /* Section group layout */
+  .feature-group {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    padding: 72px 0;
+    border-bottom: 1px solid #E2E5F0;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .feature-group { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; }
+  }
+  .feature-group-label { font-size: 32px; font-weight: 800; color: #0A0A23; line-height: 1.25; margin-bottom: 12px; }
+  .feature-group-desc { font-size: 15px; color: #4A5080; line-height: 1.6; }
+
+  /* CTA section */
+  .cta-section {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* FAQ */
+  details summary::-webkit-details-marker { display: none; }
+</style>
+</head>
+<body class="font-body-md antialiased">
+
+<!-- Navigation -->
+<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
+  <div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full"
+       style="background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(124,58,237,0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107,155,252,0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37,99,235,0.08);">
+    <a href="../index/code.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Slabscan AI</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="../features/code.html">Features</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../lead-generation/code.html">Lead Generation</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../pricing/code.html">Pricing</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../integrations/code.html">Integrations</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../security/code.html">Security</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:block text-sm transition-all px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Sign In</button>
+      <button class="px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="background:#0057FF; color:#FFFFFF;">Start A Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="pt-36 pb-20 px-8 max-w-[1280px] mx-auto text-center">
+  <p class="font-bold text-xs tracking-[0.15em] mb-5" style="color:#2563EB;">FEATURES</p>
+  <h1 class="font-extrabold mb-6 leading-tight" style="font-size:clamp(36px,5vw,58px); color:#0A0A23;">
+    The <span class="gradient-text">AI</span> chatbot that's an <span class="gradient-text">expert</span><br/>on your products
+  </h1>
+  <p class="text-lg max-w-2xl mx-auto mb-8" style="color:#4A5080;">
+    It's like having ChatGPT specifically for your products. Instantly answer your visitors' questions with a personalized chatbot trained on your website content.
+  </p>
+  <!-- Feature check list -->
+  <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10">
+    <span class="flex items-center gap-2 text-sm font-medium" style="color:#2563EB;"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span> Personalized onboarding help</span>
+    <span class="flex items-center gap-2 text-sm font-medium" style="color:#2563EB;"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span> Friendly pricing as you scale</span>
+    <span class="flex items-center gap-2 text-sm font-medium" style="color:#2563EB;"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span> 95+ languages supported</span>
+    <span class="flex items-center gap-2 text-sm font-medium" style="color:#2563EB;"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span> 7-day free trial</span>
+    <span class="flex items-center gap-2 text-sm font-medium" style="color:#2563EB;"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span> Cancel anytime</span>
+  </div>
+  <div class="flex flex-wrap justify-center gap-4">
+    <button class="px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105" style="background:#2563EB; color:#FFFFFF; box-shadow:0 4px 20px rgba(37,99,235,0.35);">Start a free trial</button>
+    <button class="px-8 py-4 rounded-xl font-bold text-base transition-all hover:bg-gray-50" style="background:#FFFFFF; color:#11143A; border:1.5px solid #E2E5F0;">Book a demo</button>
+  </div>
+</section>
+
+<!-- Everything You Need -->
+<section style="background:#F0F4FF; padding:80px 0;">
+  <div class="max-w-[1280px] mx-auto px-8 text-center">
+    <h2 class="font-extrabold mb-4" style="font-size:clamp(28px,4vw,44px); color:#0A0A23;">Everything you need to roll out your<br/>own AI chatbot</h2>
+    <p class="text-base max-w-2xl mx-auto mb-14" style="color:#4A5080;">Slabscan AI is a production-ready support solution that does the work of a full support staff but at a fraction of the cost.</p>
+
+    <!-- Feature Pills Grid -->
+    <div class="flex flex-wrap justify-center gap-3">
+      <!-- Training & Customization -->
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">upload_file</span></span>Import Training Content</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">quiz</span></span>Q&amp;A Training</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span></span>GPT-4o &amp; GPT-4.1</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">open_in_browser</span></span>Embed on Sites</span>
+      <!-- Chat Interactions -->
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">palette</span></span>Customize Appearance</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">sell</span></span>Quick Prompts</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">chat</span></span>Chat History</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">support_agent</span></span>Escalate to a Human</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">translate</span></span>Language Support</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">person_add</span></span>Lead Generation</span>
+      <!-- Extensions -->
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">layers</span></span>Functions</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">mail</span></span>Email Summaries</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">api</span></span>API</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">apps</span></span>Integrations</span>
+      <!-- Security -->
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">security</span></span>SOC 2 Type II</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">public</span></span>GDPR Compliant</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">filter_alt</span></span>HIPAA Compliant</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">lock</span></span>Data Encryption</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">group</span></span>Role-Based Access</span>
+      <span class="feature-pill"><span class="pill-icon"><span class="material-symbols-outlined" style="font-size:16px;">description</span></span>Data Processing Agreement</span>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard Screenshot -->
+<section class="py-20 px-8 max-w-[1280px] mx-auto text-center">
+  <h2 class="font-extrabold mb-4" style="font-size:clamp(24px,3.5vw,38px); color:#0A0A23;">Your command center for AI customer support</h2>
+  <p class="text-base max-w-xl mx-auto mb-12" style="color:#4A5080;">Manage all your chatbots, training sources, conversations, and performance metrics from one clean dashboard.</p>
+  <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-[0_16px_64px_rgba(37,99,235,0.12)] mx-auto" style="max-width:960px;">
+    <img src="../assets/dashboard.png" alt="Slabscan AI Dashboard" class="w-full h-auto block"/>
+  </div>
+</section>
+
+<!-- Feature Groups -->
+<section class="px-8 max-w-[1280px] mx-auto">
+
+  <!-- Training & Customization -->
+  <div class="feature-group">
+    <div>
+      <h3 class="feature-group-label">Training &amp;<br/>Customization</h3>
+      <p class="feature-group-desc">Unlock the full potential of your chatbot by customizing its knowledge and appearance.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">upload_file</span></div>
+        <h4>Import Training Content</h4>
+        <p>Enter a URL for Slabscan AI to scan, or upload files, or drop raw text content directly, making it easier than ever to keep your chatbot informed and effective.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">quiz</span></div>
+        <h4>Q&amp;A Training</h4>
+        <p>Use real chat history to refine and improve your chatbot by providing feedback that allows it to improve with every interaction.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">auto_awesome</span></div>
+        <h4>GPT-4o &amp; GPT-4.1</h4>
+        <p>Choose between two powerful AI models and switch anytime depending on how you want your chatbot to behave. GPT-4o prioritizes speed while GPT-4.1 prioritizes depth and accuracy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">open_in_browser</span></div>
+        <h4>Embed on Sites</h4>
+        <p>Embed a chatbot on as many sites as you want — your marketing site, in-app, help center... wherever.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">palette</span></div>
+        <h4>Customize Appearance</h4>
+        <p>Personalize your chatbot to match your brand, using custom logos and colors to provide a cohesive user experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Interactions -->
+  <div class="feature-group">
+    <div>
+      <h3 class="feature-group-label">Chat<br/>Interactions</h3>
+      <p class="feature-group-desc">Enhance user interactions with powerful features such as advanced AI engines, multi-language support, and seamless human escalation.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">sell</span></div>
+        <h4>Quick Prompts</h4>
+        <p>Provide users with digital icebreakers to kick things off. Include frequently asked questions or questions you wish more users would ask to get value out of your product or service.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">chat</span></div>
+        <h4>Chat History</h4>
+        <p>Review each conversation, assess the chatbot's performance, and determine whether visitors' questions were effectively addressed. You're never in the dark about what your chatbot is responding with.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">support_agent</span></div>
+        <h4>Escalate to a Human</h4>
+        <p>While AI can handle a vast majority of inquiries, some conversations require a human touch. Users can seamlessly transition the conversation to a live agent at the push of a button. This hybrid approach ensures that users always receive the best possible assistance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">translate</span></div>
+        <h4>Language Support</h4>
+        <p>Your chatbot is ready to chat in 95 languages. Let visitors ask questions and respond in any language.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">person_add</span></div>
+        <h4>Lead Generation</h4>
+        <p>Don't just answer questions, seize opportunities. Your chatbot captures interested visitors' details, allowing you to build a list of potential leads.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extensions -->
+  <div class="feature-group">
+    <div>
+      <h3 class="feature-group-label">Extensions</h3>
+      <p class="feature-group-desc">Extend your chatbot's capabilities with automation, insightful summaries, and powerful integrations.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">layers</span></div>
+        <h4>Functions</h4>
+        <p>Allows users to automate tasks just by interacting with your chatbot. Your chatbot can listen, understand, and interact with other systems based on chat interactions.</p>
+        <a href="#" class="mt-3 inline-flex items-center gap-1">Learn More <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">mail</span></div>
+        <h4>Email Summaries</h4>
+        <p>Keep a pulse on chatbot interactions with daily summaries delivered to your inbox. Upload more training data where needed, track the chatbot's performance, and gain insights into user behavior.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">api</span></div>
+        <h4>API</h4>
+        <p>Connect Slabscan AI to any other app you want to sync data to, automatically retrain with new content, and update settings programmatically.</p>
+        <a href="#" class="mt-3 inline-flex items-center gap-1">Learn More <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">apps</span></div>
+        <h4>Integrations</h4>
+        <p>With native integrations into platforms like Crisp, Slack, and Zendesk, your chatbot becomes an extended arm of your existing toolkit.</p>
+        <a href="#" class="mt-3 inline-flex items-center gap-1">Learn More <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security & Compliance -->
+  <div class="feature-group" style="border-bottom:none;">
+    <div>
+      <h3 class="feature-group-label">Security &amp;<br/>Compliance</h3>
+      <p class="feature-group-desc">Independently verified security and compliance certifications trusted by healthcare providers and enterprises.</p>
+      <a href="#" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white" style="background:#2563EB; box-shadow:0 4px 16px rgba(37,99,235,0.3);">Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">security</span></div>
+        <h4>SOC 2 Type II</h4>
+        <p>Completed an independent SOC 2 Type II examination covering security, availability, and confidentiality trust service criteria.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">public</span></div>
+        <h4>GDPR Compliant</h4>
+        <p>Certified compliant with EU data protection regulations. DPA available for Enterprise customers.</p>
+        <a href="#" class="mt-3 inline-flex items-center gap-1">Learn More <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">filter_alt</span></div>
+        <h4>HIPAA Compliant</h4>
+        <p>Safeguards for Protected Health Information. BAA available on Enterprise plan.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">lock</span></div>
+        <h4>Data Encryption</h4>
+        <p>All data encrypted in transit with TLS 1.2+ and at rest.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">group</span></div>
+        <h4>Role-Based Access</h4>
+        <p>Team member permissions and access controls to manage who can configure chatbots and view conversations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">description</span></div>
+        <h4>Data Processing Agreement</h4>
+        <p>DPA available for Enterprise customers for GDPR compliance.</p>
+        <a href="#" class="mt-3 inline-flex items-center gap-1">Learn More <span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 px-8 max-w-[1400px] mx-auto">
+  <h2 class="font-extrabold text-center mb-4" style="font-size:clamp(28px,4vw,42px); color:#0a0a0a;">Frequently Asked Questions</h2>
+  <p class="text-center mb-10 max-w-xl mx-auto" style="color:#4A5080;">Have a different question? Reach out to our support team by <a href="mailto:support@slabscan.ai" style="color:#2563EB; font-weight:600;">sending us an email</a> and we'll get back to you as soon as we can.</p>
+
+  <!-- Tab Nav -->
+  <div class="flex flex-wrap items-center gap-8 border-b mb-10" style="border-color:#E2E5F0;">
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 transition-colors" style="color:#2563EB; border-color:#2563EB;" onclick="showFaqTab('training', this)">Chatbot Training &amp; Setup</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('features', this)">Features</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('security', this)">Security &amp; Compliance</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('integrations', this)">Integrations</button>
+  </div>
+
+  <!-- Tab: Training & Setup -->
+  <div id="faq-tab-training" class="faq-tab-panel grid md:grid-cols-2 gap-x-20">
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">What type of content can I use to train the chatbot?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">You can train your chatbot using website URLs, uploaded files (PDF, DOCX, TXT, CSV), or raw text pasted directly into the dashboard.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">How long does training take?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Most sites finish training within a few minutes. Larger sites with hundreds of pages may take up to an hour.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it retrain automatically when my website changes?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. Depending on your plan, you can set up automatic monthly, weekly, or daily re-syncs so your chatbot always reflects the latest content.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">How do I add the chatbot to my website?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Each chatbot gets a unique embed code. Paste the script tag before the closing &lt;/body&gt; on any site and the widget appears instantly — no developer required.</div>
+      </details>
+    </div>
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I upload files to train the chatbot?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, you can upload PDFs, Word documents, plain text files, and CSVs directly from your dashboard.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I embed the chatbot on multiple websites?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, a single chatbot can be embedded on as many websites or apps as you'd like at no extra cost.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I add raw text content if I don't have web pages to scrape?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. You can paste raw text content directly into the dashboard and use it as training data for your chatbot.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I customize the chatbot's appearance?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, you can customize the chatbot's name, avatar, colors, welcome message, and quick prompts to match your brand.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Tab: Features -->
+  <div id="faq-tab-features" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">What AI models does Slabscan AI use?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">We support GPT-4o and GPT-4.1. GPT-4o prioritizes speed and cost-efficiency, while GPT-4.1 provides deeper reasoning and accuracy for complex queries.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it support multiple languages?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, the chatbot understands and responds in over 95 languages automatically based on the visitor's question — no extra configuration needed.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can the chatbot escalate to a human agent?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. When the chatbot can't resolve an issue, users can seamlessly request a handoff to a live human agent. You can configure escalation triggers and route to Zendesk, email, or a custom channel.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">What are Quick Prompts?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Quick Prompts are pre-set conversation starters displayed to visitors when they open the chatbot. They help users immediately find value and reduce friction for common questions.</div>
+      </details>
+    </div>
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Will I be able to see the chats users are having with my chatbot?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, every conversation is logged in your dashboard so you can review what visitors asked and how the chatbot responded.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">What are Email Summaries?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Daily digest emails that summarize your chatbot's activity: total chats, top questions, unanswered queries, and suggestions for new training content.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I use the chatbot for lead generation?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. Configure the chatbot to collect visitor name, email, and company at the right moment in the conversation. Leads are exported to your CRM or emailed to you directly.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Do you offer a whitelabel option?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, whitelabeling — removing our branding and adding your own — is available on our agency and Enterprise plans.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Tab: Security -->
+  <div id="faq-tab-security" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Is my data secure?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. All data is encrypted in transit and at rest, access is role-restricted, and we never use your data to train AI models.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Are you HIPAA compliant?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. We have been assessed for HIPAA compliance, and Business Associate Agreements (BAAs) are available for Enterprise plan customers.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Are you GDPR compliant?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. We are GDPR compliant and support data subject access, export, and deletion requests for EU users.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">What is SOC 2 Type II?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">SOC 2 Type II is an independent audit that verifies our security controls covering data security, availability, and confidentiality over an extended period — not just a point in time.</div>
+      </details>
+    </div>
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Where is my data stored?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Your data is stored on secure cloud infrastructure with encryption at rest. Enterprise customers can request a specific data region.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Do you have a Data Processing Agreement (DPA)?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, a standard DPA is available on request for any customer that needs one for compliance purposes.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Is my training data used to train AI models?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">No. Your content is never used to train shared or public AI models. It is only used to power your specific chatbot.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Do you offer Role-Based Access Control?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. You can add team members with specific roles — some can view conversation history, others can manage training content, and admins have full control.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Tab: Integrations -->
+  <div id="faq-tab-integrations" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Do you have an API?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. Our REST API lets you manage chatbots, training sources, and conversations programmatically.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it integrate with Slack?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, install the Slack integration to ask your chatbot questions directly from any Slack channel or DM.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it integrate with Zendesk?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. The Zendesk integration lets the chatbot handle tier-1 support queries and escalate directly to your Zendesk ticketing queue when needed.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Is WhatsApp supported?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, WhatsApp Business integration is available so your chatbot can reply directly inside WhatsApp chats.</div>
+      </details>
+    </div>
+    <div class="divide-y" style="border-color:#E2E5F0;">
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it integrate with Crisp or Intercom?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. We have native integrations with both Crisp and Intercom that let our AI auto-draft or auto-send replies inside those tools.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Can I connect Slabscan AI to my CRM?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes. Using our API and webhooks, you can push leads, chat summaries, and conversation data to HubSpot, Salesforce, or any CRM that accepts incoming webhooks.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">Does it support Facebook Messenger?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Yes, connect your chatbot to a Facebook Page in a few clicks and it will answer Messenger conversations automatically.</div>
+      </details>
+      <details class="group py-6">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+          <span class="font-bold" style="color:#1a1a1a;">My company needs a custom integration. What should I do?</span>
+          <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
+        </summary>
+        <div class="pt-3 pr-10" style="color:#4A5080;">Reach out to our support team with the details and we'll evaluate building it as a custom integration on our Enterprise plan.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 px-8 max-w-[1280px] mx-auto">
+  <div class="cta-section rounded-[28px] py-16 px-8 text-center">
+    <h2 class="font-extrabold mb-5" style="font-size:clamp(28px,4vw,44px); color:#FFFFFF; line-height:1.2;">Ready to take Slabscan AI<br/>for a spin?</h2>
+    <p class="text-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Find out if a personalized AI support chatbot is a good fit for you in just a few hours.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Start a free trial</button>
+      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4);">Book a demo</button>
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Personalized onboarding help</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Friendly pricing as you scale</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>95+ languages supported</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>7-day free trial</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Cancel anytime</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>SOC 2 Type II compliant</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-12 border-t" style="background:#000000; border-color:rgba(255,255,255,0.12);">
+  <div class="flex flex-col md:flex-row justify-between items-start px-8 gap-8 max-w-[1280px] mx-auto">
+    <div class="flex flex-col gap-4">
+      <div class="font-bold text-xl tracking-tighter" style="color:#E2E2E2;">Slabscan AI</div>
+      <p class="max-w-xs text-sm" style="color:#6B7399;">Instantly answer your visitors' questions with a personalized chatbot trained on your website content.</p>
+    </div>
+    <div class="flex flex-wrap gap-x-12 gap-y-6">
+      <div class="flex flex-col gap-3">
+        <span class="text-white font-bold mb-1">Product</span>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="../features/code.html" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Features</a>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Integrations</a>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Security</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="text-white font-bold mb-1">Legal</span>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Privacy Policy</a>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Terms of Service</a>
+        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-10 px-8 max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center border-t pt-8" style="border-color:rgba(255,255,255,0.12);">
+    <div class="text-sm" style="color:#6B7399;">© 2024 Slabscan AI. All rights reserved.</div>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <span class="material-symbols-outlined cursor-pointer" style="color:#6B7399;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#6B7399'">public</span>
+      <span class="material-symbols-outlined cursor-pointer" style="color:#6B7399;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#6B7399'">video_library</span>
+      <span class="material-symbols-outlined cursor-pointer" style="color:#6B7399;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#6B7399'">forum</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showFaqTab(name, btn) {
+    document.querySelectorAll('.faq-tab-panel').forEach(p => p.classList.add('hidden'));
+    const panel = document.getElementById('faq-tab-' + name);
+    if (panel) panel.classList.remove('hidden');
+    document.querySelectorAll('.faq-tab-btn').forEach(b => {
+      b.style.color = '#9CA3AF';
+      b.style.borderColor = 'transparent';
+    });
+    btn.style.color = '#2563EB';
+    btn.style.borderColor = '#2563EB';
+  }
+</script>
+</body>
+</html>

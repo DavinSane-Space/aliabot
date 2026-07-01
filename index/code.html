@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slabscan AI | Expert AI Customer Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/aliabot_styles_v2.css">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#82cfff",
+                      "surface-variant": "#353535",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed": "#e2e2e2",
+                      "primary-container": "#0057ff",
+                      "surface-container-high": "#2a2a2a",
+                      "outline": "#6B7399",
+                      "surface-void": "#000000",
+                      "on-background": "#e2e2e2",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "primary-fixed": "#dce1ff",
+                      "surface-ink": "#191919",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed": "#001e2d",
+                      "secondary-fixed": "#c6e7ff",
+                      "outline-variant": "#434656",
+                      "on-secondary": "#00344b",
+                      "on-secondary-fixed-variant": "#004c6b",
+                      "accent-cyan": "#7C3AED",
+                      "surface-bright": "#393939",
+                      "on-error-container": "#ffdad6",
+                      "error-container": "#93000a",
+                      "surface-tint": "#b6c4ff",
+                      "tertiary": "#c6c6c7",
+                      "on-tertiary": "#2f3131",
+                      "on-error": "#690005",
+                      "inverse-on-surface": "#303030",
+                      "glass-border": "rgba(255, 255, 255, 0.12)",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "on-surface-variant": "#4A5080",
+                      "background": "#131313",
+                      "surface-container-low": "#1b1b1b",
+                      "primary": "#b6c4ff",
+                      "surface": "#131313",
+                      "inverse-primary": "#004ee7",
+                      "on-surface": "#4A5080",
+                      "accent-electric": "#2563EB",
+                      "on-secondary-container": "#002d41",
+                      "tertiary-container": "#676969",
+                      "secondary-container": "#2d9acf",
+                      "secondary": "#82cfff",
+                      "surface-container-highest": "#353535",
+                      "surface-container": "#1f1f1f",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#e9e9e9",
+                      "inverse-surface": "#e2e2e2",
+                      "glow-primary": "rgba(0, 87, 255, 0.4)",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-primary": "#00277f",
+                      "on-primary-fixed-variant": "#003ab2",
+                      "on-primary-container": "#e5e8ff",
+                      "on-primary-fixed": "#001550",
+                      "on-tertiary-fixed": "#1a1c1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "data-mono": ["Space Mono"],
+                      "label-caps": ["Space Mono"],
+                      "display-xl": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-xl": ["80px", {"lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #0057FF, #359FD4, transparent);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0.3;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .active-nav-indicator {
+            position: relative;
+        }
+        .active-nav-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0057FF;
+        }
+
+        /* Heading gradient rules */
+        h1 {
+            background: var(--gradient-text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h2 {
+            background: var(--gradient-text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h3 {
+            color: var(--brand-primary);
+        }
+        h2 span {
+            background: var(--gradient-text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Three Steps - badge row + connector line */
+        .steps-badges-row {
+            --step-gap: 2rem;
+            position: relative;
+            align-items: center;
+            gap: var(--step-gap);
+            margin-bottom: 2rem;
+        }
+        .steps-connector-line {
+            position: absolute;
+            top: 50%;
+            left: calc((100% - 2 * var(--step-gap)) / 6);
+            right: calc((100% - 2 * var(--step-gap)) / 6);
+            height: 2px;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, #2563EB, #7C3AED);
+            z-index: 0;
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 1.2s ease-out;
+        }
+        .steps-badges-row.in-view .steps-connector-line {
+            clip-path: inset(0 0 0 0);
+        }
+        .step-badge-wrap {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-badge {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transform: scale(0);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .steps-badges-row.in-view .step-badge-wrap:nth-child(2) .step-badge { transform: scale(1); transition-delay: 0s; }
+        .steps-badges-row.in-view .step-badge-wrap:nth-child(3) .step-badge { transform: scale(1); transition-delay: 0.2s; }
+        .steps-badges-row.in-view .step-badge-wrap:nth-child(4) .step-badge { transform: scale(1); transition-delay: 0.4s; }
+        .step-badge.active {
+            animation: step-badge-pulse 2s infinite;
+        }
+        @keyframes step-badge-pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); transform: scale(1); }
+            50% { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); transform: scale(1.05); }
+        }
+
+        .step-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .steps-section.in-view .step-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+        .steps-section.in-view .step-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+        .steps-section.in-view .step-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+
+        .step-card-inner {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-card-inner:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
+        }
+        .step-card-inner:hover .step-card-icon {
+            transform: rotate(5deg);
+        }
+        .step-card-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* Integrations orbit visual */
+        .orbit-wrap {
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.10), transparent 65%);
+        }
+        .orbit-glow {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.06) 100%);
+            pointer-events: none;
+        }
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px solid rgba(37, 99, 235, 0.35);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .orbit-ring-1 { width: 140px; height: 140px; }
+        .orbit-ring-2 { width: 270px; height: 270px; border-color: rgba(124, 58, 237, 0.28); }
+        .orbit-ring-3 { width: 400px; height: 400px; border-color: rgba(124, 58, 237, 0.2); }
+        .orbit-radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.25), transparent 70%);
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.6;
+            pointer-events: none;
+            animation: orbit-radar-pulse 4s ease-out infinite;
+        }
+        .orbit-radar-delay { animation-delay: 2s; }
+        @keyframes orbit-radar-pulse {
+            0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(2.9); opacity: 0; }
+        }
+        .orbit-rotator {
+            position: absolute;
+            inset: 0;
+            animation: orbit-spin 60s linear infinite;
+        }
+        .orbit-wrap:hover .orbit-rotator {
+            animation-play-state: paused;
+        }
+        @keyframes orbit-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .orbit-node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+        .orbit-icon-counter {
+            animation: orbit-spin 60s linear infinite reverse;
+        }
+        .orbit-icon {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+        }
+        .orbit-icon:hover {
+            transform: scale(1.18);
+            box-shadow: 0 8px 28px rgba(124, 58, 237, 0.35);
+        }
+        .orbit-icon-a {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: #FFFFFF;
+            border: none;
+        }
+        .orbit-icon-b {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: #5B9BFF;
+        }
+        .orbit-icon-c {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #B794F6;
+        }
+        .integration-box {
+            background: #FFFFFF;
+            border: 1px solid #E2E5F0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .integration-box:hover {
+            border-color: #A5C0FD;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+        }
+        .integration-box span {
+            color: #11143A;
+            font-weight: 500;
+        }
+        .integration-icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #FFFFFF;
+        }
+        .integration-icon-circle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .integration-panel {
+            background: #FFFFFF;
+            position: relative;
+            border: 1px solid #E2E5F0;
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(37, 99, 235, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        .integration-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(107, 155, 252, 0.08) 0%, transparent 50%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Stacking scroll feature cards (sitegpt.ai-style) */
+        .stack-section {
+            position: relative;
+        }
+        .stack-card {
+            position: sticky;
+            top: 96px;
+            background: #FFFFFF;
+            border: 1px solid #E2E5F0;
+            border-radius: 24px;
+            box-shadow: 0 16px 48px rgba(37, 99, 235, 0.10);
+            margin-bottom: 28px;
+            padding: 56px;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .stack-card {
+                top: 80px;
+                padding: 28px;
+                min-height: auto;
+            }
+        }
+        .stack-card:last-child {
+            margin-bottom: 0;
+        }
+        .stack-label {
+            color: #2563EB;
+            letter-spacing: 0.1em;
+        }
+        .stack-title {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-color: #1E2185;
+            text-underline-offset: 6px;
+        }
+        .link-rows-panel {
+            background: #EEF2FF;
+            border-radius: 20px;
+            padding: 20px;
+        }
+        .link-row {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06);
+        }
+        .link-row + .link-row {
+            margin-top: 12px;
+        }
+        .link-row-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #EEF2FF;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .link-row-bar {
+            flex: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: #E2E5F0;
+        }
+        .link-connector {
+            width: 28px;
+            height: 2px;
+            background: #A5C0FD;
+            flex-shrink: 0;
+        }
+        .link-bot-icon {
+            width: 84px;
+            height: 84px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.30);
+            flex-shrink: 0;
+        }
+        .phone-mock {
+            width: 220px;
+            background: #FFFFFF;
+            border: 1px solid #E2E5F0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.10);
+        }
+        .phone-mock-header {
+            height: 28px;
+            background: #EEF2FF;
+            border-bottom: 1px solid #E2E5F0;
+        }
+        .phone-mock-body {
+            padding: 14px;
+        }
+
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: #FFFFFF;
+            box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.12), 0 0 40px rgba(124, 58, 237, 0.45);
+            z-index: 5;
+            animation: orbit-center-pulse 3s ease-in-out infinite;
+        }
+        @keyframes orbit-center-pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.06); }
+        }
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(124,58,237,0.07) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(107,155,252,0.2);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: rgba(167,139,250,0.4);
+            box-shadow: 0 8px 32px rgba(124,58,237,0.15);
+            transform: translateY(-4px);
+        }
+        .pricing-btn {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            width: 100%;
+            font-weight: 500;
+            transition: opacity 0.2s, transform 0.15s;
+            cursor: pointer;
+            display: block;
+        }
+        .pricing-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- Atmospheric Background Layers -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent-electric opacity-[0.08] blur-[120px] rounded-full z-[-5]"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-cyan opacity-[0.08] blur-[100px] rounded-full z-[-5]"></div>
+<!-- Navigation -->
+<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
+<div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full rounded-full"
+     style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107, 155, 252, 0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);">
+  <a href="../index/code.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Slabscan AI</a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../features/code.html">Features</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../lead-generation/code.html">Lead Generation</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../pricing/code.html">Pricing</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../integrations/code.html">Integrations</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../security/code.html">Security</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <button class="hidden md:block font-body-md text-body-md transition-all duration-300 px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Sign In</button>
+    <button class="bg-primary-container px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="color:#FFFFFF;">Start A Free Trial</button>
+  </div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full" style="background:#fff; border:1.5px solid #f97316;">
+  <span style="font-size:20px;">🥇</span>
+  <div class="flex flex-col leading-tight">
+    <span style="font-size:9px; font-weight:700; letter-spacing:0.08em; color:#f97316; text-transform:uppercase;">Product Hunt</span>
+    <span style="font-size:13px; font-weight:700; color:#1a1a1a;">#1 Product of the Day</span>
+  </div>
+</div>
+<h1 class="font-display-xl text-white mb-6 leading-[72px] text-[64px] tracking-[-0.04em] font-extrabold">
+                    Make <span class="text-accent-electric">AI</span> your<br/>
+expert customer<br/>
+<span style="background: var(--gradient-text-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">service agent</span>
+</h1>
+<p class="font-body-lg text-body-lg mb-8 max-w-lg" style="color:var(--text-secondary);">
+                    It's like having ChatGPT specifically for your product. Instantly answer your visitors' questions with a personalized chatbot trained on your website content.
+                </p>
+<div class="flex flex-wrap gap-4 mb-10">
+<button class="px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 group transition-all text-white" style="background:var(--gradient-primary); box-shadow:var(--shadow-brand);">
+                        Start a free trial
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="px-8 py-4 rounded-lg font-bold text-lg transition-all" style="background:var(--color-neutral-0); color:var(--color-blue-600); border:1.5px solid var(--color-blue-600);">
+                        Book a demo
+                    </button>
+</div>
+<div class="grid grid-cols-2 gap-y-4 gap-x-8">
+<div class="flex items-center gap-2 font-data-mono text-data-mono" style="color:var(--text-muted);">
+<span class="material-symbols-outlined text-[18px]" style="color:var(--brand-primary);">verified</span>
+                        Personalized onboarding
+                    </div>
+<div class="flex items-center gap-2 font-data-mono text-data-mono" style="color:var(--text-muted);">
+<span class="material-symbols-outlined text-[18px]" style="color:var(--brand-primary);">language</span>
+                        95+ languages
+                    </div>
+<div class="flex items-center gap-2 font-data-mono text-data-mono" style="color:var(--text-muted);">
+<span class="material-symbols-outlined text-[18px]" style="color:var(--brand-primary);">schedule</span>
+                        7-day free trial
+                    </div>
+<div class="flex items-center gap-2 font-data-mono text-data-mono" style="color:var(--text-muted);">
+<span class="material-symbols-outlined text-[18px]" style="color:var(--brand-primary);">cancel</span>
+                        Cancel anytime
+                    </div>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+  <!-- Chatbot Widget -->
+  <div id="slabscan-chatbot" class="w-full max-w-[480px] bg-white rounded-2xl border border-gray-200 flex flex-col overflow-hidden mx-auto" style="height:660px; box-shadow:0 8px 40px rgba(0,0,0,0.13);">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-gray-100">
+      <button class="text-gray-400 hover:text-gray-600 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white" style="font-size:17px; font-variation-settings:'FILL' 1;">smart_toy</span>
+      </div>
+      <span class="font-semibold text-gray-900 flex-1 text-base">Slabscan AI Assistant</span>
+      <div class="relative">
+        <button id="chat-menu-btn" class="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+        <div id="chat-menu-dropdown" class="hidden absolute right-0 top-8 bg-white rounded-xl shadow-lg border border-gray-100 py-1 z-10 w-36">
+          <button onclick="refreshChat()" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+            <span class="material-symbols-outlined" style="font-size:15px;">refresh</span> Refresh chat
+          </button>
+          <button onclick="downloadChat()" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+            <span class="material-symbols-outlined" style="font-size:15px;">download</span> Download
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 scroll-smooth">
+      <!-- Welcome bot message -->
+      <div class="flex gap-2 items-start">
+        <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+          <p class="text-base text-gray-800 mb-1">👋 Hi, I'm the Slabscan AI Assistant!</p>
+          <p class="text-sm text-gray-500 mb-2">Ask me about:</p>
+          <ul class="space-y-1.5">
+            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Plans &amp; pricing</li>
+            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Setup &amp; integrations</li>
+            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Security &amp; privacy</li>
+            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Agency/enterprise options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-3 bg-white border-t border-gray-100">
+      <div class="flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 focus-within:border-blue-400 transition-colors">
+        <input id="chat-input" type="text" placeholder="Ask me anything about Slabscan AI..."
+               class="flex-1 bg-transparent text-base text-gray-800 outline-none placeholder-gray-400 min-w-0">
+        <button id="chat-send-btn" class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-700 active:scale-95 transition-all">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+      </div>
+      <p class="text-center mt-1.5" style="font-size:10px; color:#9ca3af;">Powered by <strong style="color:#6b7280;">Slabscan AI</strong></p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- Trusted By -->
+<section class="py-12 border-y border-glass-border bg-surface-ink/20">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-8">Trusted by these leading companies</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-50 grayscale hover:grayscale-0 transition-all">
+<span class="font-headline-md font-bold tracking-tighter">TECHCORE</span>
+<span class="font-headline-md font-bold tracking-tighter">NEXUS</span>
+<span class="font-headline-md font-bold tracking-tighter">QUANTUM</span>
+<span class="font-headline-md font-bold tracking-tighter">VELOCITY</span>
+<span class="font-headline-md font-bold tracking-tighter">LUMINA</span>
+</div>
+</div>
+</section>
+<!-- Before/After -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-6">Imagine what you could do with an <br/><span class="text-accent-electric">expert chatbot</span> answering 24/7</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Before -->
+<div class="p-8 rounded-xl" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(37, 99, 235, 0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(239, 68, 68, 0.06);">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined" style="color:#EF4444;">dangerous</span>
+<h3 class="font-headline-md text-headline-md" style="color:#1E2185; font-weight:600;">Before Aliabot</h3>
+</div>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#EF4444;">close</span>
+<p style="color:#4A5080;">Generic GPT tools don't answer based on your specific training data.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#EF4444;">close</span>
+<p style="color:#4A5080;">Custom-built bots are finicky and difficult to maintain.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#EF4444;">close</span>
+<p style="color:#4A5080;">Customer service staff takes 3+ months to train fully.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#EF4444;">close</span>
+<p style="color:#4A5080;">Bogged down with repetitive low-level support tickets.</p>
+</li>
+</ul>
+</div>
+<!-- After -->
+<div class="p-8 rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.12) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(124, 58, 237, 0.25); border-radius: 16px; box-shadow: 0 4px 24px rgba(124, 58, 237, 0.10);">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined" style="color:#2563EB;">check_circle</span>
+<h3 class="font-headline-md text-headline-md" style="color:#1E2185; font-weight:600;">After Aliabot</h3>
+</div>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#2563EB; font-variation-settings: 'FILL' 1;">bolt</span>
+<p style="color:#4A5080;">Provide 24/7/365 quality support with instant neural responses.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#2563EB; font-variation-settings: 'FILL' 1;">bolt</span>
+<p style="color:#4A5080;">Automate answering the vast majority of repetitive support tickets.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#2563EB; font-variation-settings: 'FILL' 1;">bolt</span>
+<p style="color:#4A5080;">Make your current support team twice as productive immediately.</p>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined" style="color:#2563EB; font-variation-settings: 'FILL' 1;">bolt</span>
+<p style="color:#4A5080;">Free up team time to focus on complex higher-level strategic tasks.</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Three Steps -->
+<section class="py-24 overflow-hidden steps-section" style="background: #F8F9FF;">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Three steps to your personalized AI chatbot</h2>
+<!-- Badges + Connector Line -->
+<div class="hidden md:grid steps-badges-row" style="grid-template-columns: repeat(3, 1fr);">
+<div class="steps-connector-line"></div>
+<div class="step-badge-wrap"><div class="step-badge" data-step="1" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">1</div></div>
+<div class="step-badge-wrap"><div class="step-badge" data-step="2" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">2</div></div>
+<div class="step-badge-wrap"><div class="step-badge" data-step="3" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">3</div></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="relative group step-card">
+<div class="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl mb-6 relative z-10 md:hidden" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border: none; border-radius: 10px;">1</div>
+<div class="p-6 transition-colors step-card-inner" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<div class="mb-4 step-card-icon">
+<span class="material-symbols-outlined text-[40px]" style="color: #2563EB;">sync_alt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color: #1E2185; font-weight: 600;">Sync training data</h3>
+<p style="color: #4A5080;">Enter your URL for SiteGPT to scan, or upload files, or drop in raw text content effortlessly.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative group step-card">
+<div class="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl mb-6 relative z-10 md:hidden" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border: none; border-radius: 10px;">2</div>
+<div class="p-6 transition-colors step-card-inner" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<div class="mb-4 step-card-icon">
+<span class="material-symbols-outlined text-[40px]" style="color: #2563EB;">code</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color: #1E2185; font-weight: 600;">Install on your site</h3>
+<p style="color: #4A5080;">Embed a chatbot on as many sites as you want—marketing sites, help centers, or in-app.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative group step-card">
+<div class="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl mb-6 relative z-10 md:hidden" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border: none; border-radius: 10px;">3</div>
+<div class="p-6 transition-colors step-card-inner" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<div class="mb-4 step-card-icon">
+<span class="material-symbols-outlined text-[40px]" style="color: #2563EB;">model_training</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color: #1E2185; font-weight: 600;">Learn and refine</h3>
+<p style="color: #4A5080;">Use real chat history to provide feedback and improve with every customer interaction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features - Stacking Scroll Cards -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto stack-section">
+<!-- Card 1: Personalized Chatbot -->
+<div class="stack-card" style="z-index:1;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">PERSONALIZED CHATBOT</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Build a custom chatbot trained on your own content</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Ever wanted to clone yourself to answer customer queries? Now you can! Train your chatbot with your content and let it echo your brand's voice. Who knew a chatbot could be your digital doppelgänger?</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="link-rows-panel flex-1">
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">text_fields</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">settings</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">description</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">link</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">cloud</span></div><div class="link-row-bar"></div></div>
+</div>
+<div class="link-connector"></div>
+<div class="link-bot-icon"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings:'FILL' 1;">smart_toy</span></div>
+</div>
+</div>
+</div>
+
+<!-- Card 2: Quick Prompts -->
+<div class="stack-card" style="z-index:2;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">QUICK PROMPTS</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Help users start conversations with quick prompts</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Give users a digital icebreaker to kick things off. Include frequently asked questions or questions you wish more users would ask to get value out of your product or service.</p>
+</div>
+<div class="flex justify-center md:justify-end">
+<div class="phone-mock">
+<div class="phone-mock-header"></div>
+<div class="phone-mock-body space-y-2">
+<div class="w-7 h-7 rounded-full bg-blue-100"></div>
+<div class="h-9 rounded-lg bg-blue-600"></div>
+<div class="flex gap-1.5 mt-3">
+<div class="flex-1 h-7 rounded bg-gray-100 border border-gray-200"></div>
+<div class="flex-1 h-7 rounded bg-blue-600"></div>
+<div class="flex-1 h-7 rounded bg-gray-100 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Card 3: Email Summaries -->
+<div class="stack-card" style="z-index:3;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">EMAIL SUMMARIES</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Stay up to date with daily email summaries</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Keep a pulse on chatbot interactions with daily summaries delivered to your inbox. Upload more training data where needed, track the chatbot's performance, and gain insights into user behavior.</p>
+</div>
+<div class="link-rows-panel relative" style="min-height:220px;">
+<div class="flex items-center gap-3 bg-white rounded-xl border-2 border-blue-600 px-5 py-4 shadow-sm w-fit">
+<span class="material-symbols-outlined text-blue-600">mail</span>
+<span class="font-bold" style="color:#1E2185;">Slabscan AI Updates</span>
+</div>
+<div class="space-y-2 mt-4">
+<div class="link-row-bar"></div>
+<div class="link-row-bar"></div>
+<div class="link-row-bar"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Card 4: Escalate to Human -->
+<div class="stack-card" style="z-index:4;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">ESCALATE TO HUMAN</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Escalate to a human when necessary</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">While AI can handle a vast majority of inquiries, some conversations require human touch. Users can seamlessly transition the conversation to a live agent at the push of a button. This hybrid approach ensures that users always receive the best possible assistance.</p>
+</div>
+<div class="flex items-center justify-center md:justify-end gap-4">
+<div class="phone-mock">
+<div class="phone-mock-header"></div>
+<div class="phone-mock-body space-y-2">
+<div class="w-7 h-7 rounded-full bg-blue-100"></div>
+<div class="h-9 rounded-lg bg-blue-600"></div>
+<div class="h-7 w-2/3 rounded-lg bg-gray-100 ml-auto"></div>
+<div class="h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs font-bold mt-3">Talk to support</div>
+</div>
+</div>
+<div class="hidden md:flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl px-6 py-5 shadow-sm">
+<span class="material-symbols-outlined text-blue-600 text-[28px]">support_agent</span>
+<span class="text-sm font-bold" style="color:#1E2185;">Talk to Support</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Card 5: Collect Leads -->
+<div class="stack-card" style="z-index:5;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">COLLECT LEADS</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Generate leads to follow up with later</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Don't just answer questions, seize opportunities. Our chatbot captures interested visitors' details, allowing you to build a list of potential leads.</p>
+</div>
+<div class="link-rows-panel">
+<div class="bg-white rounded-xl border border-gray-200 px-4 py-3 mb-3 w-fit">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-blue-600" style="font-size:18px;">sentiment_satisfied</span>
+<span class="text-xs font-bold" style="color:#1E2185;">Profile</span>
+</div>
+<div class="link-row-bar mb-2" style="width:140px;"></div>
+<div class="text-xs font-bold mb-1" style="color:#1E2185;">Interests</div>
+<div class="link-row-bar" style="width:140px;"></div>
+</div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">person</span></div><div class="link-row-bar"></div></div>
+<div class="link-row" style="background:#2563EB;"><div class="link-row-icon" style="background:rgba(255,255,255,0.2); color:#fff;"><span class="material-symbols-outlined" style="font-size:18px;">person</span></div><div class="link-row-bar" style="background:rgba(255,255,255,0.4);"></div></div>
+</div>
+</div>
+</div>
+
+<!-- Card 6: Functions -->
+<div class="stack-card" style="z-index:6;">
+<div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<div>
+<span class="font-label-caps text-label-caps stack-label block mb-4">FUNCTIONS</span>
+<h3 class="font-headline-md text-headline-md mb-4 stack-title" style="color:#1E2185; font-weight:700;">Turn natural language commands into in-app actions</h3>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Functions allows users to automate tasks just by interacting with your chatbot. Your chatbot can listen, understand, and interact with other systems based on chat interactions.</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="link-rows-panel flex-1">
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">text_fields</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">settings</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">description</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">link</span></div><div class="link-row-bar"></div></div>
+<div class="link-row"><div class="link-row-icon"><span class="material-symbols-outlined" style="font-size:18px;">cloud</span></div><div class="link-row-bar"></div></div>
+</div>
+<div class="link-connector"></div>
+<div class="link-bot-icon"><span class="material-symbols-outlined text-[36px]" style="font-variation-settings:'FILL' 1;">smart_toy</span></div>
+</div>
+</div>
+</div>
+
+</section>
+<!-- Integrations -->
+<section class="py-24" style="background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1">
+<span class="font-label-caps text-label-caps mb-4 block" style="color: #2563EB; letter-spacing: 0.1em;">CONNECTIVITY</span>
+<h2 class="font-headline-lg text-headline-lg mb-6" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Direct integrations with your favorite tools</h2>
+<p class="font-body-lg text-body-lg mb-8" style="color: #4A5080;">With native integrations into platforms like Crisp, Slack, and Zendesk, our chatbot becomes an extended arm of your existing technical toolkit.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="integration-box p-4 flex items-center gap-3">
+<div class="integration-icon-circle" style="background: #25D366;">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.01 4a8.94 8.94 0 0 0-7.74 13.41L4 21l3.7-1.27A8.93 8.93 0 0 0 12.01 21a8.94 8.94 0 0 0 5.59-15.68ZM12.01 19.4a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.73-.18-.28A7.42 7.42 0 1 1 19.43 11.4a7.4 7.4 0 0 1-7.42 8Zm4.07-5.56c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.58.72-.71.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.78-1.1-.66-.59-1.1-1.31-1.23-1.53-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.65-.18-.43-.36-.37-.5-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.28-.2.22-.78.77-.78 1.86s.8 2.16.91 2.31c.11.15 1.58 2.41 3.83 3.38.54.23.96.37 1.29.47.54.17 1.03.15 1.42.09.43-.06 1.31-.54 1.5-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27Z"/></svg>
+</div>
+<span>WhatsApp</span>
+</div>
+<div class="integration-box p-4 flex items-center gap-3">
+<div class="integration-icon-circle" style="background: #4A154B;">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.84 14.6a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm1.06 0a2.1 2.1 0 1 1 4.2 0v5.26a2.1 2.1 0 1 1-4.2 0V14.6Zm2.1-8.46a2.1 2.1 0 1 1 2.1 2.1h-2.1v-2.1Zm0 1.06a2.1 2.1 0 1 1 0 4.2H6.74a2.1 2.1 0 1 1 0-4.2h5.26Zm8.46 2.1a2.1 2.1 0 1 1-2.1-2.1V9.3h2.1Zm-1.06 0a2.1 2.1 0 1 1-4.2 0V3.84a2.1 2.1 0 1 1 4.2 0V9.3Zm-2.1 8.46a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm0-1.06a2.1 2.1 0 1 1 0-4.2h5.26a2.1 2.1 0 1 1 0 4.2h-5.26Z"/></svg>
+</div>
+<span>Slack</span>
+</div>
+<div class="integration-box p-4 flex items-center gap-3">
+<div class="integration-icon-circle" style="background: #03363D;">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h13.5L3 17.5V21h7.5L21 10.5V21h0V3H3Z"/></svg>
+</div>
+<span>Zendesk</span>
+</div>
+<div class="integration-box p-4 flex items-center gap-3">
+<div class="integration-icon-circle" style="background: #FF6240;">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.92 2 10.7c0 2.65 1.42 5.02 3.64 6.6-.13.96-.5 2.45-1.43 3.74-.13.18.02.43.24.4 2.2-.3 3.93-1.27 4.92-1.97.83.18 1.7.27 2.63.27 5.52 0 10-3.92 10-8.7C22 5.92 17.52 2 12 2Zm-3.5 9.2a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Z"/></svg>
+</div>
+<span>Crisp</span>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full h-[450px] relative overflow-hidden orbit-wrap integration-panel">
+<div class="absolute inset-0 orbit-glow"></div>
+<div class="orbit-ring orbit-ring-1"></div>
+<div class="orbit-ring orbit-ring-2"></div>
+<div class="orbit-ring orbit-ring-3"></div>
+<div class="orbit-radar"></div>
+<div class="orbit-radar orbit-radar-delay"></div>
+<div class="orbit-rotator">
+<div class="orbit-node" style="top:36%; left:9%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;"><span class="material-symbols-outlined">chat</span></div></div>
+</div>
+<div class="orbit-node" style="top:22%; left:25%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-a" style="width:76px;height:76px;"><span class="material-symbols-outlined text-[32px]">forum</span></div></div>
+</div>
+<div class="orbit-node" style="top:14%; left:50%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-a" style="width:56px;height:56px;"><span class="material-symbols-outlined">hub</span></div></div>
+</div>
+<div class="orbit-node" style="top:22%; left:75%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-c" style="width:56px;height:56px;"><span class="material-symbols-outlined">mark_chat_read</span></div></div>
+</div>
+<div class="orbit-node" style="top:64%; left:9%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-a" style="width:56px;height:56px;"><span class="material-symbols-outlined">support_agent</span></div></div>
+</div>
+<div class="orbit-node" style="top:80%; left:25%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-b" style="width:52px;height:52px;"><span class="material-symbols-outlined">chat_bubble</span></div></div>
+</div>
+<div class="orbit-node" style="top:84%; left:50%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-a" style="width:64px;height:64px;"><span class="material-symbols-outlined text-[28px]">keyboard</span></div></div>
+</div>
+<div class="orbit-node" style="top:74%; left:75%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-c" style="width:56px;height:56px;"><span class="material-symbols-outlined">groups</span></div></div>
+</div>
+<div class="orbit-node" style="top:48%; left:91%;">
+<div class="orbit-icon-counter"><div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;"><span class="material-symbols-outlined">mail</span></div></div>
+</div>
+</div>
+<div class="orbit-center">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Demo -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="font-label-caps text-label-caps mb-4 block" style="color:#2563EB; letter-spacing:0.1em;">LIVE DEMO</span>
+<h2 class="font-headline-lg text-headline-lg mb-6" style="color:#1E2185; font-weight:800;">See for yourself.</h2>
+<p class="font-body-lg text-body-lg" style="color:#4A5080;">Ask the Slabscan AI chatbot a question about itself.</p>
+</div>
+<div class="flex justify-center">
+  <div id="live-chatbot" class="w-full max-w-[480px] bg-white rounded-2xl border border-gray-200 flex flex-col overflow-hidden" style="height:600px; box-shadow:0 8px 40px rgba(0,0,0,0.13);">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-gray-100">
+      <button class="text-gray-400 hover:text-gray-600 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white" style="font-size:17px; font-variation-settings:'FILL' 1;">smart_toy</span>
+      </div>
+      <span class="font-semibold text-gray-900 flex-1 text-base">Slabscan AI Assistant</span>
+      <div class="relative">
+        <button id="live-chat-menu-btn" class="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+        <div id="live-chat-menu-dropdown" class="hidden absolute right-0 top-8 bg-white rounded-xl shadow-lg border border-gray-100 py-1 z-10 w-36">
+          <button onclick="refreshChat('live-chat')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+            <span class="material-symbols-outlined" style="font-size:15px;">refresh</span> Refresh chat
+          </button>
+          <button onclick="downloadChat('live-chat')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+            <span class="material-symbols-outlined" style="font-size:15px;">download</span> Download
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="live-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 scroll-smooth">
+      <!-- Welcome bot message -->
+      <div class="flex gap-2 items-start">
+        <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+          <p class="text-base text-gray-800 mb-1">👋 Hi, I'm the Slabscan AI Assistant!</p>
+          <p class="text-sm text-gray-500 mb-2">Ask me a question about Slabscan AI, like:</p>
+          <div class="flex flex-col gap-1.5">
+            <button onclick="sendChip(this)" class="text-left text-sm text-blue-600 border border-blue-200 rounded-lg px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 transition-colors">How can I customize the lead collection forms?</button>
+            <button onclick="sendChip(this)" class="text-left text-sm text-blue-600 border border-blue-200 rounded-lg px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 transition-colors">Can I integrate Slabscan AI with my existing CRM?</button>
+            <button onclick="sendChip(this)" class="text-left text-sm text-blue-600 border border-blue-200 rounded-lg px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 transition-colors">Is my data secure?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-3 bg-white border-t border-gray-100">
+      <div class="flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 focus-within:border-blue-400 transition-colors">
+        <input id="live-chat-input" type="text" placeholder="Ask me anything about Slabscan AI..."
+               class="flex-1 bg-transparent text-base text-gray-800 outline-none placeholder-gray-400 min-w-0">
+        <button id="live-chat-send-btn" class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-700 active:scale-95 transition-all">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+      </div>
+      <p class="text-center mt-1.5" style="font-size:10px; color:#9ca3af;">Powered by <strong style="color:#6b7280;">Slabscan AI</strong></p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="glass-panel p-12 rounded-2xl border-accent-electric/20 relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">format_quote</span>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12 z-10 relative">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-accent-electric shadow-[0_0_30px_rgba(0,87,255,0.3)] shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLv95cLy5b6JO7l_tBSRQt0QfPFAG1c0SauowSaFrjYn7MOF-dFvFsFovIDa3kk3sokVOCVHczpLdFBQQWJ_3oSBYgkG9ZvET3kqekmyXXVziwuF0TZuklGpEOj-ktaDgR4CxTAsFX5HGpvOJcZgCY5l7V9YEtFOM1Ft54WkE2_yM4362RWcGp8QaVrRXLsA9iSubDThQEMC-kdP-D9CMXoRfqoSaF5WJtnqkKeCXhdK4xMkJTkP9fcujIYU"/>
+</div>
+<div class="flex-1">
+<p class="font-headline-md text-headline-md italic mb-8">“We've got the bot dialled in - we're using GPT-4, have an avenue for escalations to Zendesk, and so far I have no complaints.”</p>
+<div>
+<h4 class="font-bold text-xl text-white">Brent Burrows II</h4>
+<p class="text-on-surface-variant">Vice President – Retail &amp; Sales at CBS Bahamas</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security -->
+<section class="py-24" style="background: #EEF2FF;">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg mb-6" style="color:#1E2185; -webkit-text-fill-color:#1E2185; background:none;">Enterprise-grade security</h2>
+<p class="font-body-lg text-body-lg mb-12 max-w-2xl mx-auto" style="color:#4A5080;">SOC 2 Type II examined, GDPR certified, and HIPAA assessed. Your data is encrypted, access-controlled, and never used to train AI models.</p>
+<div class="flex flex-wrap justify-center items-center gap-12 mb-10">
+<div class="flex flex-col items-center justify-center w-24 h-24 rounded-full shadow-lg" style="background: linear-gradient(135deg, #38BDF8 0%, #2563EB 100%);">
+<span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings:'FILL' 1;">verified_user</span>
+<span class="text-white font-bold leading-tight" style="font-size:9px;">AICPA<br/>SOC</span>
+</div>
+<div class="flex flex-col items-center justify-center w-24 h-24 rounded-2xl shadow-lg" style="background:#1E3A8A;">
+<span class="material-symbols-outlined text-yellow-400 text-[26px]" style="font-variation-settings:'FILL' 1;">lock</span>
+<span class="text-white font-bold mt-1 leading-tight" style="font-size:9px;">GDPR<br/>COMPLIANT</span>
+</div>
+<div class="flex flex-col items-center justify-center w-24 h-24 rounded-full shadow-lg" style="background:#1E1145;">
+<span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings:'FILL' 1;">medical_services</span>
+<span class="text-white font-bold leading-tight" style="font-size:9px;">HIPAA</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-bold transition-colors" style="color:#2563EB;" href="#" onmouseover="this.style.color='#1E2185'" onmouseout="this.style.color='#2563EB'">
+                    Learn about our security practices
+                    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24" id="pricing" style="background:#F8F9FF;">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+  <div class="text-center mb-16">
+    <span class="font-label-caps text-label-caps block mb-3" style="color:#2563EB; letter-spacing:0.1em;">PRICING PLANS</span>
+    <h2 class="font-headline-lg text-headline-lg mb-5" style="color:#11143A; background: none; -webkit-text-fill-color:#11143A;">Pays for itself in saved support time</h2>
+    <p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">Whether you're just getting started or are a large enterprise, we have a plan for you.</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 items-start">
+
+    <!-- Starter -->
+    <div class="pricing-card p-8 flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(124,58,237,0.1)); border: 1px solid rgba(107,155,252,0.2); border-radius: 10px;">
+          <span class="material-symbols-outlined" style="color:#2563EB; font-size:20px;">rocket_launch</span>
+        </div>
+        <span style="color:#11143A; font-weight:600; font-size:18px;">Starter</span>
+      </div>
+      <div class="mb-8">
+        <span style="font-size:40px; font-weight:700; line-height:1; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$49.900 COP</span>
+        <span style="color:#6B7399; font-size:16px;">/mes</span>
+      </div>
+      <button class="pricing-btn mb-8">Start a free trial</button>
+      <p style="color:#6B7399; letter-spacing:0.08em; font-size:11px; font-weight:700; margin-bottom:16px; text-transform:uppercase;">Includes:</p>
+      <ul class="space-y-3 flex-1">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">1 chatbot</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 1,000 pages</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">1 member</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 4k messages per month</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Manual Refresh</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Growth (Most Popular) -->
+    <div class="pricing-card p-8 flex flex-col relative">
+      <div class="absolute top-0 right-6 -translate-y-1/2">
+        <span style="background: linear-gradient(135deg, #2563EB, #7C3AED); color: #FFFFFF; border-radius: 999px; padding: 4px 16px; font-size: 11px; font-weight: 600; display:inline-block;">MOST POPULAR</span>
+      </div>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(124,58,237,0.1)); border: 1px solid rgba(107,155,252,0.2); border-radius: 10px;">
+          <span class="material-symbols-outlined" style="color:#2563EB; font-size:20px;">rocket</span>
+        </div>
+        <span style="color:#11143A; font-weight:600; font-size:18px;">Growth</span>
+      </div>
+      <div class="mb-8">
+        <span style="font-size:40px; font-weight:700; line-height:1; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$99.900 COP</span>
+        <span style="color:#6B7399; font-size:16px;">/mes</span>
+      </div>
+      <button class="pricing-btn mb-8">Start a free trial</button>
+      <p style="color:#6B7399; letter-spacing:0.08em; font-size:11px; font-weight:700; margin-bottom:16px; text-transform:uppercase;">Includes:</p>
+      <ul class="space-y-3 flex-1">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 2 chatbots</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 10,000 pages</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Up to 4 team members</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">API Access</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Auto Refresh (Monthly)</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 10k messages per month</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Integrations with multiple platforms</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Rate Limiting</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Scale -->
+    <div class="pricing-card p-8 flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(124,58,237,0.1)); border: 1px solid rgba(107,155,252,0.2); border-radius: 10px;">
+          <span class="material-symbols-outlined" style="color:#2563EB; font-size:20px;">bolt</span>
+        </div>
+        <span style="color:#11143A; font-weight:600; font-size:18px;">Scale</span>
+      </div>
+      <div class="mb-8">
+        <span style="font-size:40px; font-weight:700; line-height:1; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$199.900 COP</span>
+        <span style="color:#6B7399; font-size:16px;">/mes</span>
+      </div>
+      <button class="pricing-btn mb-8">Start a free trial</button>
+      <p style="color:#6B7399; letter-spacing:0.08em; font-size:11px; font-weight:700; margin-bottom:16px; text-transform:uppercase;">Includes:</p>
+      <ul class="space-y-3 flex-1">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 3 chatbots</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 50,000 pages</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Up to 10 team members</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">API Access</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Auto Refresh (Weekly)</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Webhook Support</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080;">Up to 40k messages per month</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Integrations with multiple platforms</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Rate Limiting</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[18px] mt-0.5 shrink-0" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+          <span style="color:#4A5080; font-weight:600;">Auto Scan (Daily)</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 px-margin-desktop max-w-[1400px] mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-4" style="color:#0a0a0a; -webkit-text-fill-color:#0a0a0a; background:none;">FAQs</h2>
+<p class="text-center mb-10 max-w-xl mx-auto" style="color:#4A5080;">Have a different question and can't find the answer you're looking for? Reach out to our support team by <a href="mailto:support@slabscan.ai" style="color:#2563EB; font-weight:600;">sending us an email</a> and we'll get back to you as soon as we can.</p>
+
+<!-- Tab Nav -->
+<div class="flex flex-wrap items-center gap-8 border-b mb-10" style="border-color:#E2E5F0;">
+<button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 transition-colors" style="color:#2563EB; border-color:#2563EB;" onclick="showFaqTab('training', this)">Chatbot Training and Support</button>
+<button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('pricing', this)">Pricing</button>
+<button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('tech', this)">Technology and Integrations</button>
+<button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('security', this)">Security and Compliance</button>
+</div>
+
+<!-- Tab Panel: Chatbot Training and Support -->
+<div id="faq-tab-training" class="faq-tab-panel grid md:grid-cols-2 gap-x-20">
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I add text content to train the chatbot if I don't have web pages to scrape or files to upload?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes. If you don't have web pages or files, you can paste raw text content directly into the dashboard and use it as training data for your chatbot.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you have a plan for agencies to offer chatbots to their clients?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes. Our agency plan lets you create and manage chatbots for multiple clients under one account, with whitelabeling available on higher tiers.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is there a demo that I can try?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, scroll up and try the live chatbot demo on this page, or start a free trial to build your own.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">What type of content can we use to train the chatbot?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">You can train your chatbot using website URLs, uploaded files (PDF, DOCX, TXT, CSV), or raw text pasted directly into the dashboard.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you retrain the chatbot automatically when the website content changes?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, depending on your plan you can set up automatic monthly, weekly, or daily re-syncs so your chatbot always reflects the latest content.</div>
+</details>
+</div>
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I upload files to train the chatbot?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, you can upload PDFs, Word documents, plain text files, and CSVs directly from your dashboard.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Some of my files are larger than 10 MB. What do I do?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Split larger files into smaller parts before uploading, or reach out to support and we can help raise your file size limit.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How do I add the chatbot to my website?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Each chatbot gets a unique embed code. Paste the script tag before the closing &lt;/body&gt; on any site and the widget appears instantly.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How do I train the chatbot?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Add a URL to scan, upload files, or paste raw text into the training panel. The chatbot indexes the content automatically once added.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How long does the training take?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Most sites finish training within a few minutes. Larger sites with hundreds of pages may take up to an hour.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How can we contact you?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">You can reach our support team anytime at <a href="mailto:support@slabscan.ai" style="color:#2563EB;">support@slabscan.ai</a>, or use the live chatbot on this page.</div>
+</details>
+</div>
+</div>
+
+<!-- Tab Panel: Pricing -->
+<div id="faq-tab-pricing" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can you embed a chatbot on multiple websites?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, a single chatbot can be embedded on as many websites or apps as you'd like at no extra cost.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you have a plan for agencies to offer chatbots to their clients?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, our agency tier includes multi-client management, usage pooling, and reseller pricing.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is there a free plan?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">We offer a 7-day free trial on all paid plans so you can fully test the chatbot before committing, no credit card required.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is there a demo that I can try?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, try the live chatbot demo above on this page to see exactly how it answers real questions.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">What is a "page" in the context of training limits?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">A "page" is any single URL, uploaded file, or block of raw text used as a training source — each one counts toward your plan's page limit.</div>
+</details>
+</div>
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is there a limit on number of messages that can be sent?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Each plan includes a monthly message allowance. If you go over, you can upgrade your plan or purchase additional message packs.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Does it work on websites that are in other languages than English?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, the chatbot understands and responds in over 95 languages automatically based on the visitor's question.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">My company needs a custom integration or custom feature that is not yet supported. What should I do?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Reach out to our support team with the details and we'll evaluate building it as a custom integration on our Enterprise plan.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is there a whitelabel option available?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, whitelabeling — removing our branding and adding your own — is available on our agency and Enterprise plans.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">In every pricing plan, the message limits are written as "Upto x messages per month". What does it mean?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">It means that figure is the maximum included in your plan each billing cycle — you only pay more if you actually exceed it.</div>
+</details>
+</div>
+</div>
+
+<!-- Tab Panel: Technology and Integrations -->
+<div id="faq-tab-tech" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can you embed a chatbot on multiple websites?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, embed the same chatbot across as many marketing sites, help centers, or apps as you want.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you have API for Slabscan AI?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, our REST API lets you manage chatbots, training sources, and conversations programmatically.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">What AI models does Slabscan AI use?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">We use leading large language models such as GPT-4, fine-tuned and grounded against your own training data.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How do I add the chatbot to my website?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Copy the embed script from your dashboard and paste it into your site's HTML, no developer required.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I have Slabscan AI on Facebook Messenger? Do you have Facebook Messenger Integration?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, connect your chatbot to a Facebook Page in a few clicks and it will answer Messenger conversations automatically.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I have Slabscan AI on Whatsapp? Do you have Whatsapp Integration?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, WhatsApp Business integration is available so your chatbot can reply directly inside WhatsApp chats.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I have Slabscan AI on Slack? Do you have Slack Integration?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, install the Slack integration to ask your chatbot questions directly from any Slack channel or DM.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How does it integrate with other chat providers like Crisp, Intercom etc?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">We have native integrations with Crisp and Intercom that let our AI auto-draft or auto-send replies inside those tools.</div>
+</details>
+</div>
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">What is considered as a "message"?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">A message is counted each time the chatbot generates a reply to a visitor. Visitor questions themselves are not counted.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Does it integrate with ticketing platforms like Zendesk, Intercom, Freshdesk, Hubspot etc?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, we support direct integrations with Zendesk, Intercom, Freshdesk, and HubSpot for escalating conversations to your support team.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Will I be able to see the chats/interactions that the users are having with my chatbots?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, every conversation is logged in your dashboard so you can review what visitors asked and how the chatbot responded.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Can I customize the chatbot?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, you can customize the chatbot's name, avatar, colors, welcome message, and quick prompts to match your brand.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you store the chatbot messages?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, we store the questions visitors ask and the chatbot's answers, along with IP addresses for security and abuse prevention. You can view this full chat history from your dashboard.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Does it work on websites that are in other languages than English?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, the chatbot detects and responds in over 95 languages, regardless of which language your source content is in.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you use OpenAI models or your own custom model?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">We use OpenAI's models under the hood, combined with our own retrieval layer that grounds answers in your training data.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">My company needs a custom integration or custom feature that is not yet supported. What should I do?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Email our team with what you need — most custom integrations and features are scoped under our Enterprise plan.</div>
+</details>
+</div>
+</div>
+
+<!-- Tab Panel: Security and Compliance -->
+<div id="faq-tab-security" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Is my data secure?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes. All data is encrypted in transit and at rest, access is role-restricted, and we never use your data to train AI models.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Are you HIPAA compliant?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes. We have been assessed for HIPAA compliance, and Business Associate Agreements (BAAs) are available for Enterprise plan customers. Contact us at <code>support@slabscan.ai</code> to request a BAA.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Are you GDPR compliant?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, we are GDPR compliant and support data subject access, export, and deletion requests for EU users.</div>
+</details>
+</div>
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Where is my data stored?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Your data is stored on secure cloud infrastructure with encryption at rest. Enterprise customers can request a specific data region.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you have a Data Processing Agreement (DPA)?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, a standard DPA is available on request for any customer that needs one for compliance purposes.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Do you store the chatbot messages?</span>
+<span class="flex items-center gap-3 shrink-0">
+<a href="mailto:support@slabscan.ai" class="text-sm font-semibold whitespace-nowrap hidden sm:inline" style="color:#2563EB;" onclick="event.stopPropagation()">💬 Ask</a>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, we store all questions asked by visitors and all answers the chatbot replied with, along with IP addresses for security and abuse prevention. We show this full chat history to you inside your dashboard.</div>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="cta-section rounded-[28px] py-16 px-8 text-center">
+<h2 class="font-headline-lg text-[44px] leading-[52px] font-extrabold mb-5" style="color:#FFFFFF; background:none; -webkit-text-fill-color:#FFFFFF;">Ready to take Slabscan AI<br/>for a spin?</h2>
+<p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Find out if a personalized AI support chatbot is a good fit for you in just a few hours.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+<button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Start a free trial</button>
+<button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4); backdrop-filter:blur(8px);">Book a demo</button>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>Personalized onboarding help</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>Friendly pricing as you scale</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>95+ languages supported</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>7-day free trial</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>Cancel anytime</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>SOC 2 Type II compliant</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-void border-t border-glass-border">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">Slabscan AI</div>
+<p class="text-outline max-w-xs font-data-mono text-data-mono">Instantly answer your visitors' questions with a personalized chatbot trained on your website content.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6 text-center md:text-left">
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold mb-1">Product</span>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Features</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../integrations/code.html">Integrations</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Security</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold mb-1">Legal</span>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Privacy Policy</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Terms of Service</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Refund Policy</a>
+</div>
+</div>
+</div>
+<div class="mt-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center border-t border-glass-border pt-8">
+<div class="text-outline font-data-mono text-data-mono">© 2024 Slabscan AI. All rights reserved.</div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">public</span>
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">video_library</span>
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">forum</span>
+</div>
+</div>
+</footer>
+<script>
+        // FAQ tabs
+        function showFaqTab(name, btn) {
+            document.querySelectorAll('.faq-tab-panel').forEach(p => p.classList.add('hidden'));
+            const panel = document.getElementById('faq-tab-' + name);
+            if (panel) panel.classList.remove('hidden');
+            document.querySelectorAll('.faq-tab-btn').forEach(b => {
+                b.style.color = '#9CA3AF';
+                b.style.borderColor = 'transparent';
+            });
+            btn.style.color = '#2563EB';
+            btn.style.borderColor = '#2563EB';
+        }
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if (!btn.classList.contains('active:scale-95')) {
+                    btn.style.transform = 'translateY(-2px)';
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simple parallax for background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.bg-grid');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // ── Three Steps: scroll-triggered animation ────────────────────
+        const stepsSection = document.querySelector('.steps-section');
+        const stepsBadgesRow = document.querySelector('.steps-badges-row');
+        if (stepsSection && stepsBadgesRow) {
+            const stepsEntryObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        stepsSection.classList.add('in-view');
+                        stepsBadgesRow.classList.add('in-view');
+                        stepsEntryObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.25 });
+            stepsEntryObserver.observe(stepsSection);
+
+            // Active badge glow follows whichever card is most in view
+            const stepCards = Array.from(document.querySelectorAll('.step-card'));
+            const stepBadges = Array.from(document.querySelectorAll('.step-badge'));
+            const visibility = new Map();
+            const activeObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    visibility.set(entry.target, entry.intersectionRatio);
+                });
+                let maxIndex = -1;
+                let maxRatio = 0;
+                stepCards.forEach((card, i) => {
+                    const ratio = visibility.get(card) || 0;
+                    if (ratio > maxRatio) {
+                        maxRatio = ratio;
+                        maxIndex = i;
+                    }
+                });
+                stepBadges.forEach((badge, i) => {
+                    badge.classList.toggle('active', i === maxIndex && maxRatio > 0);
+                });
+            }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+            stepCards.forEach((card) => activeObserver.observe(card));
+        }
+
+        // ── Chatbot ──────────────────────────────────────────────────
+        const BOT_RESPONSES = [
+            {
+                keywords: ['precio', 'price', 'plan', 'cost', 'costo', 'pricing', 'free', 'gratis', 'trial'],
+                text: 'We offer a 7-day free trial with no credit card required. After that, plans start at $29/month for the Starter plan, covering up to 1 chatbot and 1,000 messages/month. Our Growth and Enterprise plans unlock unlimited chatbots, custom branding, and priority support.',
+                chips: ["What's included in the free trial?", "Do you offer annual discounts?", "Is there an enterprise plan?"]
+            },
+            {
+                keywords: ['setup', 'install', 'embed', 'integrar', 'how to', 'start', 'comenzar', 'website'],
+                text: 'Setup takes just 3 steps: (1) Sync your training data by entering your URL or uploading files. (2) Copy and paste a single script tag onto your website. (3) The chatbot goes live instantly — no coding required!',
+                chips: ['Can I embed on multiple sites?', 'What file formats do you support?', 'How long does training take?']
+            },
+            {
+                keywords: ['security', 'seguridad', 'gdpr', 'hipaa', 'soc', 'privacy', 'privacidad', 'data', 'datos'],
+                text: 'Security is our top priority. Slabscan AI is SOC 2 Type II examined, GDPR certified, and HIPAA assessed. All data is encrypted at rest and in transit. Your content is never used to train global AI models.',
+                chips: ['Where is data stored?', 'Can I delete my data?', 'Is HIPAA compliance included?']
+            },
+            {
+                keywords: ['integra', 'slack', 'zendesk', 'notion', 'crisp', 'tool', 'connect'],
+                text: 'Slabscan AI integrates natively with Slack, Zendesk, Crisp, Notion, Messenger, and more. You can also use our API and webhooks to build custom integrations with any tool in your stack.',
+                chips: ['Is there an API available?', 'How do I connect Zendesk?', 'Can I use Webhooks?']
+            },
+            {
+                keywords: ['enterprise', 'agency', 'team', 'equipo', 'white label', 'custom'],
+                text: 'Our Enterprise plan offers white-label chatbots with your own branding, dedicated account management, custom SLAs, SSO, and volume pricing. Contact our sales team for a custom quote tailored to your needs.',
+                chips: ['Can I resell to clients?', 'Is white-labeling available?', 'Get in touch with sales']
+            },
+            {
+                keywords: ['language', 'idioma', 'español', 'french', 'languages', 'multilingual'],
+                text: 'Slabscan AI supports 95+ languages out of the box. The chatbot automatically detects the visitor\'s language and responds in kind — no extra configuration needed.',
+                chips: ['What languages are supported?', 'Can I set a default language?', 'Does training data need to match the language?']
+            },
+            {
+                keywords: ['human', 'agent', 'escalate', 'live', 'support', 'handoff'],
+                text: 'Yes! When the chatbot can\'t resolve an issue, it seamlessly escalates to a live human agent. You can configure escalation triggers, collect visitor info beforehand, and route to Zendesk, email, or a custom channel.',
+                chips: ['How do I configure escalation?', 'Can I set escalation keywords?', 'Which support tools are supported?']
+            },
+        ];
+
+        const DEFAULT_RESPONSE = {
+            text: 'Great question! Slabscan AI is a personalized chatbot trained on your website content. It instantly answers visitor questions 24/7, captures leads, and can escalate complex issues to your human support team. Is there something specific you\'d like to know?',
+            chips: ['How does pricing work?', 'How do I set it up?', 'Is it secure?']
+        };
+
+        const chatStates = {};
+        function getChatState(prefix) {
+            if (!chatStates[prefix]) chatStates[prefix] = { history: [], typing: false };
+            return chatStates[prefix];
+        }
+
+        function getBotResponse(userMessage) {
+            const lower = userMessage.toLowerCase();
+            for (const r of BOT_RESPONSES) {
+                if (r.keywords.some(k => lower.includes(k))) return r;
+            }
+            return DEFAULT_RESPONSE;
+        }
+
+        function scrollToBottom(prefix) {
+            const area = document.getElementById(`${prefix}-messages`);
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function addUserMessage(text, prefix) {
+            const area = document.getElementById(`${prefix}-messages`);
+            const wrapper = document.createElement('div');
+            wrapper.className = 'flex justify-end';
+            wrapper.innerHTML = `
+                <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none px-3 py-2.5 max-w-[78%] shadow-sm">
+                    <p class="text-base">${text}</p>
+                    <p style="font-size:12px; opacity:0.7; margin-top:2px; text-align:right;">just now</p>
+                </div>`;
+            area.appendChild(wrapper);
+            scrollToBottom(prefix);
+        }
+
+        function addTypingIndicator(prefix) {
+            const area = document.getElementById(`${prefix}-messages`);
+            const wrapper = document.createElement('div');
+            wrapper.id = `${prefix}-typing-indicator`;
+            wrapper.className = 'flex gap-2 items-start';
+            wrapper.innerHTML = `
+                <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-gray-100">
+                    <div class="flex gap-1 items-center">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0ms;"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:150ms;"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:300ms;"></span>
+                    </div>
+                </div>`;
+            area.appendChild(wrapper);
+            scrollToBottom(prefix);
+        }
+
+        function removeTypingIndicator(prefix) {
+            const el = document.getElementById(`${prefix}-typing-indicator`);
+            if (el) el.remove();
+        }
+
+        function addBotMessage(text, chips, prefix) {
+            const area = document.getElementById(`${prefix}-messages`);
+            const wrapper = document.createElement('div');
+            wrapper.className = 'flex gap-2 items-start';
+            const chipsHTML = chips && chips.length ? `
+                <div class="mt-2 flex flex-col gap-1.5">
+                    ${chips.map(c => `<button onclick="sendChip(this)" class="text-left text-sm text-blue-600 border border-blue-200 rounded-lg px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 transition-colors">${c}</button>`).join('')}
+                </div>` : '';
+            wrapper.innerHTML = `
+                <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+                    <p class="text-base text-gray-800">${text}</p>
+                    <p style="font-size:12px; color:#9ca3af; margin-top:3px;">just now</p>
+                    ${chipsHTML}
+                </div>`;
+            area.appendChild(wrapper);
+            scrollToBottom(prefix);
+        }
+
+        function sendMessage(text, prefix = 'chat') {
+            const state = getChatState(prefix);
+            if (!text.trim() || state.typing) return;
+            state.typing = true;
+            state.history.push({ role: 'user', text });
+            addUserMessage(text, prefix);
+            addTypingIndicator(prefix);
+            const response = getBotResponse(text);
+            setTimeout(() => {
+                removeTypingIndicator(prefix);
+                addBotMessage(response.text, response.chips, prefix);
+                state.history.push({ role: 'bot', text: response.text });
+                state.typing = false;
+                scrollToBottom(prefix);
+            }, 1200 + Math.random() * 600);
+        }
+
+        function sendChip(btn) {
+            const area = btn.closest('[id$="-messages"]');
+            const prefix = area ? area.id.replace(/-messages$/, '') : 'chat';
+            const text = btn.textContent.trim();
+            btn.closest('.flex.flex-col').querySelectorAll('button').forEach(b => b.disabled = true);
+            sendMessage(text, prefix);
+        }
+
+        function refreshChat(prefix = 'chat') {
+            document.getElementById(`${prefix}-menu-dropdown`).classList.add('hidden');
+            chatStates[prefix] = { history: [], typing: false };
+            const area = document.getElementById(`${prefix}-messages`);
+            area.innerHTML = `
+                <div class="flex gap-2 items-start">
+                    <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+                    </div>
+                    <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+                        <p class="text-base text-gray-800 mb-1">👋 Hi, I'm the Slabscan AI Assistant!</p>
+                        <p class="text-sm text-gray-500 mb-2">Ask me about:</p>
+                        <ul class="space-y-1.5">
+                            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Plans &amp; pricing</li>
+                            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Setup &amp; integrations</li>
+                            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Security &amp; privacy</li>
+                            <li class="text-sm text-gray-700 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>Agency/enterprise options</li>
+                        </ul>
+                    </div>
+                </div>`;
+        }
+
+        function downloadChat(prefix = 'chat') {
+            document.getElementById(`${prefix}-menu-dropdown`).classList.add('hidden');
+            const state = getChatState(prefix);
+            if (!state.history.length) return;
+            const lines = state.history.map(m => `[${m.role === 'user' ? 'You' : 'Slabscan AI'}]: ${m.text}`).join('\n\n');
+            const blob = new Blob([lines], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'slabscan-chat.txt';
+            a.click();
+        }
+
+        // Wire up send button, enter key & menu toggle for each chat widget instance
+        ['chat', 'live-chat'].forEach((prefix) => {
+            document.getElementById(`${prefix}-send-btn`).addEventListener('click', () => {
+                const input = document.getElementById(`${prefix}-input`);
+                sendMessage(input.value, prefix);
+                input.value = '';
+            });
+
+            document.getElementById(`${prefix}-input`).addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const input = document.getElementById(`${prefix}-input`);
+                    sendMessage(input.value, prefix);
+                    input.value = '';
+                }
+            });
+
+            document.getElementById(`${prefix}-menu-btn`).addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.getElementById(`${prefix}-menu-dropdown`).classList.toggle('hidden');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('[id$="-menu-dropdown"]').forEach((el) => el.classList.add('hidden'));
+        });
+    </script>
+</body></html>

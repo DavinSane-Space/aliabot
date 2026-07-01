@@ -1,0 +1,370 @@
+/* ============================================================
+   ALIABOT — Design Tokens v2
+   Paleta: Azul + Morado — Tech Premium
+   Versión: 2.0.0
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLORES BASE
+     ---------------------------------------------------------- */
+
+  /* Azul Principal */
+  --color-blue-50:  #EEF4FF;
+  --color-blue-100: #E0EAFF;
+  --color-blue-200: #C7D9FE;
+  --color-blue-300: #A5C0FD;
+  --color-blue-400: #6B9BFC;
+  --color-blue-500: #4B7CF8;
+  --color-blue-600: #2563EB;
+  --color-blue-700: #1D4ED8;
+  --color-blue-800: #1E3A8A;
+  --color-blue-900: #1E2E6E;
+  --color-blue-950: #0F1A45;
+
+  /* Morado / Violeta */
+  --color-violet-50:  #F5F3FF;
+  --color-violet-100: #EDE9FE;
+  --color-violet-200: #DDD6FE;
+  --color-violet-300: #C4B5FD;
+  --color-violet-400: #A78BFA;
+  --color-violet-500: #8B5CF6;
+  --color-violet-600: #7C3AED;
+  --color-violet-700: #6D28D9;
+  --color-violet-800: #4C1D95;
+  --color-violet-900: #2E1065;
+  --color-violet-950: #1A0A3E;
+
+  /* Índigo (puente entre azul y morado) */
+  --color-indigo-400: #818CF8;
+  --color-indigo-500: #6366F1;
+  --color-indigo-600: #4F46E5;
+
+  /* Neutrales */
+  --color-neutral-0:   #FFFFFF;
+  --color-neutral-50:  #F8F9FF;
+  --color-neutral-100: #F1F3FC;
+  --color-neutral-200: #E2E5F0;
+  --color-neutral-300: #C8CCDD;
+  --color-neutral-400: #9CA3C0;
+  --color-neutral-500: #6B7399;
+  --color-neutral-600: #4A5080;
+  --color-neutral-700: #323660;
+  --color-neutral-800: #1E2145;
+  --color-neutral-900: #11143A;
+  --color-neutral-950: #080A24;
+
+  /* ----------------------------------------------------------
+     GRADIENTES
+     ---------------------------------------------------------- */
+
+  /* Primario: Azul → Morado (CTA, botones, logos) */
+  --gradient-primary: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+
+  /* Tech: Azul eléctrico → Índigo */
+  --gradient-tech: linear-gradient(135deg, #4B7CF8 0%, #6366F1 100%);
+
+  /* Aurora: Azul → Morado → Rosa suave */
+  --gradient-aurora: linear-gradient(135deg, #6B9BFC 0%, #A78BFA 50%, #C084FC 100%);
+
+  /* Oscuro: para dark sections, hero dark, widget */
+  --gradient-dark: linear-gradient(135deg, #0F1A45 0%, #1A0A3E 100%);
+
+  /* Claro: fondos suaves para cards en light mode */
+  --gradient-light: linear-gradient(135deg, #EEF4FF 0%, #F5F3FF 100%);
+
+  /* Texto gradiente (background-clip: text) */
+  --gradient-text-primary: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-text-aurora:  linear-gradient(135deg, #4B7CF8 0%, #A78BFA 50%, #C084FC 100%);
+  --gradient-text-dark:    linear-gradient(135deg, #1D4ED8 0%, #6D28D9 100%);
+  --gradient-text-light:   linear-gradient(135deg, #6B9BFC 0%, #C4B5FD 100%);
+
+  /* Bordes con gradiente */
+  --gradient-border:        linear-gradient(135deg, #2563EB, #7C3AED);
+  --gradient-border-aurora: linear-gradient(135deg, #6B9BFC, #A78BFA, #C084FC);
+
+  /* ----------------------------------------------------------
+     SEMÁNTICA — Roles de color (light mode)
+     ---------------------------------------------------------- */
+
+  /* Marca */
+  --brand-primary:       var(--color-blue-600);
+  --brand-primary-hover: var(--color-blue-700);
+  --brand-secondary:     var(--color-violet-600);
+  --brand-accent:        var(--color-violet-400);
+
+  /* Fondos */
+  --bg-page:      #F8F9FF;
+  --bg-surface:   #FFFFFF;
+  --bg-surface-2: #F1F3FC;
+  --bg-surface-3: #E2E5F0;
+  --bg-dark:      var(--color-blue-950);
+  --bg-dark-2:    var(--color-violet-950);
+
+  /* Texto */
+  --text-primary:     var(--color-neutral-900);
+  --text-secondary:   var(--color-neutral-600);
+  --text-muted:       var(--color-neutral-500);
+  --text-inverse:     var(--color-neutral-0);
+  --text-brand:       var(--color-blue-600);
+  --text-brand-light: var(--color-blue-400);
+
+  /* Bordes */
+  --border-default:      var(--color-neutral-200);
+  --border-strong:       var(--color-neutral-300);
+  --border-brand:        var(--color-blue-600);
+  --border-brand-light:  var(--color-blue-200);
+  --border-violet:       var(--color-violet-300);
+
+  /* Estados */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error:   #EF4444;
+  --color-info:    var(--color-blue-500);
+  --color-online:  #22C55E;
+
+  /* ----------------------------------------------------------
+     TIPOGRAFÍA
+     ---------------------------------------------------------- */
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  --font-normal:   400;
+  --font-medium:   500;
+  --font-semibold: 600;
+
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+
+  --tracking-tight:   -0.025em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.08em;
+  --tracking-widest:   0.1em;
+
+  /* ----------------------------------------------------------
+     ESPACIADO
+     ---------------------------------------------------------- */
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ----------------------------------------------------------
+     RADIOS Y BORDES
+     ---------------------------------------------------------- */
+
+  --radius-sm:   0.375rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.25rem;
+  --radius-full: 9999px;
+
+  --border-width:       0.5px;
+  --border-width-md:    1px;
+  --border-width-brand: 1.5px;
+
+  /* ----------------------------------------------------------
+     SOMBRAS
+     ---------------------------------------------------------- */
+
+  --shadow-sm:    0 1px 3px rgba(37, 99, 235, 0.08), 0 1px 2px rgba(37, 99, 235, 0.05);
+  --shadow-md:    0 4px 12px rgba(37, 99, 235, 0.10), 0 2px 6px rgba(37, 99, 235, 0.06);
+  --shadow-lg:    0 10px 30px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(37, 99, 235, 0.08);
+  --shadow-brand: 0 4px 20px rgba(37, 99, 235, 0.30);
+  --shadow-violet:0 4px 20px rgba(124, 58, 237, 0.25);
+  --shadow-glow:  0 0 40px rgba(107, 155, 252, 0.20);
+  --shadow-glow-violet: 0 0 40px rgba(167, 139, 250, 0.20);
+
+  /* ----------------------------------------------------------
+     TRANSICIONES
+     ---------------------------------------------------------- */
+
+  --duration-fast:   150ms;
+  --duration-base:   200ms;
+  --duration-slow:   300ms;
+  --duration-slower: 500ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ----------------------------------------------------------
+     LAYOUT
+     ---------------------------------------------------------- */
+
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1440px;
+
+  --header-height: 64px;
+  --sidebar-width: 260px;
+
+  /* ----------------------------------------------------------
+     COMPONENTES — Widget de chat
+     ---------------------------------------------------------- */
+
+  --widget-bg:              var(--gradient-dark);
+  --widget-border:          rgba(107, 155, 252, 0.2);
+  --widget-bubble-bot-bg:   rgba(37, 99, 235, 0.12);
+  --widget-bubble-bot-text: #C7D9FE;
+  --widget-bubble-user-bg:  var(--gradient-primary);
+  --widget-bubble-user-text:var(--color-neutral-0);
+  --widget-online-color:    var(--color-online);
+  --widget-width:           380px;
+  --widget-height:          520px;
+  --widget-radius:          var(--radius-2xl);
+
+  /* ----------------------------------------------------------
+     COMPONENTES — Botones
+     ---------------------------------------------------------- */
+
+  --btn-primary-bg:     var(--gradient-primary);
+  --btn-primary-text:   var(--color-neutral-0);
+  --btn-primary-radius: var(--radius-lg);
+  --btn-primary-shadow: var(--shadow-brand);
+
+  --btn-secondary-bg:     var(--color-neutral-0);
+  --btn-secondary-border: var(--color-blue-600);
+  --btn-secondary-text:   var(--color-blue-600);
+  --btn-secondary-radius: var(--radius-lg);
+
+  /* ----------------------------------------------------------
+     COMPONENTES — Cards
+     ---------------------------------------------------------- */
+
+  --card-bg:      var(--color-neutral-0);
+  --card-border:  var(--color-neutral-200);
+  --card-radius:  var(--radius-xl);
+  --card-padding: var(--space-6);
+  --card-shadow:  var(--shadow-sm);
+
+  --card-hover-border:    var(--color-blue-200);
+  --card-hover-shadow:    var(--shadow-md);
+  --card-hover-transform: translateY(-4px);
+
+  --card-dark-bg:     var(--color-blue-950);
+  --card-dark-border: rgba(107, 155, 252, 0.15);
+
+  /* ----------------------------------------------------------
+     COMPONENTES — Badges / Pills
+     ---------------------------------------------------------- */
+
+  --badge-brand-bg:    var(--gradient-primary);
+  --badge-brand-text:  var(--color-neutral-0);
+  --badge-light-bg:    var(--gradient-light);
+  --badge-light-text:  var(--color-blue-700);
+  --badge-violet-bg:   var(--color-violet-100);
+  --badge-violet-text: var(--color-violet-700);
+  --badge-radius:      var(--radius-full);
+}
+
+/* ----------------------------------------------------------
+   DARK MODE
+   ---------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page:      var(--color-blue-950);
+    --bg-surface:   #111838;
+    --bg-surface-2: #151C42;
+    --bg-surface-3: #1A2250;
+
+    --border-default: rgba(107, 155, 252, 0.12);
+    --border-strong:  rgba(107, 155, 252, 0.25);
+
+    --card-bg:     #111838;
+    --card-border: rgba(107, 155, 252, 0.12);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ----------------------------------------------------------
+   CLASES UTILITARIAS — Gradiente en texto
+   ---------------------------------------------------------- */
+
+.grad-text {
+  background: var(--gradient-text-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-text-aurora {
+  background: var(--gradient-text-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-text-light {
+  background: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Botón primario */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--color-neutral-0);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-6);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: opacity var(--duration-base), transform var(--duration-fast), box-shadow var(--duration-base);
+}
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brand);
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background: var(--color-neutral-0);
+  color: var(--color-blue-600);
+  border: 1.5px solid var(--color-blue-600);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-6);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--duration-base);
+}
+.btn-secondary:hover {
+  background: var(--color-blue-50);
+  border-color: var(--color-violet-600);
+  color: var(--color-violet-600);
+}

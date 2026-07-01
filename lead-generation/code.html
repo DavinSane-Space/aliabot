@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lead Generation | Slabscan AI — Stop Losing Leads to Slow Replies</title>
+<meta name="description" content="Stop losing leads to slow replies. Slabscan AI's InstantTrain™ chatbot goes live in 5 minutes, responds in 5 seconds, and books appointments 24/7."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/aliabot_styles_v2.css">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#82cfff",
+                      "surface-variant": "#353535",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed": "#e2e2e2",
+                      "primary-container": "#0057ff",
+                      "surface-container-high": "#2a2a2a",
+                      "outline": "#6B7399",
+                      "surface-void": "#000000",
+                      "on-background": "#e2e2e2",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "primary-fixed": "#dce1ff",
+                      "surface-ink": "#191919",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed": "#001e2d",
+                      "secondary-fixed": "#c6e7ff",
+                      "outline-variant": "#434656",
+                      "on-secondary": "#00344b",
+                      "on-secondary-fixed-variant": "#004c6b",
+                      "accent-cyan": "#7C3AED",
+                      "surface-bright": "#393939",
+                      "on-error-container": "#ffdad6",
+                      "error-container": "#93000a",
+                      "surface-tint": "#b6c4ff",
+                      "tertiary": "#c6c6c7",
+                      "on-tertiary": "#2f3131",
+                      "on-error": "#690005",
+                      "inverse-on-surface": "#303030",
+                      "glass-border": "rgba(255, 255, 255, 0.12)",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "on-surface-variant": "#4A5080",
+                      "background": "#131313",
+                      "surface-container-low": "#1b1b1b",
+                      "primary": "#b6c4ff",
+                      "surface": "#131313",
+                      "inverse-primary": "#004ee7",
+                      "on-surface": "#4A5080",
+                      "accent-electric": "#2563EB",
+                      "on-secondary-container": "#002d41",
+                      "tertiary-container": "#676969",
+                      "secondary-container": "#2d9acf",
+                      "secondary": "#82cfff",
+                      "surface-container-highest": "#353535",
+                      "surface-container": "#1f1f1f",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#e9e9e9",
+                      "inverse-surface": "#e2e2e2",
+                      "glow-primary": "rgba(0, 87, 255, 0.4)",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-primary": "#00277f",
+                      "on-primary-fixed-variant": "#003ab2",
+                      "on-primary-container": "#e5e8ff",
+                      "on-primary-fixed": "#001550",
+                      "on-tertiary-fixed": "#1a1c1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "data-mono": ["Space Mono"],
+                      "label-caps": ["Space Mono"],
+                      "display-xl": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-xl": ["80px", {"lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        h1 { background: var(--gradient-text-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        h2 { background: var(--gradient-text-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        h3 { color: var(--brand-primary); }
+
+        .steps-badges-row { --step-gap: 2rem; position: relative; align-items: center; gap: var(--step-gap); margin-bottom: 2rem; }
+        .steps-connector-line {
+            position: absolute; top: 50%; left: calc((100% - 2 * var(--step-gap)) / 6); right: calc((100% - 2 * var(--step-gap)) / 6);
+            height: 2px; transform: translateY(-50%); background: linear-gradient(90deg, #2563EB, #7C3AED); z-index: 0;
+        }
+        .step-badge-wrap { display: flex; justify-content: center; position: relative; z-index: 1; }
+        .step-badge { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; }
+
+        .scenario-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .scenario-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12); }
+
+        .stat-card { transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); }
+
+        .industry-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #E2E5F0; }
+        .industry-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37, 99, 235, 0.10); border-color: #A5C0FD; }
+
+        .integration-box {
+            background: #FFFFFF; border: 1px solid #E2E5F0; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06); transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .integration-box:hover { border-color: #A5C0FD; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12); }
+        .integration-icon-circle { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #FFFFFF; }
+        .integration-icon-circle svg { width: 18px; height: 18px; }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- Atmospheric Background Layers -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent-electric opacity-[0.08] blur-[120px] rounded-full z-[-5]"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-cyan opacity-[0.08] blur-[100px] rounded-full z-[-5]"></div>
+
+<!-- Navigation -->
+<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
+<div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full rounded-full"
+     style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107, 155, 252, 0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);">
+  <a href="../index/code.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Slabscan AI</a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../features/code.html">Features</a>
+    <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="#">Lead Generation</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../pricing/code.html">Pricing</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../integrations/code.html">Integrations</a>
+    <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../security/code.html">Security</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <button class="hidden md:block font-body-md text-body-md transition-all duration-300 px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Sign In</button>
+    <button class="bg-primary-container px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="color:#FFFFFF;">Start A Free Trial</button>
+  </div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="font-label-caps text-label-caps block mb-4" style="color:#2563EB; letter-spacing:0.1em;">BUILT FOR SERVICE BUSINESSES THAT CAN'T AFFORD TO MISS LEADS</span>
+<h1 class="font-display-xl text-white mb-6 leading-[64px] text-[56px] tracking-[-0.04em] font-extrabold">
+                    Stop Losing Leads<br/>to Slow Replies
+</h1>
+<p class="font-body-lg text-body-lg mb-4 max-w-lg" style="color:var(--text-secondary);">
+                    Book appointments instantly — while competitors are still typing.
+                </p>
+<p class="font-body-md text-body-md mb-8 max-w-lg" style="color:#4A5080;">
+                    In just <strong style="color:#1E2185;">5 minutes</strong>, Slabscan AI's <strong style="color:#1E2185;">InstantTrain™</strong> engine turns your website into a 24/7 sales rep — replying in <strong style="color:#1E2185;">5 seconds</strong>, capturing leads instantly, and booking qualified appointments automatically.
+                </p>
+<div class="flex flex-wrap gap-x-8 gap-y-3 mb-8 font-data-mono text-data-mono" style="color:#4A5080;">
+<span class="flex items-center gap-2">⏱️ Live in 5 minutes</span>
+<span class="flex items-center gap-2">⚡ Replies in seconds</span>
+<span class="flex items-center gap-2">🌙 Books 24/7</span>
+</div>
+<div class="flex flex-wrap gap-4 mb-10">
+<button class="px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 group transition-all text-white" style="background:var(--gradient-primary); box-shadow:var(--shadow-brand);">
+                        Start free trial
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="px-8 py-4 rounded-lg font-bold text-lg transition-all" style="background:var(--color-neutral-0); color:var(--color-blue-600); border:1.5px solid var(--color-blue-600);">
+                        Watch demo
+                    </button>
+</div>
+<p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Trusted by 90+ businesses · 500,000+ conversations handled</p>
+</div>
+<div class="relative flex justify-center items-center">
+  <!-- Chatbot Widget -->
+  <div id="chat-widget" class="w-full max-w-[480px] bg-white rounded-2xl border border-gray-200 flex flex-col overflow-hidden mx-auto" style="height:640px; box-shadow:0 8px 40px rgba(0,0,0,0.13);">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-gray-100">
+      <div class="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white" style="font-size:17px; font-variation-settings:'FILL' 1;">smart_toy</span>
+      </div>
+      <span class="font-semibold text-gray-900 flex-1 text-base">Slabscan AI Assistant</span>
+      <span class="flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-full" style="background:#ECFDF5; color:#059669;"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>Online</span>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 scroll-smooth">
+      <div class="flex gap-2 items-start">
+        <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+          <p class="text-base text-gray-800 mb-1">👋 Hi! Thanks for reaching out after hours.</p>
+          <p class="text-sm text-gray-500">Can I grab a few details so we can get you booked in?</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none px-3 py-2.5 max-w-[78%] shadow-sm">
+          <p class="text-base">Basement flooding — do you do emergency calls?</p>
+        </div>
+      </div>
+      <div class="flex gap-2 items-start">
+        <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+          <p class="text-base text-gray-800">Yes, we offer 24/7 emergency service. What's the address and a good callback number?</p>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:#EEF2FF; color:#2563EB;">✓ Emergency service booked instantly</span>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-3 bg-white border-t border-gray-100">
+      <div class="flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 focus-within:border-blue-400 transition-colors">
+        <input id="chat-input" type="text" placeholder="Ask about your next job..."
+               class="flex-1 bg-transparent text-base text-gray-800 outline-none placeholder-gray-400 min-w-0">
+        <button id="chat-send-btn" class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-700 active:scale-95 transition-all">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+      </div>
+      <p class="text-center mt-1.5" style="font-size:10px; color:#9ca3af;">Powered by <strong style="color:#6b7280;">Slabscan AI</strong></p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Trusted By + Integrations -->
+<section class="py-12 border-y border-glass-border bg-surface-ink/20">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-8">Trusted by 90+ growing businesses including</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-50 grayscale hover:grayscale-0 transition-all mb-12">
+<span class="font-headline-md font-bold tracking-tighter">VALANT</span>
+<span class="font-headline-md font-bold tracking-tighter">GROWTHX</span>
+<span class="font-headline-md font-bold tracking-tighter">LISTNR</span>
+<span class="font-headline-md font-bold tracking-tighter">GENESIS</span>
+<span class="font-headline-md font-bold tracking-tighter">VECTOR</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6">Works seamlessly with your tools</p>
+<div class="flex flex-wrap justify-center items-center gap-6 opacity-70">
+<span class="material-symbols-outlined" style="color:#4A5080;">calendar_month</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">mail</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">event_available</span>
+<span class="font-bold" style="color:#4A5080;">Cal.com</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">hub</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">bolt</span>
+</div>
+</div>
+</section>
+
+<!-- Problem / Solution -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto" style="background:#F8F9FF;">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-6">Why you're losing leads right now</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">You're <strong style="color:#1E2185;">100x more likely to convert a lead</strong> if you respond within 5 minutes — but most service businesses take hours.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Problem -->
+<div class="p-8 rounded-xl bg-white" style="border: 1px solid #E2E5F0; border-radius: 16px; box-shadow: 0 4px 24px rgba(239, 68, 68, 0.06);">
+<span class="font-label-caps text-label-caps block mb-4" style="color:#EF4444; letter-spacing:0.1em;">THE PROBLEM</span>
+<h3 class="font-headline-md text-headline-md mb-6" style="color:#1E2185; font-weight:600;">Slow response = lost deals</h3>
+<ul class="space-y-5">
+<li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">Your competitors respond in minutes, you respond in hours.</p></li>
+<li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">Hot leads go cold waiting for callbacks and email replies.</p></li>
+<li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">78% of customers buy from whoever responds first.</p></li>
+<li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">Weekend inquiry? Monday callback means they already hired someone else.</p></li>
+</ul>
+</div>
+<!-- Solution -->
+<div class="p-8 rounded-xl text-white" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); border-radius: 16px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);">
+<span class="font-label-caps text-label-caps block mb-4" style="color:rgba(255,255,255,0.85); letter-spacing:0.1em;">THE SOLUTION</span>
+<h3 class="font-headline-md text-headline-md mb-6" style="color:#FFFFFF; font-weight:600;">Slabscan AI gives you an unfair advantage</h3>
+<ul class="space-y-5">
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>5-minute setup:</strong> paste your website URL and your AI is trained and live.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>Instant responses:</strong> answer questions, capture leads, and book appointments in seconds.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>24/7 availability:</strong> win deals while competitors sleep or are in meetings.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>No technical setup:</strong> works on any website without developers or complex integrations.</p></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Data Stats -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">The data speaks for itself</h2>
+<p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">Speed wins deals, and businesses using chat see dramatic results.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 text-center">
+<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
+<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">100x</div>
+<p class="font-bold mb-1" style="color:#1E2185;">more likely to convert: 5 min vs. 30 min response</p>
+<p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Source: Harvard Business Review</p>
+</div>
+<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
+<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2.8x</div>
+<p class="font-bold mb-1" style="color:#1E2185;">more likely to convert when visitors chat vs not</p>
+<p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Source: Gorgias Research</p>
+</div>
+<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
+<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">78%</div>
+<p class="font-bold mb-1" style="color:#1E2185;">of customers buy from the first responder</p>
+<p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Source: LeadConnect</p>
+</div>
+</div>
+</section>
+
+<!-- Four Ways -->
+<section class="py-24" style="background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Four ways to beat competitors to every deal</h2>
+<p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">While they're checking email, you're already closing.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">1</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Responds in Seconds (Not Hours)</h3>
+<p style="color:#4A5080;">While competitors take hours to reply, you respond instantly. 78% of customers buy from whoever responds first — that's you.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">2</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Captures After-Hours Leads</h3>
+<p style="color:#4A5080;">60% of searches happen outside business hours. Capture weekend browsers, late-night emergencies, and early-morning planners.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">3</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Pre-Qualifies Before You Talk</h3>
+<p style="color:#4A5080;">Gathers budget, timeline, and needs automatically. You only spend time on qualified, ready-to-buy prospects.</p>
+</div>
+</div>
+<div class="flex gap-5">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">4</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Books While You Sleep</h3>
+<p style="color:#4A5080;">Schedules appointments 24/7 directly in chat. Wake up to a calendar full of qualified meetings.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Real Scenarios -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">See it in real scenarios</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Real scenarios showing how Slabscan AI turns website visitors into booked appointments — 24/7.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="scenario-card p-6 rounded-xl" style="background:#EEF2FF; border:1px solid #E2E5F0;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB;"><span class="material-symbols-outlined" style="font-size:18px;">schedule</span>11:30 PM — EMERGENCY PLUMBING</div>
+<p class="font-bold mb-3" style="color:#1E2185;">"Basement flooding — do you do emergency calls?"</p>
+<p class="mb-4" style="color:#4A5080;">Bot confirms 24/7 service, collects address &amp; phone, and books the earliest slot.</p>
+<span class="text-sm font-bold" style="color:#059669;">✓ Emergency service booked instantly</span>
+</div>
+<div class="scenario-card p-6 rounded-xl" style="background:#F5F3FF; border:1px solid #E2E5F0;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#7C3AED;"><span class="material-symbols-outlined" style="font-size:18px;">description</span>2:15 PM — LEGAL CONSULT</div>
+<p class="font-bold mb-3" style="color:#1E2185;">"Injured in a car accident last month — do I have a case?"</p>
+<p class="mb-4" style="color:#4A5080;">Bot qualifies the matter, offers a free consult, and schedules a 15-minute call.</p>
+<span class="text-sm font-bold" style="color:#059669;">✓ Free consultation scheduled</span>
+</div>
+<div class="scenario-card p-6 rounded-xl" style="background:#ECFDF5; border:1px solid #E2E5F0;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#059669;"><span class="material-symbols-outlined" style="font-size:18px;">favorite</span>8:45 AM — DENTAL INSURANCE</div>
+<p class="font-bold mb-3" style="color:#1E2185;">"Do you take Delta Dental? Cost for a cleaning?"</p>
+<p class="mb-4" style="color:#4A5080;">Bot answers from your content, gives price guidance, and books an appointment.</p>
+<span class="text-sm font-bold" style="color:#059669;">✓ Cleaning appointment booked</span>
+</div>
+<div class="scenario-card p-6 rounded-xl" style="background:#FFF7ED; border:1px solid #E2E5F0;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#F97316;"><span class="material-symbols-outlined" style="font-size:18px;">groups</span>4:20 PM — AGENCY DISCOVERY</div>
+<p class="font-bold mb-3" style="color:#1E2185;">"50-person company looking to improve our sales process — can you help?"</p>
+<p class="mb-4" style="color:#4A5080;">Bot identifies fit and books a discovery call with the correct specialist.</p>
+<span class="text-sm font-bold" style="color:#059669;">✓ Discovery call scheduled</span>
+</div>
+</div>
+</section>
+
+<!-- Competitive Advantage -->
+<section class="py-20 px-margin-desktop max-w-container-max mx-auto text-center">
+<span class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full font-bold text-sm" style="background:#EEF2FF; color:#2563EB;"><span class="material-symbols-outlined" style="font-size:18px;">verified</span>The Competitive Advantage</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">The difference? These conversations happen <span style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">instantly, 24/7</span></h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto mb-8" style="color:#4A5080;">Your customers get immediate answers to their questions, building trust and confidence in your services from the very first interaction.</p>
+<div class="flex flex-wrap justify-center gap-x-10 gap-y-3 font-data-mono text-data-mono">
+<span class="flex items-center gap-2" style="color:#9CA3AF;"><span class="w-2.5 h-2.5 rounded-full" style="background:#F97316;"></span>Traditional: Wait for business hours</span>
+<span class="flex items-center gap-2" style="color:#059669;"><span class="w-2.5 h-2.5 rounded-full" style="background:#059669;"></span>Slabscan AI: Always available</span>
+</div>
+</section>
+
+<!-- 5-minute Setup -->
+<section class="py-24 overflow-hidden" style="background: #F8F9FF;">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-4">5-minute setup, instant results</h2>
+<p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">From website URL to booked appointments in 5 minutes.</p>
+</div>
+<div class="flex flex-wrap justify-center items-center gap-6 mb-4 opacity-70">
+<span class="material-symbols-outlined" style="color:#4A5080;">calendar_month</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">mail</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">event_available</span>
+<span class="font-bold" style="color:#4A5080;">Cal.com</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">hub</span>
+<span class="material-symbols-outlined" style="color:#4A5080;">bolt</span>
+</div>
+<p class="text-center mb-16 font-data-mono text-data-mono" style="color:#9CA3AF;">Books to your calendar and pushes leads to your CRM automatically</p>
+<!-- Badges + Connector Line -->
+<div class="hidden md:grid steps-badges-row" style="grid-template-columns: repeat(3, 1fr);">
+<div class="steps-connector-line"></div>
+<div class="step-badge-wrap"><div class="step-badge" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">1</div></div>
+<div class="step-badge-wrap"><div class="step-badge" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">2</div></div>
+<div class="step-badge-wrap"><div class="step-badge" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: #FFFFFF; border-radius: 10px;">3</div></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-6 rounded-xl" style="background:#FFFFFF; border:1px solid #E2E5F0; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<h3 class="font-headline-md text-headline-md mb-3" style="color:#1E2185; font-weight:600;">Go Live in 5 Minutes</h3>
+<ul class="space-y-2" style="color:#4A5080;">
+<li>• Paste your site URL → AI auto-trains on your content → Live in 5 mins.</li>
+<li><strong style="color:#1E2185;">No tech skills needed.</strong></li>
+</ul>
+</div>
+<div class="p-6 rounded-xl" style="background:#FFFFFF; border:1px solid #E2E5F0; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<h3 class="font-headline-md text-headline-md mb-3" style="color:#1E2185; font-weight:600;">Add to Website</h3>
+<ul class="space-y-2" style="color:#4A5080;">
+<li>• Drop in one line of code → Assistant is live.</li>
+<li><strong style="color:#1E2185;">Starts helping visitors instantly.</strong></li>
+</ul>
+</div>
+<div class="p-6 rounded-xl" style="background:#FFFFFF; border:1px solid #E2E5F0; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);">
+<h3 class="font-headline-md text-headline-md mb-3" style="color:#1E2185; font-weight:600;">Win More Deals</h3>
+<ul class="space-y-2" style="color:#4A5080;">
+<li>• AI responds instantly → Captures leads → Books appointments 24/7.</li>
+<li><strong style="color:#1E2185;">Close deals while competitors wait.</strong></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Industries -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Built for businesses where every lead counts</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Service businesses that can't afford to miss opportunities — just like these industry leaders.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">LEGAL SERVICES</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Law Firms &amp; Attorneys</h3>
+<p style="color:#4A5080;">Instantly qualify potential clients and never lose a lead to slow response times.</p>
+</div>
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">HEALTHCARE</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Dental &amp; Medical Clinics</h3>
+<p style="color:#4A5080;">Answer insurance questions and book appointments automatically — even at 2 AM.</p>
+</div>
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">HOME SERVICES</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Contractors &amp; Repair</h3>
+<p style="color:#4A5080;">Convert emergency situations into booked jobs by responding instantly when competitors can't.</p>
+</div>
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">FINANCIAL SERVICES</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Insurance &amp; Advisors</h3>
+<p style="color:#4A5080;">Qualify prospects and schedule consultations while building trust.</p>
+</div>
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">REAL ESTATE</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Agents &amp; Brokerages</h3>
+<p style="color:#4A5080;">Provide instant property info and connect buyers with agents.</p>
+</div>
+<div class="industry-card p-6 rounded-xl bg-white">
+<span class="font-label-caps text-label-caps block mb-2" style="color:#2563EB; letter-spacing:0.1em;">B2B SERVICES</span>
+<h3 class="font-headline-md text-[20px] mb-2" style="color:#1E2185; font-weight:700;">Consultants &amp; Agencies</h3>
+<p style="color:#4A5080;">Qualify prospects and book discovery calls automatically.</p>
+</div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 px-margin-desktop max-w-[1000px] mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-10">Frequently asked questions</h2>
+<blockquote class="p-6 rounded-xl mb-12" style="background:#EEF2FF; border-left:4px solid #2563EB;">
+<p class="italic mb-2" style="color:#1E2185;">"I built Slabscan AI after watching businesses lose deals to slow replies. Speed wins."</p>
+<p class="font-bold text-sm" style="color:#4A5080;">— Maya Calderón, Founder</p>
+</blockquote>
+<div class="divide-y" style="border-color:#E2E5F0;">
+<details class="faq-item group py-6" open>
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How quickly will I start getting more leads?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Immediately. Once you add Slabscan AI to your site (5-minute setup), it starts responding to visitors instantly. Most businesses see their first lead within 24 hours.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Are my leads and customer data secure?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Absolutely. We've completed a SOC 2 Type II examination and are both GDPR certified and HIPAA compliant. Your leads stay in your account only, all data is encrypted in transit and at rest, and we never use your customer conversations to train our AI.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">Will it capture leads outside business hours?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">Yes, 24/7/365. Weekend browsers, late-night emergencies, holiday shoppers — Slabscan AI captures and qualifies leads around the clock, even while you sleep.</div>
+</details>
+<details class="faq-item group py-6">
+<summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
+<span class="font-bold" style="color:#1a1a1a;">How does it qualify leads before I talk to them?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform" style="color:#1a1a1a;">expand_more</span>
+</summary>
+<div class="pt-3 pr-10" style="color:#4A5080;">You set the qualification questions (budget, timeline, needs). Slabscan AI naturally asks these during conversation and only forwards qualified prospects that match your criteria.</div>
+</details>
+</div>
+</section>
+
+<!-- Founder's Note -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto" style="background:#F8F9FF;">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg mb-4">Founder's note</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Why I built Slabscan AI after bootstrapping and selling my last startup for $250k</p>
+</div>
+<div class="max-w-2xl mx-auto p-8 rounded-xl bg-white" style="border:1px solid #E2E5F0; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);">MC</div>
+<div>
+<p class="italic mb-4" style="color:#1E2185;">"I bootstrapped my last SaaS and sold it for $250k. Now I'm building Slabscan AI because I saw how many businesses lose deals to slow responses. Speed wins — and every business deserves that advantage."</p>
+<p class="font-bold" style="color:#4A5080;">— Maya Calderón, Founder</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="cta-section rounded-[28px] py-16 px-8 text-center">
+<h2 class="font-headline-lg text-[40px] leading-[48px] font-extrabold mb-5" style="color:#FFFFFF; background:none; -webkit-text-fill-color:#FFFFFF;">Join 90+ businesses capturing leads<br/>their competitors are missing</h2>
+<p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Go live in 5 minutes — win your next deal tonight. While you decide, they're already booking appointments.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+<button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Start free trial</button>
+<button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4); backdrop-filter:blur(8px);">Watch demo</button>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>7-day free trial</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>No credit card required</a>
+<a class="flex items-center gap-2 font-data-mono text-data-mono underline" style="color:rgba(255,255,255,0.85);" href="#"><span class="material-symbols-outlined text-[18px]">check_circle</span>Cancel anytime</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-void border-t border-glass-border">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">Slabscan AI</div>
+<p class="text-outline max-w-xs font-data-mono text-data-mono">Book appointments instantly while competitors are still typing — a 24/7 AI sales rep for your website.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6 text-center md:text-left">
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold mb-1">Product</span>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../index/code.html">Features</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Lead Generation</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Security</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-white font-bold mb-1">Legal</span>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Privacy Policy</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Terms of Service</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Refund Policy</a>
+</div>
+</div>
+</div>
+<div class="mt-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center border-t border-glass-border pt-8">
+<div class="text-outline font-data-mono text-data-mono">© 2024 Slabscan AI. All rights reserved.</div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">public</span>
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">video_library</span>
+<span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">forum</span>
+</div>
+</div>
+</footer>
+
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if (!btn.classList.contains('active:scale-95')) {
+                    btn.style.transform = 'translateY(-2px)';
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+
+        // ── Hero chat widget ─────────────────────────────────────────
+        const BOT_RESPONSES = [
+            {
+                keywords: ['emergency', 'urgent', 'asap', 'now', 'flood', 'leak'],
+                text: 'We can absolutely help with that. Can you share your address and a callback number so we can get the earliest available slot booked for you?',
+            },
+            {
+                keywords: ['price', 'cost', 'how much', 'quote'],
+                text: 'Pricing depends on the scope of the job. If you share a few details about what you need, I can get you a ballpark estimate and book a free consult.',
+            },
+            {
+                keywords: ['hours', 'open', 'available', 'weekend', 'night'],
+                text: 'We\'re available 24/7 — including weekends and after hours. I can book your appointment right now if you\'d like.',
+            },
+            {
+                keywords: ['book', 'appointment', 'schedule', 'consult'],
+                text: 'Great! What day and time works best for you? I\'ll lock it into the calendar and send a confirmation right away.',
+            },
+        ];
+        const DEFAULT_RESPONSE = { text: 'Got it — let me get a bit more detail so I can match you with the right specialist and get you booked in.' };
+
+        const chatHistory = [];
+        let chatTyping = false;
+
+        function getBotResponse(userMessage) {
+            const lower = userMessage.toLowerCase();
+            for (const r of BOT_RESPONSES) {
+                if (r.keywords.some(k => lower.includes(k))) return r;
+            }
+            return DEFAULT_RESPONSE;
+        }
+
+        function scrollChatToBottom() {
+            const area = document.getElementById('chat-messages');
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function addUserChatMessage(text) {
+            const area = document.getElementById('chat-messages');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'flex justify-end';
+            wrapper.innerHTML = `
+                <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none px-3 py-2.5 max-w-[78%] shadow-sm">
+                    <p class="text-base">${text}</p>
+                </div>`;
+            area.appendChild(wrapper);
+            scrollChatToBottom();
+        }
+
+        function addTypingIndicator() {
+            const area = document.getElementById('chat-messages');
+            const wrapper = document.createElement('div');
+            wrapper.id = 'chat-typing-indicator';
+            wrapper.className = 'flex gap-2 items-start';
+            wrapper.innerHTML = `
+                <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-gray-100">
+                    <div class="flex gap-1 items-center">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0ms;"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:150ms;"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:300ms;"></span>
+                    </div>
+                </div>`;
+            area.appendChild(wrapper);
+            scrollChatToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const el = document.getElementById('chat-typing-indicator');
+            if (el) el.remove();
+        }
+
+        function addBotChatMessage(text) {
+            const area = document.getElementById('chat-messages');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'flex gap-2 items-start';
+            wrapper.innerHTML = `
+                <div class="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-white" style="font-size:13px; font-variation-settings:'FILL' 1;">smart_toy</span>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-none px-3 py-2.5 shadow-sm border border-gray-100 max-w-[85%]">
+                    <p class="text-base text-gray-800">${text}</p>
+                </div>`;
+            area.appendChild(wrapper);
+            scrollChatToBottom();
+        }
+
+        function sendChatMessage(text) {
+            if (!text.trim() || chatTyping) return;
+            chatTyping = true;
+            chatHistory.push({ role: 'user', text });
+            addUserChatMessage(text);
+            addTypingIndicator();
+            const response = getBotResponse(text);
+            setTimeout(() => {
+                removeTypingIndicator();
+                addBotChatMessage(response.text);
+                chatHistory.push({ role: 'bot', text: response.text });
+                chatTyping = false;
+                scrollChatToBottom();
+            }, 1000 + Math.random() * 600);
+        }
+
+        document.getElementById('chat-send-btn').addEventListener('click', () => {
+            const input = document.getElementById('chat-input');
+            sendChatMessage(input.value);
+            input.value = '';
+        });
+
+        document.getElementById('chat-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('chat-input');
+                sendChatMessage(input.value);
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

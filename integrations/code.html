@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integrations | Slabscan AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/aliabot_styles_v2.css">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#0057ff",
+          "on-primary-container": "#e5e8ff",
+          "accent-cyan": "#7C3AED",
+          "accent-electric": "#2563EB",
+          "outline": "#6B7399",
+          "on-surface": "#4A5080",
+          "surface-ink": "#191919",
+          "glass-border": "rgba(255,255,255,0.12)"
+        },
+        fontFamily: {
+          "display-xl":  ["Hanken Grotesk"],
+          "headline-lg": ["Hanken Grotesk"],
+          "headline-md": ["Hanken Grotesk"],
+          "body-lg":     ["Hanken Grotesk"],
+          "body-md":     ["Hanken Grotesk"],
+          "label-caps":  ["Space Mono"],
+          "data-mono":   ["Space Mono"]
+        },
+        fontSize: {
+          "display-xl":  ["80px",  {"lineHeight":"76px","letterSpacing":"-0.04em","fontWeight":"800"}],
+          "headline-lg": ["48px",  {"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "headline-md": ["32px",  {"lineHeight":"40px","fontWeight":"600"}],
+          "body-lg":     ["18px",  {"lineHeight":"28px","fontWeight":"400"}],
+          "body-md":     ["16px",  {"lineHeight":"24px","fontWeight":"400"}],
+          "label-caps":  ["12px",  {"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],
+          "data-mono":   ["14px",  {"lineHeight":"20px","fontWeight":"400"}]
+        },
+        spacing: {
+          "margin-desktop":  "64px",
+          "container-max":   "1280px"
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #ffffff; color: #1a1a1a; overflow-x: hidden; }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  h1, h2 {
+    background: var(--gradient-text-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  h3 { color: var(--brand-primary); }
+
+  /* Orbit visual */
+  .orbit-wrap {
+    background: radial-gradient(circle at 50% 50%, rgba(37,99,235,0.10), transparent 65%);
+  }
+  .orbit-glow {
+    background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(124,58,237,0.06) 100%);
+    pointer-events: none;
+  }
+  .orbit-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(37,99,235,0.35);
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+  .orbit-ring-1 { width:140px; height:140px; }
+  .orbit-ring-2 { width:270px; height:270px; border-color:rgba(124,58,237,0.28); }
+  .orbit-ring-3 { width:400px; height:400px; border-color:rgba(124,58,237,0.20); }
+  .orbit-radar {
+    position: absolute;
+    top:50%; left:50%;
+    width:140px; height:140px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(37,99,235,0.25), transparent 70%);
+    transform: translate(-50%,-50%) scale(1);
+    opacity:0.6;
+    pointer-events:none;
+    animation: orbit-radar-pulse 4s ease-out infinite;
+  }
+  .orbit-radar-delay { animation-delay:2s; }
+  @keyframes orbit-radar-pulse {
+    0%   { transform: translate(-50%,-50%) scale(0.6); opacity:0.5; }
+    100% { transform: translate(-50%,-50%) scale(2.9); opacity:0; }
+  }
+  .orbit-rotator {
+    position:absolute; inset:0;
+    animation: orbit-spin 60s linear infinite;
+  }
+  .orbit-wrap:hover .orbit-rotator { animation-play-state:paused; }
+  @keyframes orbit-spin {
+    from { transform:rotate(0deg); }
+    to   { transform:rotate(360deg); }
+  }
+  .orbit-node {
+    position:absolute;
+    transform:translate(-50%,-50%);
+  }
+  .orbit-icon-counter { animation: orbit-spin 60s linear infinite reverse; }
+  .orbit-icon {
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:0 4px 16px rgba(37,99,235,0.15);
+  }
+  .orbit-icon:hover { transform:scale(1.18); box-shadow:0 8px 28px rgba(124,58,237,0.35); }
+  .orbit-icon-a { background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%); color:#fff; border:none; }
+  .orbit-icon-b { background:rgba(255,255,255,0.9); border:1.5px solid rgba(37,99,235,0.25); }
+  .orbit-icon-c { background:rgba(255,255,255,0.9); border:1.5px solid rgba(124,58,237,0.25); }
+  .orbit-center {
+    position:absolute; top:50%; left:50%;
+    width:96px; height:96px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%);
+    color:#fff;
+    box-shadow:0 0 0 8px rgba(37,99,235,0.12), 0 0 40px rgba(124,58,237,0.45);
+    z-index:5;
+    animation: orbit-center-pulse 3s ease-in-out infinite;
+  }
+  @keyframes orbit-center-pulse {
+    0%,100% { transform:translate(-50%,-50%) scale(1); }
+    50%      { transform:translate(-50%,-50%) scale(1.06); }
+  }
+  .integration-panel {
+    background:#fff;
+    position:relative;
+    border:1px solid #E2E5F0;
+    border-radius:20px;
+    box-shadow:0 8px 40px rgba(37,99,235,0.10), inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .integration-panel::before {
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(107,155,252,0.08) 0%, transparent 50%);
+    border-radius:inherit; pointer-events:none;
+  }
+
+  /* Integration cards */
+  .int-card {
+    background:#fff;
+    border:1px solid #E2E5F0;
+    border-radius:16px;
+    padding:32px 24px 24px;
+    display:flex; flex-direction:column; gap:16px;
+    box-shadow:0 2px 8px rgba(37,99,235,0.06);
+    transition:border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .int-card:hover {
+    border-color:#A5C0FD;
+    transform:translateY(-3px);
+    box-shadow:0 8px 24px rgba(37,99,235,0.12);
+  }
+  .int-card-icon {
+    width:72px; height:72px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:#F1F3FC;
+    flex-shrink:0;
+  }
+  .int-card-icon img, .int-card-icon svg { width:40px; height:40px; }
+
+  .int-card h3 {
+    font-size:18px; font-weight:700;
+    color:#11143A !important;
+    -webkit-text-fill-color:#11143A !important;
+    background:none !important;
+    margin:0;
+  }
+  .int-card p { color:#4A5080; font-size:15px; line-height:1.6; margin:0; }
+
+  .coming-soon-badge {
+    display:inline-block;
+    background:#E0F2FE;
+    color:#0369A1;
+    font-size:11px; font-weight:700;
+    letter-spacing:0.06em;
+    padding:2px 8px;
+    border-radius:20px;
+    text-transform:uppercase;
+  }
+
+  /* Hero section */
+  .hero-check { display:flex; align-items:center; gap:6px; color:#4A5080; font-size:14px; }
+  .hero-check svg { color:#2563EB; flex-shrink:0; }
+
+  /* Section label */
+  .section-label {
+    font-family:'Space Mono', monospace;
+    font-size:12px; font-weight:700;
+    letter-spacing:0.1em;
+    color:#2563EB;
+    text-transform:uppercase;
+    display:block; margin-bottom:12px;
+  }
+
+  /* CTA section */
+  .cta-section {
+    background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%);
+    position:relative; overflow:hidden;
+  }
+  .cta-section::before {
+    content:'';
+    position:absolute; top:-20%; left:50%;
+    transform:translateX(-50%);
+    width:600px; height:600px;
+    background:radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  /* Steps */
+  .step-num {
+    width:48px; height:48px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%);
+    color:#fff; font-weight:700; font-size:20px;
+    flex-shrink:0;
+  }
+</style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+
+<!-- Navigation -->
+<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
+  <div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full"
+       style="background:linear-gradient(135deg,rgba(37,99,235,0.15) 0%,rgba(124,58,237,0.15) 100%); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(107,155,252,0.2); border-radius:16px; box-shadow:0 4px 24px rgba(37,99,235,0.08);">
+    <a href="../index/code.html" class="font-headline-md text-headline-md font-bold tracking-tighter"
+       style="background:linear-gradient(135deg,#2563EB,#7C3AED); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Slabscan AI</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;"
+         onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'"
+         href="../features/code.html">Features</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;"
+         onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'"
+         href="../lead-generation/code.html">Lead Generation</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;"
+         onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'"
+         href="../pricing/code.html">Pricing</a>
+      <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300"
+         style="color:#2563EB; border-color:#2563EB;"
+         href="code.html">Integrations</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;"
+         onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'"
+         href="../security/code.html">Security</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:block font-body-md transition-all duration-300 px-2" style="color:#1E2185;"
+              onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Sign In</button>
+      <button class="px-5 py-2 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
+              style="background:linear-gradient(135deg,#2563EB,#7C3AED); color:#fff; box-shadow:0 0 12px rgba(0,87,255,0.4);">Start A Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(180deg,#F8F9FF 0%,#ffffff 100%); padding-top:120px; padding-bottom:80px;">
+  <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+    <span class="section-label" style="text-align:center;">INTEGRATIONS</span>
+    <h1 class="font-headline-lg text-headline-lg mb-6 max-w-3xl mx-auto"
+        style="font-size:56px; line-height:1.12; letter-spacing:-0.03em; font-weight:800;">
+      Direct integrations with your favorite tools
+    </h1>
+    <p class="font-body-lg text-body-lg mb-8 max-w-xl mx-auto" style="color:#4A5080;">
+      Let Aliabot answer support questions over your customers' communication channels of choice.
+    </p>
+
+    <!-- Checkmarks row -->
+    <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 mb-10">
+      <span class="hero-check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        Personalized onboarding help
+      </span>
+      <span class="hero-check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        Friendly pricing as you scale
+      </span>
+      <span class="hero-check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        95+ languages supported
+      </span>
+      <span class="hero-check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        7-day free trial
+      </span>
+      <span class="hero-check">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        Cancel anytime
+      </span>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <button class="px-8 py-4 rounded-lg font-bold text-lg text-white hover:opacity-90 hover:scale-105 active:scale-95 transition-all"
+              style="background:linear-gradient(135deg,#2563EB,#7C3AED); box-shadow:0 4px 20px rgba(37,99,235,0.30);">
+        Start a free trial
+      </button>
+      <button class="px-8 py-4 rounded-lg font-bold text-lg transition-all hover:bg-blue-50"
+              style="background:#fff; color:#2563EB; border:1.5px solid #2563EB;">
+        Book a demo
+      </button>
+    </div>
+
+    <!-- Orbit visual -->
+    <div class="relative mx-auto orbit-wrap integration-panel" style="width:100%; max-width:600px; height:480px;">
+      <div class="absolute inset-0 orbit-glow" style="border-radius:20px;"></div>
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+      <div class="orbit-ring orbit-ring-3"></div>
+      <div class="orbit-radar"></div>
+      <div class="orbit-radar orbit-radar-delay"></div>
+      <div class="orbit-rotator">
+        <!-- WhatsApp -->
+        <div class="orbit-node" style="top:36%;left:9%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#25D366"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.01 4a8.94 8.94 0 0 0-7.74 13.41L4 21l3.7-1.27A8.93 8.93 0 0 0 12.01 21a8.94 8.94 0 0 0 5.59-15.68ZM12.01 19.4a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.73-.18-.28A7.42 7.42 0 1 1 19.43 11.4a7.4 7.4 0 0 1-7.42 8Zm4.07-5.56c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.58.72-.71.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.78-1.1-.66-.59-1.1-1.31-1.23-1.53-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.65-.18-.43-.36-.37-.5-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.28-.2.22-.78.77-.78 1.86s.8 2.16.91 2.31c.11.15 1.58 2.41 3.83 3.38.54.23.96.37 1.29.47.54.17 1.03.15 1.42.09.43-.06 1.31-.54 1.5-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27Z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Slack -->
+        <div class="orbit-node" style="top:22%;left:25%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-a" style="width:76px;height:76px;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="#fff"><path d="M8.84 14.6a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm1.06 0a2.1 2.1 0 1 1 4.2 0v5.26a2.1 2.1 0 1 1-4.2 0V14.6Zm2.1-8.46a2.1 2.1 0 1 1 2.1 2.1h-2.1v-2.1Zm0 1.06a2.1 2.1 0 1 1 0 4.2H6.74a2.1 2.1 0 1 1 0-4.2h5.26Zm8.46 2.1a2.1 2.1 0 1 1-2.1-2.1V9.3h2.1Zm-1.06 0a2.1 2.1 0 1 1-4.2 0V3.84a2.1 2.1 0 1 1 4.2 0V9.3Zm-2.1 8.46a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm0-1.06a2.1 2.1 0 1 1 0-4.2h5.26a2.1 2.1 0 1 1 0 4.2h-5.26Z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Google Drive -->
+        <div class="orbit-node" style="top:14%;left:50%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:60px;height:60px;">
+              <svg width="32" height="32" viewBox="0 0 87.3 78" fill="none"><path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066DA"/><path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 48.5C.4 49.9 0 51.45 0 53h27.5z" fill="#00AC47"/><path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.8z" fill="#EA4335"/><path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D"/><path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684FC"/><path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#FFBA00"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Zendesk -->
+        <div class="orbit-node" style="top:22%;left:75%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:60px;height:60px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#03363D"><path d="M3 3h13.5L3 17.5V21h7.5L21 10.5V21h0V3H3Z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Zendesk / Support -->
+        <div class="orbit-node" style="top:64%;left:9%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-a" style="width:56px;height:56px;">
+              <span class="material-symbols-outlined text-white" style="font-size:26px;">support_agent</span>
+            </div>
+          </div>
+        </div>
+        <!-- Notion -->
+        <div class="orbit-node" style="top:80%;left:25%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#000"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 2.028c-.42-.326-.981-.7-2.055-.607L3.01 2.835c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.668c0-.839.374-1.54 1.447-1.633z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- GitHub -->
+        <div class="orbit-node" style="top:84%;left:50%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-a" style="width:64px;height:64px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Intercom -->
+        <div class="orbit-node" style="top:74%;left:75%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#1F8DED"><path d="M12 2C6.48 2 2 5.92 2 10.7c0 2.65 1.42 5.02 3.64 6.6-.13.96-.5 2.45-1.43 3.74-.13.18.02.43.24.4 2.2-.3 3.93-1.27 4.92-1.97.83.18 1.7.27 2.63.27 5.52 0 10-3.92 10-8.7C22 5.92 17.52 2 12 2Zm-3.5 9.2a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Messenger -->
+        <div class="orbit-node" style="top:48%;left:91%;">
+          <div class="orbit-icon-counter">
+            <div class="orbit-icon orbit-icon-b" style="width:56px;height:56px;">
+              <svg width="28" height="28" viewBox="0 0 24 24"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00B2FF"/><stop offset="100%" stop-color="#006AFF"/></linearGradient></defs><path fill="url(#mg)" d="M12 2C6.36 2 2 6.13 2 11.7c0 2.9 1.21 5.51 3.17 7.37v3.43l3.3-1.8c.88.24 1.8.37 2.53.37 5.64 0 10-4.13 10-9.37C22 6.13 17.64 2 12 2Zm1.06 12.67-2.6-2.74-5.02 2.74 5.5-5.85 2.67 2.74 4.95-2.74z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Center bot icon -->
+      <div class="orbit-center">
+        <span class="material-symbols-outlined" style="font-size:40px; font-variation-settings:'FILL' 1;">smart_toy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     DATA SOURCE INTEGRATIONS
+════════════════════════════════════════════════════════ -->
+<section style="background:#F8F9FF; padding:96px 0;">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="text-center mb-14">
+      <span class="section-label" style="text-align:center; display:block;">DATA SOURCE INTEGRATIONS</span>
+      <h2 class="font-headline-lg text-headline-lg mb-4" style="font-size:44px;">Enhance Your Chatbot with Diverse Data Sources</h2>
+      <p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">
+        Integrate a wide range of data sources to empower Aliabot with rich, varied, and up-to-date training material, ensuring a well-informed and effective chatbot experience.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Google Drive -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f0faf5 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#E8F5E9;">
+          <svg width="40" height="40" viewBox="0 0 87.3 78" fill="none">
+            <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066DA"/>
+            <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 48.5C.4 49.9 0 51.45 0 53h27.5z" fill="#00AC47"/>
+            <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.8z" fill="#EA4335"/>
+            <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D"/>
+            <path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684FC"/>
+            <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#FFBA00"/>
+          </svg>
+        </div>
+        <h3>Google Drive</h3>
+        <p>Seamlessly access and sync chatbot training data stored in Google Drive, enabling easy management and updating of resources.</p>
+      </div>
+
+      <!-- Dropbox -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef4ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#EEF4FF;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#0061FE">
+            <path d="M12 2.4L6 6l6 3.6L18 6zm-6 7.2L0 13.2l6 3.6 6-3.6zm12 0l-6 3.6 6 3.6 6-3.6zM6 17.4l6 3.6 6-3.6-6-3.6z"/>
+          </svg>
+        </div>
+        <h3>Dropbox</h3>
+        <p>Integrate with Dropbox to utilize stored documents and files for chatbot training, ensuring data is readily available and up-to-date.</p>
+      </div>
+
+      <!-- OneDrive -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef6ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#E3F2FD;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#0078D4">
+            <path d="M19.33 10.24A7.02 7.02 0 0 0 12.67 5a6.99 6.99 0 0 0-6.4 4.22A5.5 5.5 0 0 0 1 14.5 5.5 5.5 0 0 0 6.5 20h13a4.5 4.5 0 0 0 4.5-4.5 4.5 4.5 0 0 0-4.67-4.76z"/>
+          </svg>
+        </div>
+        <h3>OneDrive</h3>
+        <p>Leverage OneDrive for cloud-based storage of chatbot training materials, offering easy access and collaboration features.</p>
+      </div>
+
+      <!-- Box -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef4ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#EEF4FF;">
+          <svg width="40" height="16" viewBox="0 0 80 32">
+            <text x="0" y="24" font-family="Arial Black,Arial" font-weight="900" font-size="28" fill="#0061D5">box</text>
+          </svg>
+        </div>
+        <h3>Box</h3>
+        <p>Incorporate Box for secure cloud storage of training data, ensuring safe and organized access to chatbot resources.</p>
+      </div>
+
+      <!-- Notion -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f9f9f9 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#F1F1EF;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#000">
+            <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 2.028c-.42-.326-.981-.7-2.055-.607L3.01 2.835c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933z"/>
+          </svg>
+        </div>
+        <h3>Notion</h3>
+        <p>Link with Notion to harness extensive notes and organized data for training, enhancing the chatbot's knowledge base.</p>
+      </div>
+
+      <!-- GitHub -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f5f5f5 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#F6F8FA;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#24292F">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </div>
+        <h3>GitHub</h3>
+        <p>Connect a GitHub repository to train your chatbot on Markdown docs, READMEs, and other files, keeping answers in sync with your codebase.</p>
+      </div>
+
+      <!-- YouTube — spans full width on last row for centered look -->
+      <div class="int-card md:col-start-2" style="background:linear-gradient(135deg,#fff5f5 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#FEE2E2;">
+          <svg width="40" height="28" viewBox="0 0 24 17" fill="none">
+            <rect width="24" height="17" rx="4" fill="#FF0000"/>
+            <polygon points="9.5,4 9.5,13 16.5,8.5" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>YouTube</h3>
+        <p>Train your chatbot using YouTube videos, playlists, and channels to provide comprehensive knowledge from video content.</p>
+      </div>
+
+    </div>
+
+    <!-- Submit request -->
+    <div class="mt-16 pt-10 border-t text-center" style="border-color:#E2E5F0;">
+      <p class="font-body-md mb-2" style="color:#4A5080;">Looking for another data source?</p>
+      <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB;"
+         onmouseover="this.style.color='#1E2185'" onmouseout="this.style.color='#2563EB'">
+        Submit a request
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAT INTEGRATIONS
+════════════════════════════════════════════════════════ -->
+<section style="background:#ffffff; padding:96px 0;">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="text-center mb-14">
+      <span class="section-label" style="display:block;">CHAT INTEGRATIONS</span>
+      <h2 class="font-headline-lg text-headline-lg mb-4" style="font-size:44px;">24/7 support in the platforms<br/>you already use</h2>
+      <p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">
+        Leverage Aliabot as a standalone support chatbot or as a support agent inside your existing support channels.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Google Chat -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f0faf5 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#E8F5E9;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="4" fill="#fff"/>
+            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.42 1.16 4.6 3 6.08V20l3.5-1.5A9.8 9.8 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8z" fill="#00AC47"/>
+            <path d="M15 9H9v2h6V9zm-2 4H9v2h4v-2z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Google Chat</h3>
+        <p>Allow your customers to receive instant support directly in their preferred messaging application.</p>
+      </div>
+
+      <!-- Messenger -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef6ff 0%,#f5f3ff 100%);">
+        <div class="int-card-icon" style="background:#EEF6FF;">
+          <svg width="36" height="36" viewBox="0 0 24 24">
+            <defs><linearGradient id="msg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00B2FF"/><stop offset="100%" stop-color="#006AFF"/></linearGradient></defs>
+            <path fill="url(#msg)" d="M12 2C6.36 2 2 6.13 2 11.7c0 2.9 1.21 5.51 3.17 7.37v3.43l3.3-1.8c.88.24 1.8.37 2.53.37 5.64 0 10-4.13 10-9.37C22 6.13 17.64 2 12 2Zm1.06 12.67-2.6-2.74-5.02 2.74 5.5-5.85 2.67 2.74 4.95-2.74z"/>
+          </svg>
+        </div>
+        <h3>Messenger</h3>
+        <p>Handle customer queries in real-time, opening up a convenient communication channel for support and ensuring that no question goes unanswered.</p>
+      </div>
+
+      <!-- Crisp -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef4ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#EEF4FF;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#2563EB">
+            <rect width="24" height="24" rx="12" fill="#2563EB"/>
+            <path d="M6 8h12v2H6zm0 4h9v2H6z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Crisp</h3>
+        <p>Automatically answer common customer queries and free up your team to handle more complex, personalized customer interactions.</p>
+      </div>
+
+      <!-- Slack -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f5f0ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#4A154B; border-radius:50%;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+            <path d="M8.84 14.6a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm1.06 0a2.1 2.1 0 1 1 4.2 0v5.26a2.1 2.1 0 1 1-4.2 0V14.6Zm2.1-8.46a2.1 2.1 0 1 1 2.1 2.1h-2.1v-2.1Zm0 1.06a2.1 2.1 0 1 1 0 4.2H6.74a2.1 2.1 0 1 1 0-4.2h5.26Zm8.46 2.1a2.1 2.1 0 1 1-2.1-2.1V9.3h2.1Zm-1.06 0a2.1 2.1 0 1 1-4.2 0V3.84a2.1 2.1 0 1 1 4.2 0V9.3Zm-2.1 8.46a2.1 2.1 0 1 1-2.1-2.1h2.1v2.1Zm0-1.06a2.1 2.1 0 1 1 0-4.2h5.26a2.1 2.1 0 1 1 0 4.2h-5.26Z"/>
+          </svg>
+        </div>
+        <h3>Slack</h3>
+        <p>Facilitate internal communications to make customer service staff more productive or enable Aliabot to power a shared customer service channel with your users.</p>
+      </div>
+
+      <!-- Freshdesk Messaging -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#DCFCE7; border-radius:50%;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+            <circle cx="12" cy="12" r="12" fill="#29AB87"/>
+            <path d="M7 9h10v2H7zm0 4h7v2H7z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Freshdesk Messaging</h3>
+        <p>Interact with customers, resolve common issues, and ensure a smooth and efficient customer service experience.</p>
+      </div>
+
+      <!-- Zendesk -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f0fdf8 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#E0F2F1; border-radius:50%;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+            <circle cx="12" cy="12" r="12" fill="#03363D"/>
+            <path d="M5 5h9L5 14V5zm14 5v9h-9L19 10z" fill="#fff"/>
+          </svg>
+        </div>
+        <h3>Zendesk</h3>
+        <p>Improve ticket response times, enhance customer satisfaction, and allow your human agents to focus on more complex, high-touch issues.</p>
+      </div>
+
+      <!-- Zoho SalesIQ -->
+      <div class="int-card" style="background:linear-gradient(135deg,#fff8f0 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#FFF3E0;">
+          <svg width="36" height="20" viewBox="0 0 90 26">
+            <text x="0" y="20" font-family="Arial,sans-serif" font-weight="800" font-size="18" fill="#E62427">ZOHO</text>
+          </svg>
+        </div>
+        <h3>Zoho SalesIQ</h3>
+        <p>Engage with visitors in real-time, answer queries instantly, and convert leads through live chat.</p>
+      </div>
+
+      <!-- WhatsApp — Coming Soon -->
+      <div class="int-card" style="background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#DCF8C6; border-radius:50%;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#25D366">
+            <path d="M17.6 6.32A8.86 8.86 0 0 0 12.01 4a8.94 8.94 0 0 0-7.74 13.41L4 21l3.7-1.27A8.93 8.93 0 0 0 12.01 21a8.94 8.94 0 0 0 5.59-15.68ZM12.01 19.4a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.73-.18-.28A7.42 7.42 0 1 1 19.43 11.4a7.4 7.4 0 0 1-7.42 8Zm4.07-5.56c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.58.72-.71.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.78-1.1-.66-.59-1.1-1.31-1.23-1.53-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.65-.18-.43-.36-.37-.5-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.28-.2.22-.78.77-.78 1.86s.8 2.16.91 2.31c.11.15 1.58 2.41 3.83 3.38.54.23.96.37 1.29.47.54.17 1.03.15 1.42.09.43-.06 1.31-.54 1.5-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27Z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="display:inline;">WhatsApp</h3>
+          <span class="coming-soon-badge" style="margin-left:8px;">Coming Soon</span>
+        </div>
+        <p>Offer immediate, intelligent responses to customer queries directly in this popular messaging app.</p>
+      </div>
+
+      <!-- Intercom — Coming Soon -->
+      <div class="int-card" style="background:linear-gradient(135deg,#eef4ff 0%,#ffffff 100%);">
+        <div class="int-card-icon" style="background:#DBEAFE; border-radius:50%;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#1F8DED">
+            <path d="M12 2C6.48 2 2 5.92 2 10.7c0 2.65 1.42 5.02 3.64 6.6-.13.96-.5 2.45-1.43 3.74-.13.18.02.43.24.4 2.2-.3 3.93-1.27 4.92-1.97.83.18 1.7.27 2.63.27 5.52 0 10-3.92 10-8.7C22 5.92 17.52 2 12 2Z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="display:inline;">Intercom</h3>
+          <span class="coming-soon-badge" style="margin-left:8px;">Coming Soon</span>
+        </div>
+        <p>Chat with users, resolve common issues, and ensure a smooth escalation to a human when needed.</p>
+      </div>
+
+    </div>
+
+    <!-- Submit request -->
+    <div class="mt-16 pt-10 border-t text-center" style="border-color:#E2E5F0;">
+      <p class="font-body-md mb-2" style="color:#4A5080;">Looking for another integration?</p>
+      <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB;"
+         onmouseover="this.style.color='#1E2185'" onmouseout="this.style.color='#2563EB'">
+        Submit a request
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     THREE EASY STEPS
+════════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,#F8F9FF 0%,#F5F3FF 100%); padding:96px 0;">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="text-center mb-14">
+      <h2 class="font-headline-lg mb-4" style="font-size:44px; line-height:1.15;">
+        You're <span style="background:linear-gradient(135deg,#2563EB,#7C3AED); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">three easy steps</span> away<br/>
+        from your own personalized AI support chatbot
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Step 1 -->
+      <div>
+        <div class="step-num mb-5">1</div>
+        <h3 class="font-bold text-lg mb-3" style="color:#11143A; font-size:18px; -webkit-text-fill-color:#11143A; background:none;">
+          <span style="text-decoration:underline; text-decoration-style:dotted; text-underline-offset:4px; text-decoration-color:#1E2185;">Sync training data</span>
+        </h3>
+        <p style="color:#4A5080;">Enter your URL for Aliabot to scan, or upload files, or drop in raw text content.</p>
+      </div>
+      <!-- Step 2 -->
+      <div>
+        <div class="step-num mb-5">2</div>
+        <h3 class="font-bold text-lg mb-3" style="color:#11143A; font-size:18px; -webkit-text-fill-color:#11143A; background:none;">
+          <span style="text-decoration:underline; text-decoration-style:dotted; text-underline-offset:4px; text-decoration-color:#1E2185;">Install on your site</span>
+        </h3>
+        <p style="color:#4A5080;">Embed a chatbot on as many sites as you want — your marketing site, in-app, help center... wherever.</p>
+      </div>
+      <!-- Step 3 -->
+      <div>
+        <div class="step-num mb-5">3</div>
+        <h3 class="font-bold text-lg mb-3" style="color:#11143A; font-size:18px; -webkit-text-fill-color:#11143A; background:none;">
+          <span style="text-decoration:underline; text-decoration-style:dotted; text-underline-offset:4px; text-decoration-color:#1E2185;">Learn and refine</span>
+        </h3>
+        <p style="color:#4A5080;">Use real chat history to improve your chatbot by providing feedback that allows it to improve with every interaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CTA
+════════════════════════════════════════════════════════ -->
+<section class="cta-section py-24">
+  <div class="max-w-container-max mx-auto px-margin-desktop text-center relative z-10">
+    <h2 class="font-headline-lg text-headline-lg mb-4" style="-webkit-text-fill-color:#fff; background:none; color:#fff; font-size:44px;">
+      Ready to connect your tools?
+    </h2>
+    <p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.8);">
+      Start your free 7-day trial and integrate Aliabot with the platforms your team already uses — no credit card required.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <button class="px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 active:scale-95"
+              style="background:#fff; color:#2563EB; box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+        Start a free trial
+      </button>
+      <button class="px-8 py-4 rounded-lg font-bold text-lg transition-all hover:bg-white/10"
+              style="background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,0.5);">
+        Book a demo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer style="background:#0F1A45; padding:64px 0 32px;">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+      <div class="max-w-xs">
+        <a href="../index/code.html" class="font-bold text-xl tracking-tighter mb-3 block"
+           style="background:linear-gradient(135deg,#6B9BFC,#C4B5FD); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+          Slabscan AI
+        </a>
+        <p style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">
+          AI-powered customer support chatbot trained on your content. Answer questions 24/7 automatically.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <p class="font-bold mb-4" style="color:rgba(255,255,255,0.4); letter-spacing:0.08em; font-size:11px; text-transform:uppercase;">Product</p>
+          <ul class="space-y-3">
+            <li><a href="../features/code.html" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Features</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Pricing</a></li>
+            <li><a href="code.html" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Integrations</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4" style="color:rgba(255,255,255,0.4); letter-spacing:0.08em; font-size:11px; text-transform:uppercase;">Company</p>
+          <ul class="space-y-3">
+            <li><a href="#" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">About</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Blog</a></li>
+            <li><a href="mailto:support@slabscan.ai" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4" style="color:rgba(255,255,255,0.4); letter-spacing:0.08em; font-size:11px; text-transform:uppercase;">Legal</p>
+          <ul class="space-y-3">
+            <li><a href="#" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Privacy Policy</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.7);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color:rgba(255,255,255,0.08);">
+      <p style="color:rgba(255,255,255,0.3); font-size:13px;">© 2026 Slabscan AI. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.3); font-size:13px;">Made with ❤ for better customer experiences</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

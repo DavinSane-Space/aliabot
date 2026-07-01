@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security | Slabscan AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/aliabot_styles_v2.css">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#82cfff",
+          "surface-variant": "#353535",
+          "surface-container-lowest": "#0e0e0e",
+          "tertiary-fixed": "#e2e2e2",
+          "primary-container": "#0057ff",
+          "surface-container-high": "#2a2a2a",
+          "outline": "#6B7399",
+          "surface-void": "#000000",
+          "on-background": "#e2e2e2",
+          "tertiary-fixed-dim": "#c6c6c7",
+          "primary-fixed": "#dce1ff",
+          "surface-ink": "#191919",
+          "surface-dim": "#131313",
+          "on-secondary-fixed": "#001e2d",
+          "secondary-fixed": "#c6e7ff",
+          "outline-variant": "#434656",
+          "on-secondary": "#00344b",
+          "on-secondary-fixed-variant": "#004c6b",
+          "accent-cyan": "#7C3AED",
+          "surface-bright": "#393939",
+          "on-error-container": "#ffdad6",
+          "error-container": "#93000a",
+          "surface-tint": "#b6c4ff",
+          "tertiary": "#c6c6c7",
+          "on-tertiary": "#2f3131",
+          "on-error": "#690005",
+          "inverse-on-surface": "#303030",
+          "glass-border": "rgba(255, 255, 255, 0.12)",
+          "primary-fixed-dim": "#b6c4ff",
+          "on-surface-variant": "#4A5080",
+          "background": "#131313",
+          "surface-container-low": "#1b1b1b",
+          "primary": "#b6c4ff",
+          "surface": "#131313",
+          "inverse-primary": "#004ee7",
+          "on-surface": "#4A5080",
+          "accent-electric": "#2563EB",
+          "on-secondary-container": "#002d41",
+          "tertiary-container": "#676969",
+          "secondary-container": "#2d9acf",
+          "secondary": "#82cfff",
+          "surface-container-highest": "#353535",
+          "surface-container": "#1f1f1f",
+          "error": "#ffb4ab",
+          "on-tertiary-container": "#e9e9e9",
+          "inverse-surface": "#e2e2e2",
+          "glow-primary": "rgba(0, 87, 255, 0.4)",
+          "on-tertiary-fixed-variant": "#454747",
+          "on-primary": "#00277f",
+          "on-primary-fixed-variant": "#003ab2",
+          "on-primary-container": "#e5e8ff",
+          "on-primary-fixed": "#001550",
+          "on-tertiary-fixed": "#1a1c1c"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter": "24px",
+          "container-max": "1280px",
+          "unit": "8px",
+          "margin-desktop": "64px",
+          "margin-mobile": "16px"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Hanken Grotesk"],
+          "body-md": ["Hanken Grotesk"],
+          "data-mono": ["Space Mono"],
+          "label-caps": ["Space Mono"],
+          "display-xl": ["Hanken Grotesk"],
+          "body-lg": ["Hanken Grotesk"],
+          "headline-md": ["Hanken Grotesk"],
+          "headline-lg": ["Hanken Grotesk"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+          "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+          "display-xl": ["80px", {"lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+          "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .cta-section {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  h1 {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  h2 {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cert-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E5F0;
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(37,99,235,0.07);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .cert-card:hover {
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+    transform: translateY(-3px);
+  }
+  .protect-card {
+    background: #F8F9FF;
+    border: 1px solid #E2E5F0;
+    border-radius: 16px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .protect-card:hover {
+    box-shadow: 0 6px 24px rgba(37,99,235,0.10);
+    transform: translateY(-2px);
+  }
+  .trust-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E5F0;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(37,99,235,0.06);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .trust-card:hover {
+    box-shadow: 0 8px 28px rgba(37,99,235,0.12);
+    transform: translateY(-3px);
+  }
+  .icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(124,58,237,0.12));
+    border: 1px solid rgba(107,155,252,0.2);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+
+<!-- Navigation -->
+<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
+  <div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full rounded-full"
+       style="background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(124,58,237,0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107,155,252,0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37,99,235,0.08);">
+    <a href="../index/code.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Slabscan AI</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../features/code.html">Features</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../lead-generation/code.html">Lead Generation</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../pricing/code.html">Pricing</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../integrations/code.html">Integrations</a>
+      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="../security/code.html">Security</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:block font-body-md text-body-md transition-all duration-300 px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Sign In</button>
+      <button class="bg-primary-container px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="color:#FFFFFF;">Start A Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="pt-40 pb-20 px-8 max-w-[1280px] mx-auto text-center" style="background:#FFFFFF;">
+  <span class="inline-block mb-4" style="color:#2563EB; letter-spacing:0.1em; font-size:11px; font-weight:600; text-transform:uppercase;">SECURITY</span>
+  <h1 class="font-headline-lg mb-6" style="font-size:56px; line-height:64px; font-weight:800; background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Security you can verify</h1>
+  <p class="font-body-lg text-body-lg max-w-2xl mx-auto mb-12" style="color:#4A5080;">
+    Aliabot has completed a SOC 2 Type II examination, is GDPR certified, and HIPAA assessed. Your data is encrypted, access-controlled, and never used to train AI models.
+  </p>
+  <!-- Badges -->
+  <div class="flex flex-wrap justify-center items-end gap-12">
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-28 h-28 rounded-full flex flex-col items-center justify-center shadow-lg" style="background: linear-gradient(135deg, #38BDF8 0%, #2563EB 100%);">
+        <span class="material-symbols-outlined text-white text-[30px]" style="font-variation-settings:'FILL' 1;">verified_user</span>
+        <span class="text-white font-bold leading-tight text-center" style="font-size:10px;">AICPA<br/>SOC</span>
+      </div>
+      <span class="font-bold text-sm" style="color:#1E2185;">SOC 2 Type II</span>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-28 h-28 rounded-2xl flex flex-col items-center justify-center shadow-lg" style="background:#1E3A8A;">
+        <span class="material-symbols-outlined text-yellow-400 text-[28px]" style="font-variation-settings:'FILL' 1;">lock</span>
+        <span class="text-white font-bold mt-1 leading-tight text-center" style="font-size:10px;">GDPR<br/>COMPLIANT</span>
+      </div>
+      <span class="font-bold text-sm" style="color:#1E2185;">GDPR Compliant</span>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-28 h-28 rounded-full flex flex-col items-center justify-center shadow-lg" style="background:#1E1145;">
+        <span class="material-symbols-outlined text-white text-[30px]" style="font-variation-settings:'FILL' 1;">medical_services</span>
+        <span class="text-white font-bold leading-tight text-center" style="font-size:10px;">HIPAA</span>
+      </div>
+      <span class="font-bold text-sm" style="color:#1E2185;">HIPAA Compliant</span>
+    </div>
+  </div>
+</section>
+
+<!-- Your conversations are yours -->
+<section class="py-24 px-8" style="background:linear-gradient(135deg,#0F1A45 0%,#1A0A3E 100%); position:relative; overflow:hidden;">
+  <div style="content:''; position:absolute; top:-10%; left:50%; transform:translateX(-50%); width:700px; height:400px; background:radial-gradient(ellipse,rgba(107,155,252,0.12) 0%,transparent 70%); pointer-events:none;"></div>
+  <div class="max-w-[1280px] mx-auto text-center" style="position:relative; z-index:1;">
+    <h2 class="font-headline-lg mb-4" style="font-size:44px; line-height:52px; font-weight:800; background:linear-gradient(135deg,#6B9BFC 0%,#A78BFA 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Your conversations are yours</h2>
+    <p class="font-body-lg mb-16 max-w-2xl mx-auto" style="color:rgba(255,255,255,0.65);">As an AI-powered product, we hold ourselves to a higher standard on data handling.</p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Never train -->
+      <div class="conv-card flex flex-col items-center gap-4 px-6 py-8" style="background:linear-gradient(135deg,rgba(107,155,252,0.08) 0%,rgba(167,139,250,0.10) 100%); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(167,139,250,0.2); border-radius:16px; box-shadow:0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.4)';this.style.boxShadow='0 8px 32px rgba(124,58,237,0.2)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(167,139,250,0.2)';this.style.boxShadow='0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05)';this.style.transform='translateY(0)';">
+        <div class="w-14 h-14 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(124,58,237,0.2)); border:1px solid rgba(167,139,250,0.25); border-radius:10px;">
+          <span class="material-symbols-outlined text-[28px]" style="color:#A78BFA; font-variation-settings:'FILL' 1;">do_not_touch</span>
+        </div>
+        <h3 class="font-semibold text-lg" style="color:#FFFFFF; -webkit-text-fill-color:#FFFFFF; font-weight:600;">We never train on your data</h3>
+        <p style="color:rgba(255,255,255,0.65); font-size:15px; line-height:1.6;">Your conversations, training data, and customer interactions are never used to train or fine-tune any AI models. Period.</p>
+      </div>
+      <!-- Zero retention -->
+      <div class="conv-card flex flex-col items-center gap-4 px-6 py-8" style="background:linear-gradient(135deg,rgba(107,155,252,0.08) 0%,rgba(167,139,250,0.10) 100%); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(167,139,250,0.2); border-radius:16px; box-shadow:0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.4)';this.style.boxShadow='0 8px 32px rgba(124,58,237,0.2)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(167,139,250,0.2)';this.style.boxShadow='0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05)';this.style.transform='translateY(0)';">
+        <div class="w-14 h-14 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(124,58,237,0.2)); border:1px solid rgba(167,139,250,0.25); border-radius:10px;">
+          <span class="material-symbols-outlined text-[28px]" style="color:#A78BFA; font-variation-settings:'FILL' 1;">visibility</span>
+        </div>
+        <h3 class="font-semibold text-lg" style="color:#FFFFFF; -webkit-text-fill-color:#FFFFFF; font-weight:600;">Zero data retention with LLM providers</h3>
+        <p style="color:rgba(255,255,255,0.65); font-size:15px; line-height:1.6;">Messages sent for AI processing are not retained by LLM providers. API data usage policy ensures inputs and outputs are not used to train their models.</p>
+      </div>
+      <!-- You own -->
+      <div class="conv-card flex flex-col items-center gap-4 px-6 py-8" style="background:linear-gradient(135deg,rgba(107,155,252,0.08) 0%,rgba(167,139,250,0.10) 100%); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(167,139,250,0.2); border-radius:16px; box-shadow:0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.4)';this.style.boxShadow='0 8px 32px rgba(124,58,237,0.2)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(167,139,250,0.2)';this.style.boxShadow='0 4px 24px rgba(37,99,235,0.10),inset 0 1px 0 rgba(255,255,255,0.05)';this.style.transform='translateY(0)';">
+        <div class="w-14 h-14 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(124,58,237,0.2)); border:1px solid rgba(167,139,250,0.25); border-radius:10px;">
+          <span class="material-symbols-outlined text-[28px]" style="color:#A78BFA; font-variation-settings:'FILL' 1;">inbox</span>
+        </div>
+        <h3 class="font-semibold text-lg" style="color:#FFFFFF; -webkit-text-fill-color:#FFFFFF; font-weight:600;">You own your data</h3>
+        <p style="color:rgba(255,255,255,0.65); font-size:15px; line-height:1.6;">Export or delete your data anytime. No lock-in, no data hostage situations. Your content, your conversations, your control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compliance certifications -->
+<section class="py-24 px-8" style="background:#F8F9FF;">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="font-headline-lg mb-4" style="font-size:44px; line-height:52px; font-weight:800; background:linear-gradient(135deg,#2563EB 0%,#7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Compliance certifications</h2>
+      <p style="color:#4A5080; font-size:17px;">Independently verified by third-party auditors.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- SOC 2 -->
+      <div class="p-8 flex flex-col gap-4" style="background:linear-gradient(135deg,rgba(37,99,235,0.04) 0%,rgba(124,58,237,0.06) 100%); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(107,155,252,0.15); border-radius:16px; box-shadow:0 4px 16px rgba(37,99,235,0.06); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.35)';this.style.boxShadow='0 8px 28px rgba(124,58,237,0.12)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(107,155,252,0.15)';this.style.boxShadow='0 4px 16px rgba(37,99,235,0.06)';this.style.transform='translateY(0)';">
+        <div class="flex items-center gap-3">
+          <div class="w-[52px] h-[52px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(124,58,237,0.10)); border:1px solid rgba(107,155,252,0.2); border-radius:10px;">
+            <span class="material-symbols-outlined text-[24px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">verified_user</span>
+          </div>
+          <h3 class="font-bold text-xl" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">SOC 2® Type II</h3>
+        </div>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Completed a SOC 2 Type II examination covering security, availability, and confidentiality trust service criteria. Audited by an independent CPA firm with zero exceptions noted across all tested controls.</p>
+        <ul class="space-y-2 mt-1">
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Security, availability &amp; confidentiality
+          </li>
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Report available for Enterprise customers
+          </li>
+        </ul>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold mt-2" style="color:#2563EB; font-size:15px;">
+          Request SOC 2 report <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+      </div>
+      <!-- GDPR -->
+      <div class="p-8 flex flex-col gap-4" style="background:linear-gradient(135deg,rgba(37,99,235,0.04) 0%,rgba(124,58,237,0.06) 100%); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(107,155,252,0.15); border-radius:16px; box-shadow:0 4px 16px rgba(37,99,235,0.06); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.35)';this.style.boxShadow='0 8px 28px rgba(124,58,237,0.12)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(107,155,252,0.15)';this.style.boxShadow='0 4px 16px rgba(37,99,235,0.06)';this.style.transform='translateY(0)';">
+        <div class="flex items-center gap-3">
+          <div class="w-[52px] h-[52px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(124,58,237,0.10)); border:1px solid rgba(107,155,252,0.2); border-radius:10px;">
+            <span class="material-symbols-outlined text-[24px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">lock</span>
+          </div>
+          <h3 class="font-bold text-xl" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">GDPR Compliant</h3>
+        </div>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Certified compliant with EU General Data Protection Regulation. Full compliance with data protection requirements for EU customers.</p>
+        <ul class="space-y-2 mt-1">
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Data Processing Agreement available
+          </li>
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Subprocessor list published
+          </li>
+        </ul>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold mt-2" style="color:#2563EB; font-size:15px;">
+          View DPA <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+      </div>
+      <!-- HIPAA -->
+      <div class="p-8 flex flex-col gap-4" style="background:linear-gradient(135deg,rgba(37,99,235,0.04) 0%,rgba(124,58,237,0.06) 100%); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(107,155,252,0.15); border-radius:16px; box-shadow:0 4px 16px rgba(37,99,235,0.06); transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.35)';this.style.boxShadow='0 8px 28px rgba(124,58,237,0.12)';this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(107,155,252,0.15)';this.style.boxShadow='0 4px 16px rgba(37,99,235,0.06)';this.style.transform='translateY(0)';">
+        <div class="flex items-center gap-3">
+          <div class="w-[52px] h-[52px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(124,58,237,0.10)); border:1px solid rgba(107,155,252,0.2); border-radius:10px;">
+            <span class="material-symbols-outlined text-[24px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">medical_services</span>
+          </div>
+          <h3 class="font-bold text-xl" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">HIPAA Compliant</h3>
+        </div>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Assessed for compliance with HIPAA security and privacy requirements. Safeguards in place for Protected Health Information.</p>
+        <ul class="space-y-2 mt-1">
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Business Associate Agreement available
+          </li>
+          <li class="flex items-center gap-2 text-sm" style="color:#4A5080;">
+            <span class="material-symbols-outlined text-[16px]" style="color:#2563EB; font-variation-settings:'FILL' 1;">check_circle</span>
+            Available on Enterprise plan
+          </li>
+        </ul>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold mt-2" style="color:#2563EB; font-size:15px;">
+          Request BAA <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How we protect your data -->
+<section class="py-24 px-8" style="background:#F8F9FF;">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="font-headline-lg mb-4" style="font-size:44px; line-height:52px; font-weight:800;">How we protect your data</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Encryption -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">lock</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Encryption</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">All data encrypted in transit with TLS 1.2+ and at rest. No unencrypted data leaves our systems.</p>
+      </div>
+      <!-- Access controls -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">shield</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Access controls</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Role-based permissions for team members. Control who can access chatbot settings, training data, and conversation history.</p>
+      </div>
+      <!-- Infrastructure -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">dns</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Infrastructure</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Deployed on Cloudflare Workers at the edge for low latency and high availability. Database access managed through Prisma Accelerate.</p>
+      </div>
+      <!-- Vendor management -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">checklist</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Vendor management</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">All subprocessors are vetted and documented. Full subprocessor list published for transparency.</p>
+      </div>
+      <!-- Data processing -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">description</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Data processing</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Data Processing Agreement available for Enterprise customers for GDPR compliance.</p>
+      </div>
+      <!-- Monitoring -->
+      <div class="protect-card p-8 flex flex-col gap-4">
+        <div class="icon-box">
+          <span class="material-symbols-outlined text-[24px]" style="color:#2563EB;">monitoring</span>
+        </div>
+        <h3 class="font-bold text-lg" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Monitoring</h3>
+        <p style="color:#4A5080; font-size:15px; line-height:1.65;">Continuous monitoring of infrastructure and application security. Automated alerting for anomalous activity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust & transparency -->
+<section class="py-24 px-8" style="background:#FFFFFF;">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="font-headline-lg mb-4" style="font-size:44px; line-height:52px; font-weight:800;">Trust &amp; transparency</h2>
+      <p style="color:#4A5080; font-size:17px;">Everything you need for your security review.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Trust portal -->
+      <div class="trust-card p-6 flex flex-col gap-3">
+        <h3 class="font-bold text-base" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Trust portal</h3>
+        <p style="color:#4A5080; font-size:14px; line-height:1.6; flex:1;">Access SOC 2 report, security documentation, and compliance details.</p>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB; font-size:14px;">
+          trust.slabscan.ai <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        </a>
+      </div>
+      <!-- DPA -->
+      <div class="trust-card p-6 flex flex-col gap-3">
+        <h3 class="font-bold text-base" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Data Processing Agreement</h3>
+        <p style="color:#4A5080; font-size:14px; line-height:1.6; flex:1;">Data Processing Agreement available for Enterprise customers.</p>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB; font-size:14px;">
+          View DPA <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        </a>
+      </div>
+      <!-- Subprocessors -->
+      <div class="trust-card p-6 flex flex-col gap-3">
+        <h3 class="font-bold text-base" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Subprocessors</h3>
+        <p style="color:#4A5080; font-size:14px; line-height:1.6; flex:1;">Full list of third-party services that process data on our behalf.</p>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB; font-size:14px;">
+          View list <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        </a>
+      </div>
+      <!-- Privacy policy -->
+      <div class="trust-card p-6 flex flex-col gap-3">
+        <h3 class="font-bold text-base" style="color:#1E2185; -webkit-text-fill-color:#1E2185;">Privacy policy</h3>
+        <p style="color:#4A5080; font-size:14px; line-height:1.6; flex:1;">How we collect, use, and protect your personal information.</p>
+        <a href="mailto:support@slabscan.ai" class="inline-flex items-center gap-1 font-bold" style="color:#2563EB; font-size:14px;">
+          View policy <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 px-8 max-w-[1280px] mx-auto">
+  <div class="cta-section rounded-[28px] py-16 px-8 text-center">
+    <h2 class="font-headline-lg text-[44px] leading-[52px] font-extrabold mb-5" style="color:#FFFFFF; background:none; -webkit-text-fill-color:#FFFFFF;">Ready to take Slabscan AI<br/>for a spin?</h2>
+    <p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Find out if a personalized AI support chatbot is a good fit for you in just a few hours.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Start a free trial</button>
+      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4); backdrop-filter:blur(8px);">Book a demo</button>
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Personalized onboarding help</span>
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Friendly pricing as you scale</span>
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>95+ languages supported</span>
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>7-day free trial</span>
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Cancel anytime</span>
+      <span class="flex items-center gap-2 font-data-mono text-data-mono" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>SOC 2 Type II compliant</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-void border-t border-glass-border">
+  <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+    <div class="flex flex-col gap-4">
+      <div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">Slabscan AI</div>
+      <p class="text-outline max-w-xs font-data-mono text-data-mono">Instantly answer your visitors' questions with a personalized chatbot trained on your website content.</p>
+    </div>
+    <div class="flex flex-wrap gap-x-12 gap-y-6 text-center md:text-left">
+      <div class="flex flex-col gap-3">
+        <span class="text-white font-bold mb-1">Product</span>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../features/code.html">Features</a>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../integrations/code.html">Integrations</a>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../security/code.html">Security</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="text-white font-bold mb-1">Legal</span>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Privacy Policy</a>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Terms of Service</a>
+        <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center border-t border-glass-border pt-8">
+    <div class="text-outline font-data-mono text-data-mono">© 2024 Slabscan AI. All rights reserved.</div>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">public</span>
+      <span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">video_library</span>
+      <span class="material-symbols-outlined text-outline hover:text-accent-electric cursor-pointer">forum</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
