@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/features/index.html", "destination": "/features", "permanent": true },
+    { "source": "/pricing/index.html", "destination": "/pricing", "permanent": true },
+    { "source": "/integrations/index.html", "destination": "/integrations", "permanent": true },
+    { "source": "/security/index.html", "destination": "/security", "permanent": true },
+    { "source": "/lead-generation/index.html", "destination": "/lead-generation", "permanent": true }
+  ],
+  "cleanUrls": true
+}

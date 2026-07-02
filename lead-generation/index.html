@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <html class="dark" lang="es"><head>
-<meta charset="utf-8"/>
+<meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Generación de Leads | Aliabot — Deja de Perder Clientes por Respuestas Lentas</title>
+<title>Clientes Potenciales | Aliabot — Deja de Perder Clientes por Respuestas Lentas</title>
 <meta name="description" content="Deja de perder clientes por respuestas lentas. El chatbot InstantTrain™ de Aliabot se activa en 5 minutos, responde en 5 segundos y agenda citas las 24 horas."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
@@ -108,7 +108,7 @@
     </script>
 <style>
         body {
-            background-color: #ffffff;
+            background-color: #F8F9FF;
             color: #1a1a1a;
             overflow-x: hidden;
         }
@@ -146,11 +146,35 @@
         .step-badge-wrap { display: flex; justify-content: center; position: relative; z-index: 1; }
         .step-badge { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; }
 
-        .scenario-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .scenario-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12); }
+        .scenario-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .scenario-card:hover {
+            border-color: rgba(167, 139, 250, 0.35);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.10);
+            transform: translateY(-4px);
+        }
 
-        .stat-card { transition: transform 0.3s ease; }
-        .stat-card:hover { transform: translateY(-4px); }
+        .stat-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .stat-card:hover {
+            border-color: rgba(167, 139, 250, 0.4);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(107, 155, 252, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .feature-item:hover {
+            border-color: rgba(167, 139, 250, 0.35);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.10);
+            transform: translateY(-3px);
+        }
 
         .industry-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #E2E5F0; }
         .industry-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37, 99, 235, 0.10); border-color: #A5C0FD; }
@@ -176,7 +200,7 @@
   <a href="../index.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Aliabot</a>
   <div class="hidden md:flex items-center gap-8">
     <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../features/index.html">Funciones</a>
-    <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="#">Generación de Leads</a>
+    <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="#">Clientes Potenciales</a>
     <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../pricing/index.html">Precios</a>
     <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../integrations/index.html">Integraciones</a>
     <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="../security/index.html">Seguridad</a>
@@ -192,20 +216,20 @@
 <section class="relative pt-32 pb-20 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
 <div class="grid md:grid-cols-2 gap-12 items-center">
 <div class="z-10">
-<span class="font-label-caps text-label-caps block mb-4" style="color:#2563EB; letter-spacing:0.1em;">DISEÑADO PARA NEGOCIOS DE SERVICIOS QUE NO PUEDEN PERDER CLIENTES</span>
-<h1 class="font-display-xl text-white mb-6 leading-[64px] text-[56px] tracking-[-0.04em] font-extrabold">
+<span class="font-label-caps text-label-caps block mb-4" style="color:#2563EB; letter-spacing:0.08em; font-size:11px;">DISEÑADO PARA NEGOCIOS DE SERVICIOS QUE NO PUEDEN PERDER CLIENTES</span>
+<h1 class="font-display-xl mb-6 leading-[64px] text-[56px] tracking-[-0.04em] font-extrabold" style="background:linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
                     Deja de Perder Clientes<br/>por Respuestas Lentas
 </h1>
-<p class="font-body-lg text-body-lg mb-4 max-w-lg" style="color:var(--text-secondary);">
+<p class="font-body-lg text-body-lg mb-4 max-w-lg" style="color:#4A5080;">
                     Agenda citas al instante, mientras tu competencia sigue escribiendo.
                 </p>
 <p class="font-body-md text-body-md mb-8 max-w-lg" style="color:#4A5080;">
-                    En solo <strong style="color:#1E2185;">5 minutos</strong>, el motor <strong style="color:#1E2185;">InstantTrain™</strong> de Aliabot convierte tu sitio web en un vendedor disponible las 24 horas: responde en <strong style="color:#1E2185;">5 segundos</strong>, captura clientes potenciales al instante y agenda citas calificadas automáticamente.
+                    En solo <strong style="color:#2563EB;">5 minutos</strong>, el motor <strong style="color:#2563EB;">InstantTrain™</strong> de Aliabot convierte tu sitio web en un vendedor disponible las 24 horas: responde en <strong style="color:#2563EB;">5 segundos</strong>, captura clientes potenciales al instante y agenda citas calificadas automáticamente.
                 </p>
 <div class="flex flex-wrap gap-x-8 gap-y-3 mb-8 font-data-mono text-data-mono" style="color:#4A5080;">
-<span class="flex items-center gap-2">⏱️ Activo en 5 minutos</span>
-<span class="flex items-center gap-2">⚡ Responde en segundos</span>
-<span class="flex items-center gap-2">🌙 Agenda las 24 horas</span>
+<span class="flex items-center gap-2"><span style="color:#2563EB;">⏱️</span> Activo en 5 minutos</span>
+<span class="flex items-center gap-2"><span style="color:#2563EB;">⚡</span> Responde en segundos</span>
+<span class="flex items-center gap-2"><span style="color:#2563EB;">🌙</span> Agenda las 24 horas</span>
 </div>
 <div class="flex flex-wrap gap-4 mb-10">
 <button class="px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 group transition-all text-white" style="background:var(--gradient-primary); box-shadow:var(--shadow-brand);">
@@ -276,40 +300,18 @@
 </div>
 </section>
 
-<!-- Trusted By + Integrations -->
-<section class="py-12 border-y border-glass-border bg-surface-ink/20">
-<div class="max-w-container-max mx-auto px-margin-desktop text-center">
-<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-8">Con la confianza de más de 90 negocios en crecimiento, incluyendo</p>
-<div class="flex flex-wrap justify-center items-center gap-16 opacity-50 grayscale hover:grayscale-0 transition-all mb-12">
-<span class="font-headline-md font-bold tracking-tighter">VALANT</span>
-<span class="font-headline-md font-bold tracking-tighter">GROWTHX</span>
-<span class="font-headline-md font-bold tracking-tighter">LISTNR</span>
-<span class="font-headline-md font-bold tracking-tighter">GENESIS</span>
-<span class="font-headline-md font-bold tracking-tighter">VECTOR</span>
-</div>
-<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-6">Funciona a la perfección con tus herramientas</p>
-<div class="flex flex-wrap justify-center items-center gap-6 opacity-70">
-<span class="material-symbols-outlined" style="color:#4A5080;">calendar_month</span>
-<span class="material-symbols-outlined" style="color:#4A5080;">mail</span>
-<span class="material-symbols-outlined" style="color:#4A5080;">event_available</span>
-<span class="font-bold" style="color:#4A5080;">Cal.com</span>
-<span class="material-symbols-outlined" style="color:#4A5080;">hub</span>
-<span class="material-symbols-outlined" style="color:#4A5080;">bolt</span>
-</div>
-</div>
-</section>
-
 <!-- Problem / Solution -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto" style="background:#F8F9FF;">
+<section class="py-24" style="background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
+<div class="px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg mb-6">Por qué estás perdiendo clientes ahora mismo</h2>
-<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Tienes <strong style="color:#1E2185;">100 veces más probabilidades de convertir un cliente potencial</strong> si respondes en 5 minutos, pero la mayoría de los negocios de servicios tardan horas.</p>
+<h2 class="font-headline-lg text-headline-lg mb-6" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Por qué estás perdiendo clientes ahora mismo</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Tienes <strong style="color:#2563EB; -webkit-text-fill-color:#2563EB;">100 veces más probabilidades de convertir un cliente potencial</strong> si respondes en 5 minutos, pero la mayoría de los negocios de servicios tardan horas.</p>
 </div>
 <div class="grid md:grid-cols-2 gap-8">
 <!-- Problem -->
-<div class="p-8 rounded-xl bg-white" style="border: 1px solid #E2E5F0; border-radius: 16px; box-shadow: 0 4px 24px rgba(239, 68, 68, 0.06);">
+<div class="p-8" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.04) 0%, rgba(37, 99, 235, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 20px; box-shadow: 0 4px 24px rgba(239, 68, 68, 0.06);">
 <span class="font-label-caps text-label-caps block mb-4" style="color:#EF4444; letter-spacing:0.1em;">EL PROBLEMA</span>
-<h3 class="font-headline-md text-headline-md mb-6" style="color:#1E2185; font-weight:600;">Respuesta lenta = negocios perdidos</h3>
+<h3 class="font-headline-md text-headline-md mb-6" style="color:#11143A; font-weight:600;">Respuesta lenta = negocios perdidos</h3>
 <ul class="space-y-5">
 <li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">Tu competencia responde en minutos, tú respondes en horas.</p></li>
 <li class="flex gap-3"><span class="w-2 h-2 mt-2 rounded-full shrink-0" style="background:#EF4444;"></span><p style="color:#4A5080;">Los clientes interesados se enfrían esperando llamadas o correos de vuelta.</p></li>
@@ -318,40 +320,43 @@
 </ul>
 </div>
 <!-- Solution -->
-<div class="p-8 rounded-xl text-white" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); border-radius: 16px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);">
-<span class="font-label-caps text-label-caps block mb-4" style="color:rgba(255,255,255,0.85); letter-spacing:0.1em;">LA SOLUCIÓN</span>
+<div class="p-8 text-white" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); border-radius: 20px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25); border: none;">
+<span class="font-label-caps text-label-caps block mb-4" style="color:rgba(255,255,255,0.7); letter-spacing:0.1em;">LA SOLUCIÓN</span>
 <h3 class="font-headline-md text-headline-md mb-6" style="color:#FFFFFF; font-weight:600;">Aliabot te da una ventaja injusta</h3>
 <ul class="space-y-5">
-<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>Configuración en 5 minutos:</strong> pega la URL de tu sitio web y tu IA queda entrenada y activa.</p></li>
-<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>Respuestas instantáneas:</strong> responde preguntas, captura clientes y agenda citas en segundos.</p></li>
-<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>Disponibilidad 24/7:</strong> gana negocios mientras la competencia duerme o está en reuniones.</p></li>
-<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.9);"><strong>Sin configuración técnica:</strong> funciona en cualquier sitio web sin desarrolladores ni integraciones complejas.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.85);"><strong style="color:#FFFFFF;">Configuración en 5 minutos:</strong> pega la URL de tu sitio web y tu IA queda entrenada y activa.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.85);"><strong style="color:#FFFFFF;">Respuestas instantáneas:</strong> responde preguntas, captura clientes y agenda citas en segundos.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.85);"><strong style="color:#FFFFFF;">Disponibilidad 24/7:</strong> gana negocios mientras la competencia duerme o está en reuniones.</p></li>
+<li class="flex gap-3"><span class="material-symbols-outlined" style="color:#FFFFFF;">check_circle</span><p style="color:rgba(255,255,255,0.85);"><strong style="color:#FFFFFF;">Sin configuración técnica:</strong> funciona en cualquier sitio web sin desarrolladores ni integraciones complejas.</p></li>
 </ul>
+</div>
 </div>
 </div>
 </section>
 
 <!-- Data Stats -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<section style="width:100%; padding:80px 0; background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
+<div class="px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg mb-4">Los datos hablan por sí solos</h2>
+<h2 class="font-headline-lg text-headline-lg mb-4" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Los datos hablan por sí solos</h2>
 <p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">La velocidad gana negocios, y los negocios que usan chat obtienen resultados impresionantes.</p>
 </div>
 <div class="grid md:grid-cols-3 gap-8 text-center">
-<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
-<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">100x</div>
-<p class="font-bold mb-1" style="color:#1E2185;">más probabilidades de convertir: respuesta en 5 min vs. 30 min</p>
+<div class="stat-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.2); border-radius: 20px; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06); padding: 32px 24px; padding-top: 16px; overflow: visible;">
+<div class="mb-2" style="font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.2; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">100x</div>
+<p class="font-bold mb-1" style="color:#11143A;">más probabilidades de convertir: respuesta en 5 min vs. 30 min</p>
 <p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Fuente: Harvard Business Review</p>
 </div>
-<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
-<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2.8x</div>
-<p class="font-bold mb-1" style="color:#1E2185;">más probabilidades de convertir cuando los visitantes chatean</p>
+<div class="stat-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.2); border-radius: 20px; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06); padding: 32px 24px; padding-top: 16px; overflow: visible;">
+<div class="mb-2" style="font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.2; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2.8x</div>
+<p class="font-bold mb-1" style="color:#11143A;">más probabilidades de convertir cuando los visitantes chatean</p>
 <p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Fuente: Gorgias Research</p>
 </div>
-<div class="stat-card p-8 rounded-xl" style="background:#F8F9FF; border:1px solid #E2E5F0;">
-<div class="font-headline-lg text-[56px] font-extrabold mb-2" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">78%</div>
-<p class="font-bold mb-1" style="color:#1E2185;">de los clientes le compra a quien responde primero</p>
+<div class="stat-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.2); border-radius: 20px; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06); padding: 32px 24px; padding-top: 16px; overflow: visible;">
+<div class="mb-2" style="font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.2; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">78%</div>
+<p class="font-bold mb-1" style="color:#11143A;">de los clientes le compra a quien responde primero</p>
 <p class="font-data-mono text-data-mono" style="color:#9CA3AF;">Fuente: LeadConnect</p>
+</div>
 </div>
 </div>
 </section>
@@ -360,35 +365,35 @@
 <section class="py-24" style="background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
 <div class="max-w-container-max mx-auto px-margin-desktop">
 <div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg mb-4">Cuatro formas de ganarle a la competencia en cada negocio</h2>
+<h2 class="font-headline-lg text-headline-lg mb-4" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Cuatro formas de ganarle a la competencia en cada negocio</h2>
 <p class="font-body-lg text-body-lg max-w-xl mx-auto" style="color:#4A5080;">Mientras ellos revisan el correo, tú ya estás cerrando el trato.</p>
 </div>
 <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
-<div class="flex gap-5">
-<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">1</div>
+<div class="feature-item flex gap-5">
+<div class="flex items-center justify-center font-bold text-lg shrink-0" style="width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF; font-weight:600;">1</div>
 <div>
-<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Responde en Segundos (No en Horas)</h3>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#11143A; font-weight:600;">Responde en Segundos (No en Horas)</h3>
 <p style="color:#4A5080;">Mientras la competencia tarda horas en responder, tú respondes al instante. El 78% de los clientes le compra a quien responde primero: ese eres tú.</p>
 </div>
 </div>
-<div class="flex gap-5">
-<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">2</div>
+<div class="feature-item flex gap-5">
+<div class="flex items-center justify-center font-bold text-lg shrink-0" style="width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF; font-weight:600;">2</div>
 <div>
-<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Captura Clientes Fuera de Horario</h3>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#11143A; font-weight:600;">Captura Clientes Fuera de Horario</h3>
 <p style="color:#4A5080;">El 60% de las búsquedas ocurre fuera del horario laboral. Captura visitantes del fin de semana, emergencias nocturnas y quienes planean temprano en la mañana.</p>
 </div>
 </div>
-<div class="flex gap-5">
-<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">3</div>
+<div class="feature-item flex gap-5">
+<div class="flex items-center justify-center font-bold text-lg shrink-0" style="width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF; font-weight:600;">3</div>
 <div>
-<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Precalifica Antes de que Hables con Ellos</h3>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#11143A; font-weight:600;">Precalifica Antes de que Hables con Ellos</h3>
 <p style="color:#4A5080;">Recopila presupuesto, plazos y necesidades automáticamente. Solo inviertes tiempo en prospectos calificados y listos para comprar.</p>
 </div>
 </div>
-<div class="flex gap-5">
-<div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shrink-0" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF;">4</div>
+<div class="feature-item flex gap-5">
+<div class="flex items-center justify-center font-bold text-lg shrink-0" style="width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color:#FFFFFF; font-weight:600;">4</div>
 <div>
-<h3 class="font-headline-md text-headline-md mb-2" style="color:#1E2185; font-weight:600;">Agenda Mientras Duermes</h3>
+<h3 class="font-headline-md text-headline-md mb-2" style="color:#11143A; font-weight:600;">Agenda Mientras Duermes</h3>
 <p style="color:#4A5080;">Programa citas las 24 horas directamente en el chat. Despierta con un calendario lleno de reuniones calificadas.</p>
 </div>
 </div>
@@ -397,35 +402,37 @@
 </section>
 
 <!-- Real Scenarios -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<section style="width:100%; padding:80px 0; background: linear-gradient(135deg, #F8F9FF 0%, #F5F3FF 100%);">
+<div class="px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg mb-4">Míralo en escenarios reales</h2>
+<h2 class="font-headline-lg text-headline-lg mb-4" style="background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Míralo en escenarios reales</h2>
 <p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Escenarios reales que muestran cómo Aliabot convierte visitantes del sitio web en citas agendadas, las 24 horas.</p>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="scenario-card p-6 rounded-xl" style="background:#EEF2FF; border:1px solid #E2E5F0;">
-<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB;"><span class="material-symbols-outlined" style="font-size:18px;">schedule</span>11:30 PM — PLOMERÍA DE EMERGENCIA</div>
-<p class="font-bold mb-3" style="color:#1E2185;">"Se inundó el sótano — ¿atienden emergencias?"</p>
+<div class="scenario-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06); padding: 28px;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB; font-size:11px; font-weight:600; letter-spacing:0.08em;"><span class="material-symbols-outlined" style="font-size:18px; color:#2563EB;">schedule</span>11:30 PM — PLOMERÍA DE EMERGENCIA</div>
+<p class="mb-3" style="color:#11143A; font-weight:600; font-size:15px;">"Se inundó el sótano — ¿atienden emergencias?"</p>
 <p class="mb-4" style="color:#4A5080;">El bot confirma el servicio 24/7, recopila dirección y teléfono, y agenda el horario más próximo.</p>
-<span class="text-sm font-bold" style="color:#059669;">✓ Servicio de emergencia agendado al instante</span>
+<span class="text-sm" style="color:#2563EB; font-weight:500;">✓ Servicio de emergencia agendado al instante</span>
 </div>
-<div class="scenario-card p-6 rounded-xl" style="background:#F5F3FF; border:1px solid #E2E5F0;">
-<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#7C3AED;"><span class="material-symbols-outlined" style="font-size:18px;">description</span>2:15 PM — CONSULTA LEGAL</div>
-<p class="font-bold mb-3" style="color:#1E2185;">"Tuve un accidente de auto el mes pasado — ¿tengo un caso?"</p>
+<div class="scenario-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06); padding: 28px;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB; font-size:11px; font-weight:600; letter-spacing:0.08em;"><span class="material-symbols-outlined" style="font-size:18px; color:#2563EB;">description</span>2:15 PM — CONSULTA LEGAL</div>
+<p class="mb-3" style="color:#11143A; font-weight:600; font-size:15px;">"Tuve un accidente de auto el mes pasado — ¿tengo un caso?"</p>
 <p class="mb-4" style="color:#4A5080;">El bot califica el caso, ofrece una consulta gratuita y agenda una llamada de 15 minutos.</p>
-<span class="text-sm font-bold" style="color:#059669;">✓ Consulta gratuita agendada</span>
+<span class="text-sm" style="color:#2563EB; font-weight:500;">✓ Consulta gratuita agendada</span>
 </div>
-<div class="scenario-card p-6 rounded-xl" style="background:#ECFDF5; border:1px solid #E2E5F0;">
-<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#059669;"><span class="material-symbols-outlined" style="font-size:18px;">favorite</span>8:45 AM — SEGURO DENTAL</div>
-<p class="font-bold mb-3" style="color:#1E2185;">"¿Aceptan Delta Dental? ¿Cuánto cuesta una limpieza?"</p>
+<div class="scenario-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06); padding: 28px;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB; font-size:11px; font-weight:600; letter-spacing:0.08em;"><span class="material-symbols-outlined" style="font-size:18px; color:#2563EB;">favorite</span>8:45 AM — SEGURO DENTAL</div>
+<p class="mb-3" style="color:#11143A; font-weight:600; font-size:15px;">"¿Aceptan Delta Dental? ¿Cuánto cuesta una limpieza?"</p>
 <p class="mb-4" style="color:#4A5080;">El bot responde con base en tu contenido, orienta sobre precios y agenda una cita.</p>
-<span class="text-sm font-bold" style="color:#059669;">✓ Cita de limpieza agendada</span>
+<span class="text-sm" style="color:#2563EB; font-weight:500;">✓ Cita de limpieza agendada</span>
 </div>
-<div class="scenario-card p-6 rounded-xl" style="background:#FFF7ED; border:1px solid #E2E5F0;">
-<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#F97316;"><span class="material-symbols-outlined" style="font-size:18px;">groups</span>4:20 PM — CONSULTA DE AGENCIA</div>
-<p class="font-bold mb-3" style="color:#1E2185;">"Empresa de 50 personas buscando mejorar su proceso de ventas — ¿pueden ayudarnos?"</p>
+<div class="scenario-card rounded-xl" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(107, 155, 252, 0.15); border-radius: 16px; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06); padding: 28px;">
+<div class="flex items-center gap-2 mb-3 font-data-mono text-data-mono" style="color:#2563EB; font-size:11px; font-weight:600; letter-spacing:0.08em;"><span class="material-symbols-outlined" style="font-size:18px; color:#2563EB;">groups</span>4:20 PM — CONSULTA DE AGENCIA</div>
+<p class="mb-3" style="color:#11143A; font-weight:600; font-size:15px;">"Empresa de 50 personas buscando mejorar su proceso de ventas — ¿pueden ayudarnos?"</p>
 <p class="mb-4" style="color:#4A5080;">El bot identifica si encaja y agenda una llamada de descubrimiento con el especialista correcto.</p>
-<span class="text-sm font-bold" style="color:#059669;">✓ Llamada de descubrimiento agendada</span>
+<span class="text-sm" style="color:#2563EB; font-weight:500;">✓ Llamada de descubrimiento agendada</span>
+</div>
 </div>
 </div>
 </section>
@@ -442,7 +449,7 @@
 </section>
 
 <!-- 5-minute Setup -->
-<section class="py-24 overflow-hidden" style="background: #F8F9FF;">
+<section style="width:100%; padding:80px 0; background: #F8F9FF;">
 <div class="max-w-container-max mx-auto px-margin-desktop">
 <div class="text-center mb-12">
 <h2 class="font-headline-lg text-headline-lg mb-4">Configuración en 5 minutos, resultados al instante</h2>
@@ -570,7 +577,8 @@
 </section>
 
 <!-- Founder's Note -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto" style="background:#F8F9FF;">
+<section style="width:100%; padding:80px 0; background:#F8F9FF;">
+<div class="px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-10">
 <h2 class="font-headline-lg text-headline-lg mb-4">Nota de la fundadora</h2>
 <p class="font-body-lg text-body-lg max-w-2xl mx-auto" style="color:#4A5080;">Por qué creé Aliabot después de emprender y vender mi último startup por $250 mil dólares</p>
@@ -581,6 +589,7 @@
 <div>
 <p class="italic mb-4" style="color:#1E2185;">"Emprendí mi último SaaS sin inversionistas y lo vendí por $250 mil dólares. Ahora estoy construyendo Aliabot porque vi cuántos negocios pierden clientes por respuestas lentas. La velocidad gana, y todo negocio merece esa ventaja."</p>
 <p class="font-bold" style="color:#4A5080;">— Maya Calderón, Fundadora</p>
+</div>
 </div>
 </div>
 </div>
@@ -615,7 +624,7 @@
 <div class="flex flex-col gap-3">
 <span class="text-white font-bold mb-1">Producto</span>
 <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="../index.html">Funciones</a>
-<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Generación de Leads</a>
+<a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Clientes Potenciales</a>
 <a class="text-outline hover:text-accent-cyan transition-colors font-data-mono text-data-mono" href="#">Seguridad</a>
 </div>
 <div class="flex flex-col gap-3">
