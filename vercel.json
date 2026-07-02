@@ -6,8 +6,6 @@
     { "source": "/features/index.html", "destination": "/funciones", "permanent": true },
     { "source": "/pricing", "destination": "/precios", "permanent": true },
     { "source": "/pricing/index.html", "destination": "/precios", "permanent": true },
-    { "source": "/integrations", "destination": "/integraciones", "permanent": true },
-    { "source": "/integrations/index.html", "destination": "/integraciones", "permanent": true },
     { "source": "/security", "destination": "/seguridad", "permanent": true },
     { "source": "/security/index.html", "destination": "/seguridad", "permanent": true },
     { "source": "/lead-generation", "destination": "/clientes-potenciales", "permanent": true },
@@ -16,7 +14,6 @@
   "rewrites": [
     { "source": "/funciones", "destination": "/funciones/index.html" },
     { "source": "/precios", "destination": "/precios/index.html" },
-    { "source": "/integraciones", "destination": "/integraciones/index.html" },
     { "source": "/seguridad", "destination": "/seguridad/index.html" },
     { "source": "/clientes-potenciales", "destination": "/clientes-potenciales/index.html" }
   ]

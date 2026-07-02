@@ -71,19 +71,18 @@
     align-items: center;
     gap: 8px;
     padding: 10px 18px;
-    background: #FFFFFF;
-    border: 1.5px solid #E2E5F0;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.08) 100%);
+    border: 1px solid rgba(107,155,252,0.2);
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
     color: #11143A;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
     cursor: default;
   }
   .feature-pill:hover {
-    border-color: #A5C0FD;
-    box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+    border-color: rgba(167,139,250,0.4);
+    background: rgba(124,58,237,0.08);
     transform: translateY(-2px);
   }
   .feature-pill .pill-icon {
@@ -103,17 +102,19 @@
   .feature-card-icon {
     width: 52px;
     height: 52px;
-    border-radius: 14px;
-    border: 1.5px solid #E2E5F0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(124,58,237,0.08));
+    border: 1px solid rgba(107,155,252,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
     color: #2563EB;
   }
-  .feature-card h4 { font-size: 16px; font-weight: 700; color: #11143A; margin-bottom: 8px; }
+  .feature-card h4 { font-size: 16px; font-weight: 600; color: #11143A; margin-bottom: 8px; }
   .feature-card p { font-size: 14px; line-height: 22px; color: #4A5080; }
-  .feature-card a { color: #2563EB; font-size: 14px; font-weight: 600; }
+  .feature-card a { color: #2563EB; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .feature-card a:hover { color: #7C3AED; }
 
   /* Section group layout */
   .feature-group {
@@ -127,12 +128,14 @@
   @media (max-width: 768px) {
     .feature-group { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; }
   }
-  .feature-group-label { font-size: 32px; font-weight: 800; color: #0A0A23; line-height: 1.25; margin-bottom: 12px; }
+  .feature-group-label { font-size: 32px; font-weight: 700; color: #11143A; line-height: 1.25; margin-bottom: 12px; }
   .feature-group-desc { font-size: 15px; color: #4A5080; line-height: 1.6; }
 
   /* CTA section */
   .cta-section {
     background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(124,58,237,0.25);
     position: relative;
     overflow: hidden;
   }
@@ -163,7 +166,6 @@
       <a class="font-bold font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="/funciones">Funciones</a>
       <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/clientes-potenciales">Clientes Potenciales</a>
       <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/precios">Precios</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/integraciones">Integraciones</a>
       <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/seguridad">Seguridad</a>
     </div>
     <div class="flex items-center gap-3">
@@ -175,9 +177,9 @@
 
 <!-- Hero -->
 <section class="pt-36 pb-20 px-8 max-w-[1280px] mx-auto text-center">
-  <p class="font-bold text-xs tracking-[0.15em] mb-5" style="color:#2563EB;">FUNCIONES</p>
-  <h1 class="font-extrabold mb-6 leading-tight" style="font-size:clamp(36px,5vw,58px); color:#0A0A23;">
-    El chatbot con <span class="gradient-text">IA</span> que es <span class="gradient-text">experto</span><br/>en tus productos
+  <p class="mb-5" style="color:#2563EB; letter-spacing:0.1em; font-size:11px; font-weight:600;">FUNCIONES</p>
+  <h1 class="font-extrabold mb-6 leading-tight" style="font-size:clamp(36px,5vw,58px); background:linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+    El chatbot con IA que es experto<br/>en tus productos
   </h1>
   <p class="text-lg max-w-2xl mx-auto mb-8" style="color:#4A5080;">
     Es como tener un ChatGPT hecho a la medida de tus productos. Responde al instante las preguntas de tus visitantes con un chatbot personalizado entrenado con el contenido de tu sitio web.
@@ -196,7 +198,7 @@
 </section>
 
 <!-- Everything You Need -->
-<section style="background:#F0F4FF; padding:80px 0;">
+<section style="background:#F8F9FF; padding:80px 0;">
   <div class="max-w-[1280px] mx-auto px-8 text-center">
     <h2 class="font-extrabold mb-4" style="font-size:clamp(28px,4vw,44px); color:#0A0A23;">Todo lo que necesitas para lanzar<br/>tu propio chatbot con IA</h2>
     <p class="text-base max-w-2xl mx-auto mb-14" style="color:#4A5080;">Aliabot es una solución de soporte lista para producción que hace el trabajo de un equipo completo de soporte a una fracción del costo.</p>
@@ -232,18 +234,19 @@
 </section>
 
 <!-- Dashboard Screenshot -->
-<section class="py-20 px-8 max-w-[1280px] mx-auto text-center">
-  <h2 class="font-extrabold mb-4" style="font-size:clamp(24px,3.5vw,38px); color:#0A0A23;">Tu centro de comando para soporte al cliente con IA</h2>
+<section class="py-20 px-8 max-w-[1280px] mx-auto text-center" style="background:#FFFFFF;">
+  <h2 class="font-extrabold mb-4" style="font-size:clamp(24px,3.5vw,38px); background:linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Tu centro de comando para soporte al cliente con IA</h2>
   <p class="text-base max-w-xl mx-auto mb-12" style="color:#4A5080;">Gestiona todos tus chatbots, fuentes de entrenamiento, conversaciones y métricas de desempeño desde un solo panel limpio y sencillo.</p>
-  <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-[0_16px_64px_rgba(37,99,235,0.12)] mx-auto" style="max-width:960px;">
+  <div class="overflow-hidden mx-auto" style="max-width:960px; border-radius:20px; box-shadow:0 20px 60px rgba(37,99,235,0.15); border:1px solid rgba(107,155,252,0.15);">
     <img src="../assets/dashboard.png" alt="Panel de Aliabot" class="w-full h-auto block"/>
   </div>
 </section>
 
 <!-- Feature Groups -->
-<section class="px-8 max-w-[1280px] mx-auto">
 
-  <!-- Training & Customization -->
+<!-- Training & Customization -->
+<section style="background:#FFFFFF;">
+<div class="px-8 max-w-[1280px] mx-auto">
   <div class="feature-group">
     <div>
       <h3 class="feature-group-label">Entrenamiento y<br/>Personalización</h3>
@@ -277,8 +280,12 @@
       </div>
     </div>
   </div>
+</div>
+</section>
 
-  <!-- Chat Interactions -->
+<!-- Chat Interactions -->
+<section style="background:#F8F9FF;">
+<div class="px-8 max-w-[1280px] mx-auto">
   <div class="feature-group">
     <div>
       <h3 class="feature-group-label">Interacciones<br/>de Chat</h3>
@@ -307,8 +314,12 @@
       </div>
     </div>
   </div>
+</div>
+</section>
 
-  <!-- Extensions -->
+<!-- Extensions -->
+<section style="background:#FFFFFF;">
+<div class="px-8 max-w-[1280px] mx-auto">
   <div class="feature-group">
     <div>
       <h3 class="feature-group-label">Extensiones</h3>
@@ -340,8 +351,12 @@
       </div>
     </div>
   </div>
+</div>
+</section>
 
-  <!-- Security & Compliance -->
+<!-- Security & Compliance -->
+<section style="background:#F8F9FF;">
+<div class="px-8 max-w-[1280px] mx-auto">
   <div class="feature-group" style="border-bottom:none;">
     <div>
       <h3 class="feature-group-label">Seguridad y<br/>Cumplimiento</h3>
@@ -383,79 +398,79 @@
       </div>
     </div>
   </div>
-
+</div>
 </section>
 
 <!-- FAQ Section -->
 <section class="py-24 px-8 max-w-[1400px] mx-auto">
-  <h2 class="font-extrabold text-center mb-4" style="font-size:clamp(28px,4vw,42px); color:#0a0a0a;">Preguntas Frecuentes</h2>
+  <h2 class="font-extrabold text-center mb-4" style="font-size:clamp(28px,4vw,42px); background:linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Preguntas Frecuentes</h2>
   <p class="text-center mb-10 max-w-xl mx-auto" style="color:#4A5080;">¿Tienes otra pregunta? Escríbenos a <a href="mailto:hola@aliabot.co" style="color:#2563EB; font-weight:600;">hola@aliabot.co</a> y te respondemos lo antes posible.</p>
 
   <!-- Tab Nav -->
   <div class="flex flex-wrap items-center gap-8 border-b mb-10" style="border-color:#E2E5F0;">
     <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 transition-colors" style="color:#2563EB; border-color:#2563EB;" onclick="showFaqTab('training', this)">Entrenamiento y Configuración del Chatbot</button>
-    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('features', this)">Funciones</button>
-    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('security', this)">Seguridad y Cumplimiento</button>
-    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3AF;" onclick="showFaqTab('integrations', this)">Integraciones</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3C0;" onclick="showFaqTab('features', this)">Funciones</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3C0;" onclick="showFaqTab('security', this)">Seguridad y Cumplimiento</button>
+    <button class="faq-tab-btn pb-3 font-bold text-sm md:text-base border-b-2 border-transparent transition-colors" style="color:#9CA3C0;" onclick="showFaqTab('integrations', this)">Integraciones</button>
   </div>
 
   <!-- Tab: Training & Setup -->
   <div id="faq-tab-training" class="faq-tab-panel grid md:grid-cols-2 gap-x-20">
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Qué tipo de contenido puedo usar para entrenar el chatbot?</span>
+          <span style="color:#11143A; font-weight:500;">¿Qué tipo de contenido puedo usar para entrenar el chatbot?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Puedes entrenar tu chatbot usando URLs de sitios web, archivos subidos (PDF, DOCX, TXT, CSV) o texto sin formato pegado directamente en el panel.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Cuánto tiempo toma el entrenamiento?</span>
+          <span style="color:#11143A; font-weight:500;">¿Cuánto tiempo toma el entrenamiento?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">La mayoría de los sitios terminan el entrenamiento en pocos minutos. Sitios más grandes con cientos de páginas pueden tardar hasta una hora.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Se reentrena automáticamente cuando cambia mi sitio web?</span>
+          <span style="color:#11143A; font-weight:500;">¿Se reentrena automáticamente cuando cambia mi sitio web?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Según tu plan, puedes configurar resincronizaciones automáticas mensuales, semanales o diarias para que tu chatbot siempre refleje el contenido más reciente.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Cómo agrego el chatbot a mi sitio web?</span>
+          <span style="color:#11143A; font-weight:500;">¿Cómo agrego el chatbot a mi sitio web?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Cada chatbot recibe un código de inserción único. Pega la etiqueta de script antes del cierre de &lt;/body&gt; en cualquier sitio y el widget aparecerá al instante, sin necesidad de un desarrollador.</div>
       </details>
     </div>
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo subir archivos para entrenar el chatbot?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo subir archivos para entrenar el chatbot?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, puedes subir PDFs, documentos de Word, archivos de texto plano y CSVs directamente desde tu panel.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo insertar el chatbot en varios sitios web?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo insertar el chatbot en varios sitios web?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, un solo chatbot se puede insertar en tantos sitios web o aplicaciones como quieras, sin costo adicional.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo agregar texto sin formato si no tengo páginas web para escanear?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo agregar texto sin formato si no tengo páginas web para escanear?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Puedes pegar texto sin formato directamente en el panel y usarlo como datos de entrenamiento para tu chatbot.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo personalizar la apariencia del chatbot?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo personalizar la apariencia del chatbot?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, puedes personalizar el nombre, avatar, colores, mensaje de bienvenida y mensajes rápidos del chatbot para que coincidan con tu marca.</div>
@@ -465,54 +480,54 @@
 
   <!-- Tab: Features -->
   <div id="faq-tab-features" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Qué modelos de IA usa Aliabot?</span>
+          <span style="color:#11143A; font-weight:500;">¿Qué modelos de IA usa Aliabot?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Ofrecemos GPT-4o y GPT-4.1. GPT-4o prioriza la velocidad y la eficiencia de costos, mientras que GPT-4.1 ofrece un razonamiento más profundo y mayor precisión para consultas complejas.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿El chatbot puede escalar a un agente humano?</span>
+          <span style="color:#11143A; font-weight:500;">¿El chatbot puede escalar a un agente humano?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Cuando el chatbot no puede resolver un problema, los usuarios pueden solicitar sin problemas que los transfieran a un agente humano en vivo. Puedes configurar los disparadores de escalación y enrutarlos a Zendesk, correo electrónico o un canal personalizado.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Qué son los Mensajes Rápidos?</span>
+          <span style="color:#11143A; font-weight:500;">¿Qué son los Mensajes Rápidos?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Los Mensajes Rápidos son iniciadores de conversación preconfigurados que se muestran a los visitantes cuando abren el chatbot. Ayudan a los usuarios a encontrar valor de inmediato y reducen la fricción en preguntas comunes.</div>
       </details>
     </div>
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Podré ver las conversaciones que los usuarios tienen con mi chatbot?</span>
+          <span style="color:#11143A; font-weight:500;">¿Podré ver las conversaciones que los usuarios tienen con mi chatbot?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, cada conversación queda registrada en tu panel para que puedas revisar qué preguntaron los visitantes y cómo respondió el chatbot.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Qué son los Resúmenes por Correo?</span>
+          <span style="color:#11143A; font-weight:500;">¿Qué son los Resúmenes por Correo?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Correos con resúmenes diarios que muestran la actividad de tu chatbot: total de chats, preguntas más frecuentes, consultas sin resolver y sugerencias para nuevo contenido de entrenamiento.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo usar el chatbot para captar clientes potenciales?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo usar el chatbot para captar clientes potenciales?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Configura el chatbot para que recopile nombre, correo y empresa del visitante en el momento adecuado de la conversación. Los clientes potenciales se exportan a tu CRM o se te envían por correo directamente.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Ofrecen una opción de marca blanca?</span>
+          <span style="color:#11143A; font-weight:500;">¿Ofrecen una opción de marca blanca?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, la opción de marca blanca (quitar nuestra marca y agregar la tuya) está disponible en nuestros planes de agencia y Enterprise.</div>
@@ -522,61 +537,61 @@
 
   <!-- Tab: Security -->
   <div id="faq-tab-security" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Mis datos están seguros?</span>
+          <span style="color:#11143A; font-weight:500;">¿Mis datos están seguros?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Todos los datos se cifran en tránsito y en reposo, el acceso está restringido por roles y nunca usamos tus datos para entrenar modelos de IA.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Cumplen con HIPAA?</span>
+          <span style="color:#11143A; font-weight:500;">¿Cumplen con HIPAA?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Hemos sido evaluados para el cumplimiento de HIPAA, y los Acuerdos de Asociado Comercial (BAA) están disponibles para clientes del plan Enterprise.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Cumplen con GDPR?</span>
+          <span style="color:#11143A; font-weight:500;">¿Cumplen con GDPR?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Cumplimos con GDPR y damos soporte a solicitudes de acceso, exportación y eliminación de datos para usuarios de la UE.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Qué es SOC 2 Tipo II?</span>
+          <span style="color:#11143A; font-weight:500;">¿Qué es SOC 2 Tipo II?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">SOC 2 Tipo II es una auditoría independiente que verifica nuestros controles de seguridad relacionados con la seguridad de los datos, disponibilidad y confidencialidad durante un período extendido, no solo en un momento puntual.</div>
       </details>
     </div>
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Dónde se almacenan mis datos?</span>
+          <span style="color:#11143A; font-weight:500;">¿Dónde se almacenan mis datos?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Tus datos se almacenan en infraestructura de nube segura con cifrado en reposo. Los clientes Enterprise pueden solicitar una región de datos específica.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Tienen un Acuerdo de Procesamiento de Datos (DPA)?</span>
+          <span style="color:#11143A; font-weight:500;">¿Tienen un Acuerdo de Procesamiento de Datos (DPA)?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, un DPA estándar está disponible a solicitud para cualquier cliente que lo necesite por motivos de cumplimiento.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Mis datos de entrenamiento se usan para entrenar modelos de IA?</span>
+          <span style="color:#11143A; font-weight:500;">¿Mis datos de entrenamiento se usan para entrenar modelos de IA?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">No. Tu contenido nunca se usa para entrenar modelos de IA compartidos o públicos. Solo se usa para potenciar tu chatbot específico.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Ofrecen Control de Acceso Basado en Roles?</span>
+          <span style="color:#11143A; font-weight:500;">¿Ofrecen Control de Acceso Basado en Roles?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Puedes agregar miembros del equipo con roles específicos: algunos pueden ver el historial de conversaciones, otros pueden gestionar el contenido de entrenamiento, y los administradores tienen control total.</div>
@@ -586,61 +601,61 @@
 
   <!-- Tab: Integrations -->
   <div id="faq-tab-integrations" class="faq-tab-panel hidden grid md:grid-cols-2 gap-x-20">
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Tienen una API?</span>
+          <span style="color:#11143A; font-weight:500;">¿Tienen una API?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Nuestra API REST te permite gestionar chatbots, fuentes de entrenamiento y conversaciones de forma programática.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Se integra con Slack?</span>
+          <span style="color:#11143A; font-weight:500;">¿Se integra con Slack?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, instala la integración con Slack para hacerle preguntas a tu chatbot directamente desde cualquier canal o mensaje directo de Slack.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Se integra con Zendesk?</span>
+          <span style="color:#11143A; font-weight:500;">¿Se integra con Zendesk?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. La integración con Zendesk permite que el chatbot atienda consultas de soporte de primer nivel y escale directamente a tu cola de tickets de Zendesk cuando sea necesario.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Es compatible con WhatsApp?</span>
+          <span style="color:#11143A; font-weight:500;">¿Es compatible con WhatsApp?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, la integración con WhatsApp Business está disponible para que tu chatbot responda directamente dentro de los chats de WhatsApp.</div>
       </details>
     </div>
-    <div class="divide-y" style="border-color:#E2E5F0;">
+    <div class="divide-y" style="border-color:rgba(107,155,252,0.15);">
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Se integra con Crisp o Intercom?</span>
+          <span style="color:#11143A; font-weight:500;">¿Se integra con Crisp o Intercom?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Tenemos integraciones nativas con Crisp e Intercom que permiten que nuestra IA redacte o envíe respuestas automáticamente dentro de esas herramientas.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Puedo conectar Aliabot a mi CRM?</span>
+          <span style="color:#11143A; font-weight:500;">¿Puedo conectar Aliabot a mi CRM?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí. Usando nuestra API y webhooks, puedes enviar clientes potenciales, resúmenes de chats y datos de conversaciones a HubSpot, Salesforce o cualquier CRM que acepte webhooks entrantes.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">¿Soporta Facebook Messenger?</span>
+          <span style="color:#11143A; font-weight:500;">¿Soporta Facebook Messenger?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Sí, conecta tu chatbot a una página de Facebook en pocos clics y responderá conversaciones de Messenger automáticamente.</div>
       </details>
       <details class="group py-6">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none">
-          <span class="font-bold" style="color:#1a1a1a;">Mi empresa necesita una integración personalizada. ¿Qué debo hacer?</span>
+          <span style="color:#11143A; font-weight:500;">Mi empresa necesita una integración personalizada. ¿Qué debo hacer?</span>
           <span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0" style="color:#1a1a1a;">expand_more</span>
         </summary>
         <div class="pt-3 pr-10" style="color:#4A5080;">Contacta a nuestro equipo de soporte con los detalles y evaluaremos construirla como una integración personalizada en nuestro plan Enterprise.</div>
@@ -651,18 +666,18 @@
 
 <!-- Final CTA -->
 <section class="py-24 px-8 max-w-[1280px] mx-auto">
-  <div class="cta-section rounded-[28px] py-16 px-8 text-center">
-    <h2 class="font-extrabold mb-5" style="font-size:clamp(28px,4vw,44px); color:#FFFFFF; line-height:1.2;">¿Listo para probar<br/>Aliabot?</h2>
-    <p class="text-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Descubre si un chatbot de soporte con IA personalizado es adecuado para ti en solo unas horas.</p>
+  <div class="cta-section py-16 px-8 text-center">
+    <h2 class="mb-5" style="font-size:clamp(28px,4vw,44px); color:#FFFFFF; font-weight:600; line-height:1.2;">¿Listo para probar<br/>Aliabot?</h2>
+    <p class="text-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.8);">Descubre si un chatbot de soporte con IA personalizado es adecuado para ti en solo unas horas.</p>
     <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Iniciar una prueba gratis</button>
-      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4);">Agendar una demo</button>
+      <button class="px-8 py-4 font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB; border-radius:12px;">Iniciar una prueba gratis</button>
+      <button class="px-8 py-4 font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.5); border-radius:12px;">Agendar una demo</button>
     </div>
     <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
-      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Sin tarjeta de crédito para el trial</span>
-      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Cancela cuando quieras</span>
-      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Incorporación personalizada</span>
-      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]">check_circle</span>Prueba gratis de 7 días</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]" style="color:#FFFFFF;">check_circle</span>Sin tarjeta de crédito para el trial</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]" style="color:#FFFFFF;">check_circle</span>Cancela cuando quieras</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]" style="color:#FFFFFF;">check_circle</span>Incorporación personalizada</span>
+      <span class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.85);"><span class="material-symbols-outlined text-[18px]" style="color:#FFFFFF;">check_circle</span>Prueba gratis de 7 días</span>
     </div>
   </div>
 </section>
@@ -678,7 +693,6 @@
       <div class="flex flex-col gap-3">
         <span class="text-white font-bold mb-1">Producto</span>
         <a class="text-sm transition-colors" style="color:#6B7399;" href="/funciones" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Funciones</a>
-        <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Integraciones</a>
         <a class="text-sm transition-colors" style="color:#6B7399;" href="#" onmouseover="this.style.color='#7C3AED'" onmouseout="this.style.color='#6B7399'">Seguridad</a>
       </div>
       <div class="flex flex-col gap-3">
@@ -705,7 +719,7 @@
     const panel = document.getElementById('faq-tab-' + name);
     if (panel) panel.classList.remove('hidden');
     document.querySelectorAll('.faq-tab-btn').forEach(b => {
-      b.style.color = '#9CA3AF';
+      b.style.color = '#9CA3C0';
       b.style.borderColor = 'transparent';
     });
     btn.style.color = '#2563EB';
