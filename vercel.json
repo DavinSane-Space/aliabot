@@ -14,10 +14,10 @@
     { "source": "/lead-generation/index.html", "destination": "/clientes-potenciales", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/funciones", "destination": "/features/index.html" },
-    { "source": "/precios", "destination": "/pricing/index.html" },
-    { "source": "/integraciones", "destination": "/integrations/index.html" },
-    { "source": "/seguridad", "destination": "/security/index.html" },
-    { "source": "/clientes-potenciales", "destination": "/lead-generation/index.html" }
+    { "source": "/funciones", "destination": "/funciones/index.html" },
+    { "source": "/precios", "destination": "/precios/index.html" },
+    { "source": "/integraciones", "destination": "/integraciones/index.html" },
+    { "source": "/seguridad", "destination": "/seguridad/index.html" },
+    { "source": "/clientes-potenciales", "destination": "/clientes-potenciales/index.html" }
   ]
 }
