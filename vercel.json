@@ -1,11 +1,23 @@
 {
+  "cleanUrls": true,
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/features/index.html", "destination": "/features", "permanent": true },
-    { "source": "/pricing/index.html", "destination": "/pricing", "permanent": true },
-    { "source": "/integrations/index.html", "destination": "/integrations", "permanent": true },
-    { "source": "/security/index.html", "destination": "/security", "permanent": true },
-    { "source": "/lead-generation/index.html", "destination": "/lead-generation", "permanent": true }
+    { "source": "/features", "destination": "/funciones", "permanent": true },
+    { "source": "/features/index.html", "destination": "/funciones", "permanent": true },
+    { "source": "/pricing", "destination": "/precios", "permanent": true },
+    { "source": "/pricing/index.html", "destination": "/precios", "permanent": true },
+    { "source": "/integrations", "destination": "/integraciones", "permanent": true },
+    { "source": "/integrations/index.html", "destination": "/integraciones", "permanent": true },
+    { "source": "/security", "destination": "/seguridad", "permanent": true },
+    { "source": "/security/index.html", "destination": "/seguridad", "permanent": true },
+    { "source": "/lead-generation", "destination": "/clientes-potenciales", "permanent": true },
+    { "source": "/lead-generation/index.html", "destination": "/clientes-potenciales", "permanent": true }
   ],
-  "cleanUrls": true
+  "rewrites": [
+    { "source": "/funciones", "destination": "/features/index.html" },
+    { "source": "/precios", "destination": "/pricing/index.html" },
+    { "source": "/integraciones", "destination": "/integrations/index.html" },
+    { "source": "/seguridad", "destination": "/security/index.html" },
+    { "source": "/clientes-potenciales", "destination": "/lead-generation/index.html" }
+  ]
 }
