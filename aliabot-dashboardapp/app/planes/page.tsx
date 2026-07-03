@@ -1,10 +1,10 @@
 import { createClient } from "@/lib/supabase/server"
 import { getBusinessAccess } from "@/lib/supabase/access"
-import { DashboardView } from "@/components/dashboard/dashboard-view"
+import { PlanesView } from "@/components/dashboard/planes-view"
 
-export default async function DashboardPage() {
+export default async function PlanesPage() {
   const supabase = await createClient()
   const access = await getBusinessAccess(supabase)
 
-  return <DashboardView trialDaysLeft={access.isTrial ? access.trialDaysLeft : null} />
+  return <PlanesView hasAccess={access.hasAccess} />
 }

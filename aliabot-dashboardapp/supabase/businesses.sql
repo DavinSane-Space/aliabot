@@ -22,3 +22,9 @@ create policy "Users can insert their own business"
 create policy "Users can update their own business"
   on public.businesses for update
   using (auth.uid() = user_id);
+
+-- Subscription gating (trial / active / inactive / cancelled)
+alter table public.businesses
+  add column if not exists subscription_status text not null default 'trial',
+  add column if not exists plan text,
+  add column if not exists trial_ends_at timestamptz not null default (now() + interval '7 days');
