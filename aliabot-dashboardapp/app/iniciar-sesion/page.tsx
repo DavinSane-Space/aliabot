@@ -16,7 +16,7 @@ export default async function IniciarSesionPage({
   return (
     <AuthShell
       title="Iniciar sesión"
-      subtitle="Te enviamos un link de acceso, sin contraseña."
+      subtitle="Te enviamos un código de acceso, sin contraseña."
     >
       {error === 'auth_callback_failed' && (
         <p className="mb-4 text-center text-sm text-error">

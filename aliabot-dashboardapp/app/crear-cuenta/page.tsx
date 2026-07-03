@@ -10,7 +10,7 @@ export default function CrearCuentaPage() {
   return (
     <AuthShell
       title="Crea tu cuenta"
-      subtitle="Sin contraseña: te enviamos un link de acceso a tu correo."
+      subtitle="Sin contraseña: te enviamos un código de acceso a tu correo."
     >
       <MagicLinkForm mode="signup" />
     </AuthShell>
