@@ -155,6 +155,8 @@
     transition: opacity 0.2s, transform 0.15s;
     cursor: pointer;
     display: block;
+    text-align: center;
+    text-decoration: none;
   }
   .pricing-btn:hover {
     opacity: 0.9;
@@ -169,22 +171,8 @@
 <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-cyan opacity-[0.05] blur-[100px] rounded-full z-[-5]"></div>
 
 <!-- Navigation -->
-<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
-  <div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full rounded-full"
-       style="background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(124,58,237,0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107,155,252,0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37,99,235,0.08);">
-    <a href="../index.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Aliabot</a>
-    <div class="hidden md:flex items-center gap-8">
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/funciones">Funciones</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/clientes-potenciales">Clientes Potenciales</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="/precios">Precios</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/seguridad">Seguridad</a>
-    </div>
-    <div class="flex items-center gap-3">
-      <button class="hidden md:block font-body-md text-body-md transition-all duration-300 px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Iniciar Sesión</button>
-      <button class="bg-primary-container px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="color:#FFFFFF;">Comienza tu Prueba Gratis</button>
-    </div>
-  </div>
-</nav>
+<div id="navbar-root"></div>
+<script src="/assets/navbar.js"></script>
 
 <!-- Page Hero -->
 <section class="pt-36 pb-12 px-margin-desktop max-w-container-max mx-auto text-center">
@@ -210,7 +198,7 @@
         <span style="font-size:40px; font-weight:700; line-height:1; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$49.900 COP</span>
         <span style="color:#6B7399; font-size:16px;">/mes</span>
       </div>
-      <button class="pricing-btn mb-2">Comenzar prueba gratis</button>
+      <a href="https://aliabot-dashboard.vercel.app/crear-cuenta" class="pricing-btn mb-2">Comenzar prueba gratis</a>
       <p class="mb-8" style="color:#6B7399; font-size:12px; text-align:center;">Powered by Wompi · Paga con tarjeta débito o crédito colombiana</p>
       <p style="color:#6B7399; letter-spacing:0.08em; font-size:11px; font-weight:700; margin-bottom:16px; text-transform:uppercase;">Incluye:</p>
       <ul class="space-y-3 flex-1">
@@ -256,7 +244,7 @@
         <span style="font-size:40px; font-weight:700; line-height:1; background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$99.900 COP</span>
         <span style="color:#6B7399; font-size:16px;">/mes</span>
       </div>
-      <button class="pricing-btn mb-2">Comenzar prueba gratis</button>
+      <a href="https://aliabot-dashboard.vercel.app/crear-cuenta" class="pricing-btn mb-2">Comenzar prueba gratis</a>
       <p class="mb-8" style="color:#6B7399; font-size:12px; text-align:center;">Powered by Wompi · Paga con tarjeta débito o crédito colombiana</p>
       <p style="color:#6B7399; letter-spacing:0.08em; font-size:11px; font-weight:700; margin-bottom:16px; text-transform:uppercase;">Incluye:</p>
       <ul class="space-y-3 flex-1">
@@ -399,7 +387,7 @@
     <h2 class="font-headline-lg text-[44px] leading-[52px] font-extrabold mb-5" style="color:#FFFFFF; background:none; -webkit-text-fill-color:#FFFFFF;">¿Listo para probar Aliabot?</h2>
     <p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Comienza hoy tu prueba gratis de 7 días, sin necesidad de tarjeta de crédito.</p>
     <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Comenzar prueba gratis</button>
+      <a href="https://aliabot-dashboard.vercel.app/crear-cuenta" class="px-8 py-4 rounded-xl font-bold text-lg text-center transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB; text-decoration:none;">Comenzar prueba gratis</a>
       <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4);">Agenda una demo</button>
     </div>
     <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">

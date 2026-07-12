@@ -190,22 +190,8 @@
 <body class="font-body-md text-body-md antialiased">
 
 <!-- Navigation -->
-<nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8">
-  <div class="inline-flex items-center gap-10 px-8 py-3 w-fit max-w-full rounded-full"
-       style="background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(124,58,237,0.15) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(107,155,252,0.2); border-radius: 16px; box-shadow: 0 4px 24px rgba(37,99,235,0.08);">
-    <a href="../index.html" class="font-headline-md text-headline-md font-bold tracking-tighter" style="background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Aliabot</a>
-    <div class="hidden md:flex items-center gap-8">
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/funciones">Funciones</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/clientes-potenciales">Clientes potenciales</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#1E2185; border-color:transparent;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'" href="/precios">Precios</a>
-      <a class="font-body-md text-body-md border-b-2 pb-1 transition-all duration-300" style="color:#2563EB; border-color:#2563EB;" href="/seguridad">Seguridad</a>
-    </div>
-    <div class="flex items-center gap-3">
-      <button class="hidden md:block font-body-md text-body-md transition-all duration-300 px-2" style="color:#1E2185;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#1E2185'">Iniciar sesión</button>
-      <button class="bg-primary-container px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_12px_rgba(0,87,255,0.4)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap" style="color:#FFFFFF;">Comenzar prueba gratis</button>
-    </div>
-  </div>
-</nav>
+<div id="navbar-root"></div>
+<script src="/assets/navbar.js"></script>
 
 <!-- Hero -->
 <section class="pt-40 pb-20 px-8 max-w-[1280px] mx-auto text-center" style="background:#FFFFFF;">
@@ -311,7 +297,7 @@
     <h2 class="font-headline-lg text-[44px] leading-[52px] font-extrabold mb-5" style="color:#FFFFFF; background:none; -webkit-text-fill-color:#FFFFFF;">¿Listo para probar Aliabot?</h2>
     <p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85);">Descubre si un chatbot de soporte con IA personalizado es adecuado para ti en solo unas horas.</p>
     <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-      <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB;">Comenzar prueba gratis</button>
+      <a href="https://aliabot-dashboard.vercel.app/crear-cuenta" class="px-8 py-4 rounded-xl font-bold text-lg text-center transition-all hover:scale-105" style="background:#FFFFFF; color:#2563EB; text-decoration:none;">Comenzar prueba gratis</a>
       <button class="px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-white/10" style="background:transparent; color:#FFFFFF; border:1.5px solid rgba(255,255,255,0.4); backdrop-filter:blur(8px);">Agendar una demo</button>
     </div>
     <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
