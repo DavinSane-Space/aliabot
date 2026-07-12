@@ -16,6 +16,8 @@ const NO_ACCESS: BusinessAccess = {
   trialDaysLeft: null,
 }
 
+const ADMIN_EMAILS = ['santiago.op7.morales@gmail.com']
+
 export async function getBusinessAccess(supabase: SupabaseClient): Promise<BusinessAccess> {
   const {
     data: { user },
@@ -23,6 +25,10 @@ export async function getBusinessAccess(supabase: SupabaseClient): Promise<Busin
 
   if (!user) {
     return NO_ACCESS
+  }
+
+  if (user.email && ADMIN_EMAILS.includes(user.email)) {
+    return { hasAccess: true, status: 'active', plan: 'admin', isTrial: false, trialDaysLeft: null }
   }
 
   const { data: business, error } = await supabase

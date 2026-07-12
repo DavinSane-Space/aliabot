@@ -78,7 +78,7 @@ export function MagicLinkForm({ mode }: { mode: Mode }) {
 
     const supabase = createClient()
 
-    const { error } = await supabase.auth.verifyOtp({
+    const { data, error } = await supabase.auth.verifyOtp({
       email,
       token: code,
       type: 'email',
@@ -88,6 +88,32 @@ export function MagicLinkForm({ mode }: { mode: Mode }) {
       setStatus('error')
       setErrorMessage(error.message || 'El código no es válido o expiró.')
       return
+    }
+
+    if (mode === 'signup' && data.user) {
+      const { data: business } = await supabase
+        .from('businesses')
+        .select('id')
+        .eq('user_id', data.user.id)
+        .maybeSingle()
+
+      if (!business) {
+        const name =
+          businessName.trim() ||
+          (data.user.user_metadata as { business_name?: string } | null)?.business_name ||
+          ''
+
+        if (name) {
+          const { error: insertError } = await supabase.from('businesses').insert({
+            user_id: data.user.id,
+            name,
+          })
+
+          if (insertError) {
+            console.error('MagicLinkForm: failed to create business', insertError)
+          }
+        }
+      }
     }
 
     router.push('/')
