@@ -60,7 +60,7 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-/* Aliabot dark palette applied globally */
+/* Aliabot dark palette applied globally (marketing/auth pages) */
 :root {
   color-scheme: dark;
 
@@ -97,6 +97,58 @@
   --sidebar-border: rgba(107, 155, 252, 0.12);
 
   --radius: 0.75rem;
+}
+
+/* ============================================================
+   ALIABOT — Dashboard theme override (light, per design system)
+   Scoped to [data-dashboard-theme] so marketing/auth pages keep
+   the dark theme above untouched.
+   ============================================================ */
+[data-dashboard-theme] {
+  color-scheme: light;
+
+  --background: #f8f9ff;
+  --foreground: #11143a;
+
+  --card: #ffffff;
+  --card-foreground: #11143a;
+  --surface-2: #f1f3fc;
+
+  --popover: #ffffff;
+  --popover-foreground: #11143a;
+
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f1f3fc;
+  --secondary-foreground: #11143a;
+
+  --muted: #f1f3fc;
+  --muted-foreground: #4a5080;
+
+  --accent: #eef4ff;
+  --accent-foreground: #1d4ed8;
+
+  --destructive: #ef4444;
+
+  --border: #e2e5f0;
+  --input: #e2e5f0;
+  --ring: #2563eb;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #11143a;
+  --sidebar-border: #e2e5f0;
+}
+
+[data-dashboard-theme] body,
+[data-dashboard-theme].bg-background {
+  background-image: radial-gradient(
+      900px circle at 12% -10%,
+      rgba(37, 99, 235, 0.06),
+      transparent 55%
+    ),
+    radial-gradient(900px circle at 100% 0%, rgba(124, 58, 237, 0.05), transparent 55%);
+  background-attachment: fixed;
 }
 
 @layer base {
@@ -141,9 +193,13 @@
 }
 
 @utility card-surface {
-  background: color-mix(in oklab, var(--card) 92%, transparent);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.04),
+    rgba(37, 99, 235, 0.08)
+  );
+  border: 1px solid rgba(107, 155, 252, 0.15);
+  backdrop-filter: blur(16px);
 }
 
 /* Thin custom scrollbars */

@@ -16,7 +16,7 @@ export function AliabotLogo({ className }: { className?: string }) {
           />
         </svg>
       </span>
-      <span className="text-lg font-semibold tracking-tight text-white">
+      <span className="text-lg font-semibold tracking-tight text-foreground">
         aliabot
       </span>
     </div>
