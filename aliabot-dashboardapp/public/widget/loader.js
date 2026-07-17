@@ -58,10 +58,11 @@
   }
 
   function bubbleIconsHtml() {
+    // La imagen se sirve desde el mismo origen que el propio loader.js
+    // (app.aliabot.co/widget/aliabot.png), igual que el iframe del chat.
+    var iconSrc = CHAT_ORIGIN + '/widget/aliabot.png';
     return (
-      '<svg id="aliabot-icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block">' +
-      '<path d="M4 4h16v12H7l-3 3V4z" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>' +
-      '</svg>' +
+      '<img id="aliabot-icon-chat" src="' + iconSrc + '" alt="" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;" />' +
       '<svg id="aliabot-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">' +
       '<path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>' +
       '</svg>'
@@ -99,6 +100,7 @@
       'justify-content:center',
       'padding:0',
       'margin:0',
+      'overflow:hidden',
       'transition:transform 0.15s ease',
       'box-sizing:border-box',
     ].join(';');
