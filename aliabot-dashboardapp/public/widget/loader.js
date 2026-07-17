@@ -62,8 +62,8 @@
     // (app.aliabot.co/widget/aliabot.png), igual que el iframe del chat.
     var iconSrc = CHAT_ORIGIN + '/widget/aliabot.png';
     return (
-      '<img id="aliabot-icon-chat" src="' + iconSrc + '" alt="" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;" />' +
-      '<svg id="aliabot-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">' +
+      '<img id="aliabot-icon-chat" src="' + iconSrc + '" alt="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:50%;" />' +
+      '<svg id="aliabot-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">' +
       '<path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>' +
       '</svg>'
     );
@@ -86,8 +86,8 @@
       'position:fixed',
       'bottom:20px',
       side + ':20px',
-      'width:60px',
-      'height:60px',
+      'width:72px',
+      'height:72px',
       'border-radius:50%',
       'border:none',
       'outline:none',
